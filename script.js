@@ -355,6 +355,219 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize all components
     initializeTooltips();
+    initializeUserDropdown();
 
     console.log('Ikimina Platform initialized successfully');
 });
+
+// User Dropdown Menu Functionality
+function initializeUserDropdown() {
+    const userMenuBtn = document.getElementById('userMenuBtn');
+    const userDropdown = document.getElementById('userDropdown');
+
+    if (!userMenuBtn || !userDropdown) {
+        return; // Exit if elements don't exist
+    }
+
+    // Toggle dropdown on button click
+    userMenuBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleUserDropdown();
+    });
+
+    // Handle dropdown item clicks
+    const dropdownItems = userDropdown.querySelectorAll('.dropdown-item');
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const action = this.getAttribute('data-action');
+            handleDropdownAction(action);
+        });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!userDropdown.contains(e.target) && !userMenuBtn.contains(e.target)) {
+            closeUserDropdown();
+        }
+    });
+
+    // Close dropdown on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeUserDropdown();
+        }
+    });
+}
+
+function toggleUserDropdown() {
+    const userDropdown = document.getElementById('userDropdown');
+    const userMenuBtn = document.getElementById('userMenuBtn');
+
+    if (!userDropdown || !userMenuBtn) return;
+
+    const isOpen = userDropdown.classList.contains('show');
+
+    if (isOpen) {
+        closeUserDropdown();
+    } else {
+        openUserDropdown();
+    }
+}
+
+function openUserDropdown() {
+    const userDropdown = document.getElementById('userDropdown');
+    const userMenuBtn = document.getElementById('userMenuBtn');
+
+    if (!userDropdown || !userMenuBtn) return;
+
+    userDropdown.classList.add('show');
+    userMenuBtn.classList.add('active');
+
+    // Add ARIA attributes for accessibility
+    userMenuBtn.setAttribute('aria-expanded', 'true');
+    userDropdown.setAttribute('aria-hidden', 'false');
+}
+
+function closeUserDropdown() {
+    const userDropdown = document.getElementById('userDropdown');
+    const userMenuBtn = document.getElementById('userMenuBtn');
+
+    if (!userDropdown || !userMenuBtn) return;
+
+    userDropdown.classList.remove('show');
+    userMenuBtn.classList.remove('active');
+
+    // Update ARIA attributes for accessibility
+    userMenuBtn.setAttribute('aria-expanded', 'false');
+    userDropdown.setAttribute('aria-hidden', 'true');
+}
+
+function handleDropdownAction(action) {
+    closeUserDropdown();
+
+    switch (action) {
+        case 'notifications':
+            handleNotificationsAction();
+            break;
+        case 'profile':
+            handleProfileAction();
+            break;
+        case 'logout':
+            handleLogoutAction();
+            break;
+        default:
+            console.log('Unknown dropdown action:', action);
+    }
+}
+
+function handleNotificationsAction() {
+    // Check if we're on a dashboard with section navigation
+    const notificationsSection = document.getElementById('notifications-section');
+    const notificationsNavLink = document.querySelector('[data-section="notifications"]');
+
+    if (notificationsSection && notificationsNavLink) {
+        // We're on a dashboard with notifications section
+        notificationsNavLink.click();
+    } else {
+        // Navigate to notifications page or show modal
+        showNotificationMessage('Navigating to notifications...', 'info');
+        // You can implement navigation logic here
+        // window.location.href = 'notifications.html';
+    }
+}
+
+function handleProfileAction() {
+    // Check if we're on a dashboard with section navigation
+    const profileSection = document.getElementById('profile-section');
+    const profileNavLink = document.querySelector('[data-section="profile"]');
+
+    if (profileSection && profileNavLink) {
+        // We're on a dashboard with profile section
+        profileNavLink.click();
+    } else {
+        // Navigate to profile page or show modal
+        showNotificationMessage('Navigating to profile...', 'info');
+        // You can implement navigation logic here
+        // window.location.href = 'profile.html';
+    }
+}
+
+function handleLogoutAction() {
+    // Show confirmation dialog
+    const confirmLogout = confirm('Are you sure you want to logout?');
+
+    if (confirmLogout) {
+        showNotificationMessage('Logging out...', 'info');
+
+        // Simulate logout process
+        setTimeout(() => {
+            // Clear any stored authentication data
+            localStorage.removeItem('userToken');
+            sessionStorage.clear();
+
+            // Redirect to login page
+            window.location.href = 'login.html';
+        }, 1000);
+    }
+}
+
+// Notification utility function for dropdown actions
+function showNotificationMessage(message, type = 'info') {
+    // Check if there's an existing notification function
+    if (typeof showNotification === 'function') {
+        showNotification(message, type);
+        return;
+    }
+
+    // Create notification element if it doesn't exist
+    let notificationContainer = document.getElementById('notification-container');
+    if (!notificationContainer) {
+        notificationContainer = document.createElement('div');
+        notificationContainer.id = 'notification-container';
+        notificationContainer.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            max-width: 300px;
+        `;
+        document.body.appendChild(notificationContainer);
+    }
+
+    // Create notification
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        background-color: ${type === 'success' ? '#10b981' : type === 'warning' ? '#f59e0b' : type === 'error' ? '#ef4444' : '#3b82f6'};
+        color: white;
+        padding: 12px 16px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-size: 14px;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: all 0.3s ease;
+    `;
+    notification.textContent = message;
+
+    notificationContainer.appendChild(notification);
+
+    // Animate in
+    setTimeout(() => {
+        notification.style.opacity = '1';
+        notification.style.transform = 'translateX(0)';
+    }, 10);
+
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }, 3000);
+}

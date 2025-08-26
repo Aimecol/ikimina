@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasurer Dashboard - Ikimina Digital Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body">
+    <!-- Top Navigation -->
+    <nav class="admin-navbar">
+        <div class="admin-nav-container">
+            <div class="nav-left">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-brand">
+                    <i class="fas fa-coins"></i>
+                    <span>Ikimina</span>
+                    <span class="admin-badge treasurer">Treasurer</span>
+                </div>
+            </div>
+            <div class="admin-nav-right">
+                <div class="group-selector">
+                    <select id="groupSelector" class="group-select">
+                        <option value="1">Kigali Savings Group</option>
+                        <option value="2">Ubwiyunge Cooperative</option>
+                        <option value="3">Gasabo Women Group</option>
+                    </select>
+                </div>
+                <div class="balance-display">
+                    <div class="balance-item">
+                        <span class="balance-label">Cash Balance</span>
+                        <span class="balance-value">2,650,000 RWF</span>
+                    </div>
+                </div>
+                <div class="admin-notifications">
+                    <button class="notification-btn" id="notificationBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">4</span>
+                    </button>
+                </div>
+                <div class="admin-user">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">Marie Mukamana</span>
+                        <span class="user-role">Group Treasurer</span>
+                    </div>
+                    <button class="user-menu-btn" id="userMenuBtn">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+
+                    <!-- User Dropdown Menu -->
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="dropdown-header">
+                            <div class="dropdown-user-info">
+                                <div class="dropdown-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="dropdown-user-details">
+                                    <h4>Marie Mukamana</h4>
+                                    <p>Group Treasurer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item" data-action="notifications">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                            </a>
+                            <a href="#" class="dropdown-item" data-action="profile">
+                                <i class="fas fa-user"></i>
+                                <span>Profile</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item logout" data-action="logout">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="admin-container">
+        <!-- Sidebar Navigation -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-content">
+                <nav class="sidebar-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#dashboard" class="nav-link active" data-section="dashboard">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contributions" class="nav-link" data-section="contributions">
+                                <i class="fas fa-coins"></i>
+                                <span>Contributions</span>
+                                <span class="nav-badge">3</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#loans" class="nav-link" data-section="loans">
+                                <i class="fas fa-hand-holding-usd"></i>
+                                <span>Loans</span>
+                                <span class="nav-badge warning">2</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#penalties" class="nav-link" data-section="penalties">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span>Penalties & Fines</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#social-fund" class="nav-link" data-section="social-fund">
+                                <i class="fas fa-heart"></i>
+                                <span>Social Fund</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#transactions" class="nav-link" data-section="transactions">
+                                <i class="fas fa-exchange-alt"></i>
+                                <span>Transactions</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#reports" class="nav-link" data-section="reports">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>Reports</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#reconciliation" class="nav-link" data-section="reconciliation">
+                                <i class="fas fa-balance-scale"></i>
+                                <span>Reconciliation</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#notifications" class="nav-link" data-section="notifications">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                                <span class="nav-badge">4</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#profile" class="nav-link" data-section="profile">
+                                <i class="fas fa-user-cog"></i>
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Dashboard Section -->
+            <section class="admin-section active" id="dashboard-section">
+                <div class="section-header">
+                    <h1>Financial Overview</h1>
+                    <div class="header-actions">
+                        <button class="btn-outline refresh-btn" id="refreshData">
+                            <i class="fas fa-sync-alt"></i>
+                            Refresh
+                        </button>
+                        <button class="btn-primary" onclick="openModal('recordContributionModal')">
+                            <i class="fas fa-plus"></i>
+                            Record Contribution
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Financial Summary Cards -->
+                <div class="financial-summary">
+                    <div class="summary-card cash">
+                        <div class="summary-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Total Cash Balance</h3>
+                            <div class="summary-value">2,650,000 RWF</div>
+                            <div class="summary-breakdown">
+                                <span>Savings: 2,500,000 RWF</span>
+                                <span>Social Fund: 150,000 RWF</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card loans">
+                        <div class="summary-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Outstanding Loans</h3>
+                            <div class="summary-value">1,200,000 RWF</div>
+                            <div class="summary-meta">
+                                <span class="loan-count">8 active loans</span>
+                                <span class="overdue-count">2 overdue payments</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card contributions">
+                        <div class="summary-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>This Month</h3>
+                            <div class="summary-value">+320,000 RWF</div>
+                            <div class="summary-meta">
+                                <span>Contributions: 300,000 RWF</span>
+                                <span>Interest: 20,000 RWF</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card pending">
+                        <div class="summary-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Pending Actions</h3>
+                            <div class="summary-value">5</div>
+                            <div class="summary-meta">
+                                <span>Loan requests: 2</span>
+                                <span>Social fund: 3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="actions-grid">
+                        <button class="action-card" onclick="openModal('recordContributionModal')">
+                            <i class="fas fa-coins"></i>
+                            <span>Record Contribution</span>
+                        </button>
+                        <button class="action-card" onclick="openModal('processLoanModal')">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            <span>Process Loan</span>
+                        </button>
+                        <button class="action-card" onclick="openModal('recordPenaltyModal')">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Record Penalty</span>
+                        </button>
+                        <button class="action-card" onclick="openModal('socialFundModal')">
+                            <i class="fas fa-heart"></i>
+                            <span>Social Fund</span>
+                        </button>
+                        <button class="action-card" onclick="openModal('generateReceiptModal')">
+                            <i class="fas fa-receipt"></i>
+                            <span>Generate Receipt</span>
+                        </button>
+                        <button class="action-card" onclick="openModal('reconcileModal')">
+                            <i class="fas fa-balance-scale"></i>
+                            <span>Reconcile Accounts</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recent Transactions -->
+                <div class="recent-transactions">
+                    <div class="transactions-header">
+                        <h3>Recent Transactions</h3>
+                        <a href="#transactions" class="view-all-link" data-section="transactions">View All</a>
+                    </div>
+                    <div class="transactions-list">
+                        <div class="transaction-item">
+                            <div class="transaction-icon contribution">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="transaction-content">
+                                <div class="transaction-title">Contribution from Grace Uwimana</div>
+                                <div class="transaction-meta">
+                                    <span class="transaction-amount">+15,000 RWF</span>
+                                    <span class="transaction-method">Mobile Money</span>
+                                    <span class="transaction-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="transaction-status completed">Completed</div>
+                        </div>
+                        
+                        <div class="transaction-item">
+                            <div class="transaction-icon loan">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <div class="transaction-content">
+                                <div class="transaction-title">Loan disbursement to Alice Nyirahabimana</div>
+                                <div class="transaction-meta">
+                                    <span class="transaction-amount">-150,000 RWF</span>
+                                    <span class="transaction-method">Cash</span>
+                                    <span class="transaction-time">4 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="transaction-status completed">Completed</div>
+                        </div>
+                        
+                        <div class="transaction-item">
+                            <div class="transaction-icon penalty">
+                                <i class="fas fa-exclamation"></i>
+                            </div>
+                            <div class="transaction-content">
+                                <div class="transaction-title">Late arrival fine - Paul Nkurunziza</div>
+                                <div class="transaction-meta">
+                                    <span class="transaction-amount">+500 RWF</span>
+                                    <span class="transaction-method">Cash</span>
+                                    <span class="transaction-time">1 day ago</span>
+                                </div>
+                            </div>
+                            <div class="transaction-status completed">Completed</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alerts and Notifications -->
+                <div class="treasurer-alerts">
+                    <h3>Alerts & Notifications</h3>
+                    <div class="alerts-list">
+                        <div class="alert-item warning">
+                            <div class="alert-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h4>Overdue Loan Payment</h4>
+                                <p>Jean Baptiste Uwimana has a payment overdue by 5 days (15,000 RWF)</p>
+                                <span class="alert-time">Due: Dec 5, 2024</span>
+                            </div>
+                            <div class="alert-actions">
+                                <button class="btn-outline">Send Reminder</button>
+                                <button class="btn-primary">Contact Member</button>
+                            </div>
+                        </div>
+                        
+                        <div class="alert-item info">
+                            <div class="alert-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h4>Social Fund Request</h4>
+                                <p>Marie Mukamana requested 25,000 RWF for medical emergency</p>
+                                <span class="alert-time">Submitted: 3 hours ago</span>
+                            </div>
+                            <div class="alert-actions">
+                                <button class="btn-outline">Review</button>
+                                <button class="btn-primary">Approve</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contributions Section -->
+            <section class="admin-section" id="contributions-section">
+                <div class="section-header">
+                    <h1>Contribution Management</h1>
+                    <div class="header-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search members..." id="contributionSearch">
+                        </div>
+                        <select class="filter-select" id="contributionFilter">
+                            <option value="all">All Members</option>
+                            <option value="paid">Paid This Month</option>
+                            <option value="pending">Pending Payment</option>
+                            <option value="partial">Partial Payment</option>
+                        </select>
+                        <button class="btn-primary" onclick="openModal('recordContributionModal')">
+                            <i class="fas fa-plus"></i>
+                            Record Contribution
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Contribution Summary -->
+                <div class="contribution-summary">
+                    <div class="summary-cards">
+                        <div class="summary-card">
+                            <h3>This Month's Target</h3>
+                            <div class="summary-value">375,000 RWF</div>
+                            <div class="summary-meta">25 members × 3 shares × 5,000 RWF</div>
+                        </div>
+                        <div class="summary-card">
+                            <h3>Collected So Far</h3>
+                            <div class="summary-value">320,000 RWF</div>
+                            <div class="summary-meta">85.3% of target achieved</div>
+                        </div>
+                        <div class="summary-card">
+                            <h3>Outstanding</h3>
+                            <div class="summary-value">55,000 RWF</div>
+                            <div class="summary-meta">5 members pending</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contribution Table -->
+                <div class="data-table-container">
+                    <table class="data-table" id="contributionsTable">
+                        <thead>
+                            <tr>
+                                <th>Member</th>
+                                <th>Expected</th>
+                                <th>Paid</th>
+                                <th>Outstanding</th>
+                                <th>Payment Method</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="member-info">
+                                        <div class="member-avatar">G</div>
+                                        <div class="member-details">
+                                            <h4>Grace Uwimana</h4>
+                                            <p>KSG002</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>15,000 RWF</td>
+                                <td>15,000 RWF</td>
+                                <td>0 RWF</td>
+                                <td>Mobile Money</td>
+                                <td><span class="status-badge completed">Paid</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="action-btn view">
+                                            <i class="fas fa-receipt"></i> Receipt
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Loans Section -->
+            <section class="admin-section" id="loans-section">
+                <div class="section-header">
+                    <h1>Loan Management</h1>
+                    <div class="header-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search loans..." id="loanSearch">
+                        </div>
+                        <select class="filter-select" id="loanFilter">
+                            <option value="all">All Loans</option>
+                            <option value="pending">Pending Approval</option>
+                            <option value="active">Active</option>
+                            <option value="overdue">Overdue</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                        <button class="btn-primary" onclick="openModal('processLoanModal')">
+                            <i class="fas fa-plus"></i>
+                            Process Loan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Loan Requests Queue -->
+                <div class="loan-requests">
+                    <h3>Pending Loan Requests</h3>
+                    <div class="loan-request-item">
+                        <div class="loan-applicant">
+                            <div class="user-avatar">G</div>
+                            <div class="loan-details">
+                                <h4>Grace Uwimana</h4>
+                                <p>Requested: 200,000 RWF</p>
+                                <span>Purpose: Small business expansion</span>
+                            </div>
+                        </div>
+                        <div class="loan-eligibility">
+                            <div class="eligibility-metrics">
+                                <span>Savings: 180,000 RWF</span>
+                                <span>Max Eligible: 540,000 RWF</span>
+                                <span>Ratio: 1.11x</span>
+                                <span class="eligible">✓ Eligible</span>
+                            </div>
+                        </div>
+                        <div class="loan-actions">
+                            <button class="btn-primary">Approve</button>
+                            <button class="btn-secondary">Reject</button>
+                            <button class="btn-outline">Review</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active Loans Table -->
+                <div class="data-table-container">
+                    <table class="data-table" id="loansTable">
+                        <thead>
+                            <tr>
+                                <th>Member</th>
+                                <th>Amount</th>
+                                <th>Term</th>
+                                <th>Interest</th>
+                                <th>Next Payment</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="member-info">
+                                        <div class="member-avatar">A</div>
+                                        <div class="member-details">
+                                            <h4>Alice Nyirahabimana</h4>
+                                            <p>LOAN-001</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>150,000 RWF</td>
+                                <td>6 months</td>
+                                <td>5% monthly</td>
+                                <td>Dec 15, 2024</td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="action-btn view">
+                                            <i class="fas fa-eye"></i> View
+                                        </button>
+                                        <button class="action-btn edit">
+                                            <i class="fas fa-money-bill"></i> Payment
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Penalties Section -->
+            <section class="admin-section" id="penalties-section">
+                <div class="section-header">
+                    <h1>Penalties & Fines Management</h1>
+                    <div class="header-actions">
+                        <select class="filter-select" id="penaltyFilter">
+                            <option value="all">All Penalties</option>
+                            <option value="late_arrival">Late Arrival</option>
+                            <option value="absence">Absence</option>
+                            <option value="late_payment">Late Payment</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <button class="btn-primary" onclick="openModal('recordPenaltyModal')">
+                            <i class="fas fa-plus"></i>
+                            Record Penalty
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Penalty Configuration -->
+                <div class="config-section">
+                    <h3>Penalty Rates</h3>
+                    <div class="config-grid">
+                        <div class="config-item">
+                            <label>Late Arrival Fine</label>
+                            <input type="number" value="500" min="0" step="100">
+                            <small class="config-help">Fine for arriving late to meetings</small>
+                        </div>
+                        <div class="config-item">
+                            <label>Absence Fine</label>
+                            <input type="number" value="1000" min="0" step="100">
+                            <small class="config-help">Fine for missing meetings</small>
+                        </div>
+                        <div class="config-item">
+                            <label>Late Payment Penalty (%)</label>
+                            <input type="number" value="2.0" min="0" max="10" step="0.5">
+                            <small class="config-help">Monthly penalty for late loan payments</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Penalties Table -->
+                <div class="data-table-container">
+                    <table class="data-table" id="penaltiesTable">
+                        <thead>
+                            <tr>
+                                <th>Member</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Reason</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="member-info">
+                                        <div class="member-avatar">P</div>
+                                        <div class="member-details">
+                                            <h4>Paul Nkurunziza</h4>
+                                            <p>KSG004</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Late Arrival</td>
+                                <td>500 RWF</td>
+                                <td>Dec 9, 2024</td>
+                                <td>Arrived 15 minutes late</td>
+                                <td><span class="status-badge paid">Paid</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="action-btn view">
+                                            <i class="fas fa-receipt"></i> Receipt
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Social Fund Section -->
+            <section class="admin-section" id="social-fund-section">
+                <div class="section-header">
+                    <h1>Social Fund (Inkunga) Management</h1>
+                    <div class="header-actions">
+                        <select class="filter-select" id="socialFundFilter">
+                            <option value="all">All Requests</option>
+                            <option value="pending">Pending Approval</option>
+                            <option value="approved">Approved</option>
+                            <option value="disbursed">Disbursed</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+                        <button class="btn-primary" onclick="openModal('socialFundModal')">
+                            <i class="fas fa-plus"></i>
+                            New Request
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Social Fund Balance -->
+                <div class="social-fund-balance">
+                    <div class="balance-card">
+                        <h3>Social Fund Balance</h3>
+                        <div class="balance-amount">150,000 RWF</div>
+                        <div class="balance-details">
+                            <span>Monthly contributions: 25,000 RWF</span>
+                            <span>Disbursements this month: 35,000 RWF</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pending Requests -->
+                <div class="social-fund-requests">
+                    <h3>Pending Requests</h3>
+                    <div class="request-item">
+                        <div class="request-member">
+                            <div class="user-avatar">M</div>
+                            <div class="request-details">
+                                <h4>Marie Mukamana</h4>
+                                <p>Medical emergency</p>
+                                <span>Requested: 25,000 RWF</span>
+                            </div>
+                        </div>
+                        <div class="request-info">
+                            <div class="request-date">Submitted: 3 hours ago</div>
+                            <div class="request-reason">Hospital bills for child treatment</div>
+                        </div>
+                        <div class="request-actions">
+                            <button class="btn-primary">Approve</button>
+                            <button class="btn-secondary">Reject</button>
+                            <button class="btn-outline">Review</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Fund History -->
+                <div class="data-table-container">
+                    <table class="data-table" id="socialFundTable">
+                        <thead>
+                            <tr>
+                                <th>Member</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Reason</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="member-info">
+                                        <div class="member-avatar">G</div>
+                                        <div class="member-details">
+                                            <h4>Grace Uwimana</h4>
+                                            <p>SF-001</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Emergency</td>
+                                <td>20,000 RWF</td>
+                                <td>Dec 5, 2024</td>
+                                <td>Family bereavement</td>
+                                <td><span class="status-badge disbursed">Disbursed</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="action-btn view">
+                                            <i class="fas fa-eye"></i> View
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Transactions Section -->
+            <section class="admin-section" id="transactions-section">
+                <div class="section-header">
+                    <h1>Transaction History</h1>
+                    <div class="header-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search transactions..." id="transactionSearch">
+                        </div>
+                        <select class="filter-select" id="transactionFilter">
+                            <option value="all">All Transactions</option>
+                            <option value="contribution">Contributions</option>
+                            <option value="loan">Loans</option>
+                            <option value="penalty">Penalties</option>
+                            <option value="social_fund">Social Fund</option>
+                        </select>
+                        <input type="date" class="date-filter" id="dateFrom">
+                        <input type="date" class="date-filter" id="dateTo">
+                        <button class="btn-outline">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Transaction Summary -->
+                <div class="transaction-summary">
+                    <div class="summary-cards">
+                        <div class="summary-card inflow">
+                            <h3>Total Inflow</h3>
+                            <div class="summary-value">+485,500 RWF</div>
+                            <div class="summary-meta">This month</div>
+                        </div>
+                        <div class="summary-card outflow">
+                            <h3>Total Outflow</h3>
+                            <div class="summary-value">-185,000 RWF</div>
+                            <div class="summary-meta">This month</div>
+                        </div>
+                        <div class="summary-card net">
+                            <h3>Net Flow</h3>
+                            <div class="summary-value">+300,500 RWF</div>
+                            <div class="summary-meta">This month</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transactions Table -->
+                <div class="data-table-container">
+                    <table class="data-table" id="transactionsTable">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Member</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Method</th>
+                                <th>Reference</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dec 10, 2024</td>
+                                <td>Grace Uwimana</td>
+                                <td>Contribution</td>
+                                <td class="amount positive">+15,000 RWF</td>
+                                <td>Mobile Money</td>
+                                <td>MTN-123456789</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="action-btn view">
+                                            <i class="fas fa-receipt"></i> Receipt
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section class="admin-section" id="reports-section">
+                <div class="section-header">
+                    <h1>Financial Reports</h1>
+                    <div class="header-actions">
+                        <select class="filter-select">
+                            <option value="current">Current Month</option>
+                            <option value="previous">Previous Month</option>
+                            <option value="quarter">This Quarter</option>
+                            <option value="year">This Year</option>
+                        </select>
+                        <button class="btn-primary">
+                            <i class="fas fa-download"></i> Export All
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Report Cards -->
+                <div class="reports-grid">
+                    <div class="report-card">
+                        <div class="report-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="report-content">
+                            <h3>Contribution Report</h3>
+                            <p>Member contribution summary with payment status and outstanding amounts</p>
+                            <button class="btn-outline">Generate Report</button>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <div class="report-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <div class="report-content">
+                            <h3>Loan Portfolio Report</h3>
+                            <p>Detailed loan analysis with repayment schedules and performance metrics</p>
+                            <button class="btn-outline">Generate Report</button>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <div class="report-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="report-content">
+                            <h3>Financial Summary</h3>
+                            <p>Complete financial overview with cash flow and balance statements</p>
+                            <button class="btn-outline">Generate Report</button>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <div class="report-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="report-content">
+                            <h3>Social Fund Report</h3>
+                            <p>Social fund usage analysis and member benefit tracking</p>
+                            <button class="btn-outline">Generate Report</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reconciliation Section -->
+            <section class="admin-section" id="reconciliation-section">
+                <div class="section-header">
+                    <h1>Account Reconciliation</h1>
+                    <div class="header-actions">
+                        <button class="btn-outline">
+                            <i class="fas fa-history"></i> View History
+                        </button>
+                        <button class="btn-primary" onclick="openModal('reconcileModal')">
+                            <i class="fas fa-balance-scale"></i> Start Reconciliation
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Reconciliation Summary -->
+                <div class="reconciliation-summary">
+                    <div class="reconciliation-card">
+                        <h3>Cash on Hand</h3>
+                        <div class="reconciliation-amount">2,650,000 RWF</div>
+                        <div class="reconciliation-status balanced">Balanced</div>
+                    </div>
+                    <div class="reconciliation-card">
+                        <h3>Bank Balance</h3>
+                        <div class="reconciliation-amount">2,650,000 RWF</div>
+                        <div class="reconciliation-status balanced">Balanced</div>
+                    </div>
+                    <div class="reconciliation-card">
+                        <h3>Mobile Money</h3>
+                        <div class="reconciliation-amount">0 RWF</div>
+                        <div class="reconciliation-status balanced">Balanced</div>
+                    </div>
+                </div>
+
+                <!-- Reconciliation Actions -->
+                <div class="reconciliation-actions">
+                    <h3>Reconciliation Tasks</h3>
+                    <div class="task-list">
+                        <div class="task-item completed">
+                            <div class="task-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="task-content">
+                                <h4>Daily Cash Count</h4>
+                                <p>Physical cash verification completed</p>
+                                <span class="task-time">Completed at 9:00 AM</span>
+                            </div>
+                        </div>
+
+                        <div class="task-item pending">
+                            <div class="task-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="task-content">
+                                <h4>Bank Statement Review</h4>
+                                <p>Compare bank transactions with records</p>
+                                <span class="task-time">Due today</span>
+                            </div>
+                            <div class="task-actions">
+                                <button class="btn-primary">Start Task</button>
+                            </div>
+                        </div>
+
+                        <div class="task-item pending">
+                            <div class="task-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="task-content">
+                                <h4>Mobile Money Reconciliation</h4>
+                                <p>Verify mobile money transactions</p>
+                                <span class="task-time">Due today</span>
+                            </div>
+                            <div class="task-actions">
+                                <button class="btn-primary">Start Task</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notifications Section -->
+            <section class="admin-section" id="notifications-section">
+                <div class="section-header">
+                    <h1>Notifications</h1>
+                    <div class="header-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search notifications..." id="notificationSearch">
+                        </div>
+                        <select class="filter-select" id="notificationFilter">
+                            <option value="all">All Notifications</option>
+                            <option value="unread">Unread</option>
+                            <option value="read">Read</option>
+                            <option value="financial">Financial Updates</option>
+                            <option value="member">Member Activities</option>
+                            <option value="system">System Alerts</option>
+                        </select>
+                        <button class="btn-outline" onclick="markAllAsRead()">
+                            <i class="fas fa-check-double"></i>
+                            Mark All Read
+                        </button>
+                        <button class="btn-primary" onclick="openModal('notificationSettingsModal')">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Notification Summary -->
+                <div class="notification-summary">
+                    <div class="summary-cards">
+                        <div class="summary-card total-notifications">
+                            <div class="summary-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Total Notifications</h3>
+                                <div class="summary-value">12</div>
+                                <div class="summary-meta">Last 30 days</div>
+                            </div>
+                        </div>
+
+                        <div class="summary-card unread-notifications">
+                            <div class="summary-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Unread</h3>
+                                <div class="summary-value">4</div>
+                                <div class="summary-meta">Requires attention</div>
+                            </div>
+                        </div>
+
+                        <div class="summary-card high-priority">
+                            <div class="summary-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>High Priority</h3>
+                                <div class="summary-value">2</div>
+                                <div class="summary-meta">Urgent actions needed</div>
+                            </div>
+                        </div>
+
+                        <div class="summary-card recent-activity">
+                            <div class="summary-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Recent Activity</h3>
+                                <div class="summary-value">5</div>
+                                <div class="summary-meta">Last 24 hours</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications List -->
+                <div class="notifications-list">
+                    <div class="notifications-header">
+                        <h3>Recent Notifications</h3>
+                        <div class="bulk-actions">
+                            <button class="btn-outline" onclick="selectAllNotifications()">
+                                <i class="fas fa-check-square"></i>
+                                Select All
+                            </button>
+                            <button class="btn-outline" onclick="markSelectedAsRead()">
+                                <i class="fas fa-eye"></i>
+                                Mark as Read
+                            </button>
+                            <button class="btn-outline" onclick="deleteSelectedNotifications()">
+                                <i class="fas fa-trash"></i>
+                                Delete Selected
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="notifications-container">
+                        <div class="notification-item unread high-priority" data-id="1">
+                            <div class="notification-checkbox">
+                                <input type="checkbox" class="notification-select">
+                            </div>
+                            <div class="notification-icon financial">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h4>Large Withdrawal Request</h4>
+                                    <div class="notification-meta">
+                                        <span class="notification-time">30 minutes ago</span>
+                                        <span class="notification-priority high">High Priority</span>
+                                    </div>
+                                </div>
+                                <p>Grace Uwimana has requested a withdrawal of 75,000 RWF. Approval required for amounts over 50,000 RWF.</p>
+                                <div class="notification-actions">
+                                    <button class="btn-primary">Review Request</button>
+                                    <button class="btn-outline" onclick="markAsRead(1)">Mark as Read</button>
+                                </div>
+                            </div>
+                            <div class="notification-status">
+                                <span class="status-indicator unread"></span>
+                            </div>
+                        </div>
+
+                        <div class="notification-item unread medium-priority" data-id="2">
+                            <div class="notification-checkbox">
+                                <input type="checkbox" class="notification-select">
+                            </div>
+                            <div class="notification-icon member">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h4>Contribution Payment Received</h4>
+                                    <div class="notification-meta">
+                                        <span class="notification-time">2 hours ago</span>
+                                        <span class="notification-priority medium">Medium Priority</span>
+                                    </div>
+                                </div>
+                                <p>John Mukamana has made a contribution payment of 15,000 RWF via Mobile Money. Transaction ID: MM240001234.</p>
+                                <div class="notification-actions">
+                                    <button class="btn-primary">Verify Payment</button>
+                                    <button class="btn-outline">View Transaction</button>
+                                </div>
+                            </div>
+                            <div class="notification-status">
+                                <span class="status-indicator unread"></span>
+                            </div>
+                        </div>
+
+                        <div class="notification-item read low-priority" data-id="3">
+                            <div class="notification-checkbox">
+                                <input type="checkbox" class="notification-select">
+                            </div>
+                            <div class="notification-icon system">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h4>Monthly Financial Report Ready</h4>
+                                    <div class="notification-meta">
+                                        <span class="notification-time">1 day ago</span>
+                                        <span class="notification-priority low">Low Priority</span>
+                                    </div>
+                                </div>
+                                <p>November 2024 financial report has been generated and is ready for review and distribution.</p>
+                                <div class="notification-actions">
+                                    <button class="btn-outline">View Report</button>
+                                    <button class="btn-outline">Download PDF</button>
+                                </div>
+                            </div>
+                            <div class="notification-status">
+                                <span class="status-indicator read"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section class="admin-section" id="profile-section">
+                <div class="section-header">
+                    <h1>Treasurer Profile</h1>
+                    <div class="header-actions">
+                        <button class="btn-outline" onclick="exportProfileData()">
+                            <i class="fas fa-download"></i>
+                            Export Data
+                        </button>
+                        <button class="btn-outline" onclick="openModal('changePasswordModal')">
+                            <i class="fas fa-key"></i>
+                            Change Password
+                        </button>
+                        <button class="btn-primary" onclick="openModal('updateProfileModal')">
+                            <i class="fas fa-edit"></i>
+                            Edit Profile
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profile Overview -->
+                <div class="profile-overview">
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-photo">
+                                <div class="photo-placeholder">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <button class="photo-upload-btn" onclick="openModal('uploadPhotoModal')">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                            </div>
+                            <div class="profile-info">
+                                <h2>Marie Mukamana</h2>
+                                <div class="profile-meta">
+                                    <span class="member-id">Treasurer ID: TRS001</span>
+                                    <span class="member-status active">Active Treasurer</span>
+                                </div>
+                                <div class="profile-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Treasurer Since</span>
+                                        <span class="stat-value">Feb 1, 2024</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Access Level</span>
+                                        <span class="stat-value">Financial Management</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Last Login</span>
+                                        <span class="stat-value">Today, 8:45 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Sections -->
+                <div class="profile-sections">
+                    <!-- Personal Information -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3>Personal Information</h3>
+                            <button class="btn-outline" onclick="editSection('personal')">
+                                <i class="fas fa-edit"></i>
+                                Edit
+                            </button>
+                        </div>
+                        <div class="section-content">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <span class="info-label">Full Name</span>
+                                    <span class="info-value">Marie Mukamana</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Email Address</span>
+                                    <span class="info-value">marie.mukamana@email.com</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Phone Number</span>
+                                    <span class="info-value">+250 722 456 789</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Date of Birth</span>
+                                    <span class="info-value">July 22, 1988</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">National ID</span>
+                                    <span class="info-value">1198822123456789</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Address</span>
+                                    <span class="info-value">Kigali, Kicukiro, Niboye</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Treasurer Responsibilities -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3>Treasurer Responsibilities</h3>
+                            <button class="btn-outline" onclick="viewTreasurerHistory()">
+                                <i class="fas fa-history"></i>
+                                View History
+                            </button>
+                        </div>
+                        <div class="section-content">
+                            <div class="treasurer-details">
+                                <div class="treasurer-card">
+                                    <div class="treasurer-header">
+                                        <h4>Financial Management Role</h4>
+                                        <span class="treasurer-status active">Active Treasurer</span>
+                                    </div>
+                                    <div class="treasurer-info">
+                                        <div class="info-grid">
+                                            <div class="info-item">
+                                                <span class="info-label">Appointed Date</span>
+                                                <span class="info-value">February 1, 2024</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Treasurer ID</span>
+                                                <span class="info-value">TRS001</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Financial Authority</span>
+                                                <span class="info-value">Up to 100,000 RWF</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Signature Authority</span>
+                                                <span class="info-value verified">
+                                                    <i class="fas fa-check-circle"></i>
+                                                    Verified
+                                                </span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Bond Status</span>
+                                                <span class="info-value verified">
+                                                    <i class="fas fa-shield-alt"></i>
+                                                    Bonded
+                                                </span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Last Audit</span>
+                                                <span class="info-value">November 1, 2024</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="responsibility-stats">
+                                    <h4>Performance Statistics</h4>
+                                    <div class="stats-grid">
+                                        <div class="stat-card">
+                                            <div class="stat-icon">
+                                                <i class="fas fa-coins"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <div class="stat-value">1,250,000 RWF</div>
+                                                <div class="stat-label">Total Managed</div>
+                                            </div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-icon">
+                                                <i class="fas fa-exchange-alt"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <div class="stat-value">156</div>
+                                                <div class="stat-label">Transactions Processed</div>
+                                            </div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-icon">
+                                                <i class="fas fa-check-circle"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <div class="stat-value">99.8%</div>
+                                                <div class="stat-label">Accuracy Rate</div>
+                                            </div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-icon">
+                                                <i class="fas fa-calendar-check"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <div class="stat-value">10 months</div>
+                                                <div class="stat-label">Service Duration</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Settings -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3>Security & Access</h3>
+                            <button class="btn-outline" onclick="openModal('securitySettingsModal')">
+                                <i class="fas fa-shield-alt"></i>
+                                Manage Security
+                            </button>
+                        </div>
+                        <div class="section-content">
+                            <div class="security-settings">
+                                <div class="security-item">
+                                    <div class="security-info">
+                                        <h4>Password</h4>
+                                        <p>Last changed: October 28, 2024</p>
+                                    </div>
+                                    <button class="btn-outline" onclick="openModal('changePasswordModal')">
+                                        Change Password
+                                    </button>
+                                </div>
+
+                                <div class="security-item">
+                                    <div class="security-info">
+                                        <h4>Financial Access PIN</h4>
+                                        <p>Additional security for financial transactions</p>
+                                    </div>
+                                    <button class="btn-outline" onclick="changePIN()">
+                                        Change PIN
+                                    </button>
+                                </div>
+
+                                <div class="security-item">
+                                    <div class="security-info">
+                                        <h4>Transaction Limits</h4>
+                                        <p>Current limit: 100,000 RWF per transaction</p>
+                                    </div>
+                                    <button class="btn-outline" onclick="viewLimits()">
+                                        View Details
+                                    </button>
+                                </div>
+
+                                <div class="security-item">
+                                    <div class="security-info">
+                                        <h4>Audit Trail</h4>
+                                        <p>View all financial activities and access logs</p>
+                                    </div>
+                                    <button class="btn-outline" onclick="viewAuditTrail()">
+                                        View Audit Trail
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals and overlays will be added dynamically -->
+    <div id="modalContainer"></div>
+
+    <script src="script.js"></script>
+    <script src="treasurer-dashboard.js"></script>
+</body>
+</html>

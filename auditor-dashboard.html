@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auditor Dashboard - Ikimina Digital Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body">
+    <!-- Top Navigation -->
+    <nav class="admin-navbar">
+        <div class="admin-nav-container">
+            <div class="nav-left">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-brand">
+                    <i class="fas fa-coins"></i>
+                    <span>Ikimina</span>
+                    <span class="admin-badge auditor">Auditor</span>
+                </div>
+            </div>
+            <div class="admin-nav-right">
+                <div class="group-selector">
+                    <select id="groupSelector" class="group-select">
+                        <option value="1">Kigali Savings Group</option>
+                        <option value="2">Ubwiyunge Cooperative</option>
+                        <option value="3">Gasabo Women Group</option>
+                    </select>
+                </div>
+                <div class="audit-status">
+                    <div class="status-item">
+                        <span class="status-label">Last Audit</span>
+                        <span class="status-value">Dec 8, 2024</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Next Due</span>
+                        <span class="status-value">Dec 22, 2024</span>
+                    </div>
+                </div>
+                <div class="admin-notifications">
+                    <button class="notification-btn" id="notificationBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">6</span>
+                    </button>
+                </div>
+                <div class="admin-user">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">Jean Baptiste Uwimana</span>
+                        <span class="user-role">Group Auditor</span>
+                    </div>
+                    <button class="user-menu-btn" id="userMenuBtn">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+
+                    <!-- User Dropdown Menu -->
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="dropdown-header">
+                            <div class="dropdown-user-info">
+                                <div class="dropdown-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="dropdown-user-details">
+                                    <h4>Jean Baptiste Uwimana</h4>
+                                    <p>Group Auditor</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item" data-action="notifications">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                            </a>
+                            <a href="#" class="dropdown-item" data-action="profile">
+                                <i class="fas fa-user"></i>
+                                <span>Profile</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item logout" data-action="logout">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="admin-container">
+        <!-- Sidebar Navigation -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-content">
+                <nav class="sidebar-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#dashboard" class="nav-link active" data-section="dashboard">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#financial-audit" class="nav-link" data-section="financial-audit">
+                                <i class="fas fa-search-dollar"></i>
+                                <span>Financial Audit</span>
+                                <span class="nav-badge warning">3</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#transactions" class="nav-link" data-section="transactions">
+                                <i class="fas fa-exchange-alt"></i>
+                                <span>Transaction Analysis</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#compliance" class="nav-link" data-section="compliance">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Compliance</span>
+                                <span class="nav-badge">2</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#reports" class="nav-link" data-section="reports">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Audit Reports</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#risk-management" class="nav-link" data-section="risk-management">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span>Risk Management</span>
+                                <span class="nav-badge danger">1</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#data-integrity" class="nav-link" data-section="data-integrity">
+                                <i class="fas fa-database"></i>
+                                <span>Data Integrity</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#analytics" class="nav-link" data-section="analytics">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>Performance Analytics</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#notifications" class="nav-link" data-section="notifications">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                                <span class="nav-badge">6</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#profile" class="nav-link" data-section="profile">
+                                <i class="fas fa-user-cog"></i>
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Dashboard Section -->
+            <section class="admin-section active" id="dashboard-section">
+                <div class="section-header">
+                    <h1>Audit Overview</h1>
+                    <div class="header-actions">
+                        <button class="btn-outline refresh-btn" id="refreshData">
+                            <i class="fas fa-sync-alt"></i>
+                            Refresh
+                        </button>
+                        <button class="btn-primary" onclick="openModal('generateAuditReportModal')">
+                            <i class="fas fa-plus"></i>
+                            Generate Report
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Audit Summary Cards -->
+                <div class="audit-summary">
+                    <div class="summary-card financial-health">
+                        <div class="summary-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Financial Health</h3>
+                            <div class="summary-value">Excellent</div>
+                            <div class="summary-meta">
+                                <span class="health-score">Score: 94/100</span>
+                                <span class="trend-indicator positive">+2 from last audit</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card compliance-status">
+                        <div class="summary-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Compliance Status</h3>
+                            <div class="summary-value">98%</div>
+                            <div class="summary-meta">
+                                <span>2 minor issues</span>
+                                <span>All critical items compliant</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card risk-level">
+                        <div class="summary-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Risk Level</h3>
+                            <div class="summary-value">Low</div>
+                            <div class="summary-meta">
+                                <span>1 medium risk item</span>
+                                <span>No high risk issues</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card audit-progress">
+                        <div class="summary-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Audit Progress</h3>
+                            <div class="summary-value">85%</div>
+                            <div class="summary-meta">
+                                <span>17/20 checks completed</span>
+                                <span>3 pending reviews</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="actions-grid">
+                        <button class="action-card" onclick="openModal('verifyBalancesModal')">
+                            <i class="fas fa-balance-scale"></i>
+                            <span>Verify Balances</span>
+                        </button>
+                        <button class="action-card" onclick="openModal('reviewTransactionsModal')">
+                            <i class="fas fa-search"></i>
+                            <span>Review Transactions</span>
+                        </button>
+                        <button class="action-card" onclick="openModal('complianceCheckModal')">
+                            <i class="fas fa-clipboard-check"></i>
+                            <span>Compliance Check</span>
+                        </button>
+                        <button class="action-card" onclick="openModal('riskAssessmentModal')">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Risk Assessment</span>
+                        </button>
+                        <button class="action-card" onclick="openModal('generateAuditReportModal')">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Generate Report</span>
+                        </button>
+                        <button class="action-card" onclick="openModal('dataIntegrityModal')">
+                            <i class="fas fa-database"></i>
+                            <span>Data Integrity</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Audit Alerts -->
+                <div class="audit-alerts">
+                    <div class="alerts-header">
+                        <h3>Audit Alerts & Notifications</h3>
+                        <button class="btn-outline">Mark All Read</button>
+                    </div>
+                    <div class="alerts-list">
+                        <div class="alert-item high-priority">
+                            <div class="alert-icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h4>Large Cash Withdrawal Detected</h4>
+                                <p>Withdrawal of 500,000 RWF requires audit verification</p>
+                                <div class="alert-meta">
+                                    <span class="alert-time">2 hours ago</span>
+                                    <span class="alert-source">Transaction ID: TXN-2024-001234</span>
+                                </div>
+                            </div>
+                            <div class="alert-actions">
+                                <button class="btn-outline">Review</button>
+                                <button class="btn-primary">Approve</button>
+                            </div>
+                        </div>
+                        
+                        <div class="alert-item medium-priority">
+                            <div class="alert-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h4>Monthly Reconciliation Due</h4>
+                                <p>December reconciliation needs to be completed by Dec 31</p>
+                                <div class="alert-meta">
+                                    <span class="alert-time">1 day ago</span>
+                                    <span class="alert-source">System Reminder</span>
+                                </div>
+                            </div>
+                            <div class="alert-actions">
+                                <button class="btn-primary">Start Reconciliation</button>
+                            </div>
+                        </div>
+                        
+                        <div class="alert-item low-priority">
+                            <div class="alert-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h4>Weekly Audit Completed</h4>
+                                <p>All weekly checks passed successfully</p>
+                                <div class="alert-meta">
+                                    <span class="alert-time">3 days ago</span>
+                                    <span class="alert-source">Automated Audit</span>
+                                </div>
+                            </div>
+                            <div class="alert-actions">
+                                <button class="btn-outline">View Report</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financial Overview -->
+                <div class="financial-overview">
+                    <h3>Financial Overview</h3>
+                    <div class="overview-grid">
+                        <div class="overview-card">
+                            <h4>Total Assets</h4>
+                            <div class="overview-value">2,650,000 RWF</div>
+                            <div class="overview-breakdown">
+                                <div class="breakdown-item">
+                                    <span>Cash on Hand</span>
+                                    <span>450,000 RWF</span>
+                                </div>
+                                <div class="breakdown-item">
+                                    <span>Bank Account</span>
+                                    <span>2,200,000 RWF</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="overview-card">
+                            <h4>Outstanding Loans</h4>
+                            <div class="overview-value">1,200,000 RWF</div>
+                            <div class="overview-breakdown">
+                                <div class="breakdown-item">
+                                    <span>Current Loans</span>
+                                    <span>8 loans</span>
+                                </div>
+                                <div class="breakdown-item">
+                                    <span>Overdue</span>
+                                    <span class="overdue">2 loans</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="overview-card">
+                            <h4>Member Savings</h4>
+                            <div class="overview-value">1,450,000 RWF</div>
+                            <div class="overview-breakdown">
+                                <div class="breakdown-item">
+                                    <span>Regular Savings</span>
+                                    <span>1,300,000 RWF</span>
+                                </div>
+                                <div class="breakdown-item">
+                                    <span>Social Fund</span>
+                                    <span>150,000 RWF</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Audit Activities -->
+                <div class="recent-activities">
+                    <h3>Recent Audit Activities</h3>
+                    <div class="activities-list">
+                        <div class="activity-item">
+                            <div class="activity-icon verified">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">Balance verification completed</div>
+                                <div class="activity-meta">
+                                    <span class="activity-time">2 hours ago</span>
+                                    <span class="activity-result">All balances reconciled</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon flagged">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">Transaction flagged for review</div>
+                                <div class="activity-meta">
+                                    <span class="activity-time">4 hours ago</span>
+                                    <span class="activity-result">Large withdrawal - pending approval</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon completed">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">Monthly audit report generated</div>
+                                <div class="activity-meta">
+                                    <span class="activity-time">1 day ago</span>
+                                    <span class="activity-result">Report distributed to stakeholders</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audit Schedule -->
+                <div class="audit-schedule">
+                    <h3>Upcoming Audit Tasks</h3>
+                    <div class="schedule-list">
+                        <div class="schedule-item urgent">
+                            <div class="schedule-date">
+                                <span class="schedule-day">15</span>
+                                <span class="schedule-month">Dec</span>
+                            </div>
+                            <div class="schedule-content">
+                                <h4>Weekly Transaction Review</h4>
+                                <p>Review all transactions from Dec 8-14</p>
+                                <span class="schedule-priority">High Priority</span>
+                            </div>
+                            <div class="schedule-actions">
+                                <button class="btn-primary">Start Review</button>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-item normal">
+                            <div class="schedule-date">
+                                <span class="schedule-day">22</span>
+                                <span class="schedule-month">Dec</span>
+                            </div>
+                            <div class="schedule-content">
+                                <h4>Quarterly Compliance Check</h4>
+                                <p>Comprehensive compliance assessment</p>
+                                <span class="schedule-priority">Medium Priority</span>
+                            </div>
+                            <div class="schedule-actions">
+                                <button class="btn-outline">Schedule</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Financial Audit Section -->
+            <section class="admin-section" id="financial-audit-section">
+                <div class="section-header">
+                    <h1>Financial Audit & Verification</h1>
+                    <div class="header-actions">
+                        <select class="filter-select" id="auditPeriod">
+                            <option value="current">Current Month</option>
+                            <option value="previous">Previous Month</option>
+                            <option value="quarter">This Quarter</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                        <button class="btn-outline">
+                            <i class="fas fa-download"></i>
+                            Export Audit
+                        </button>
+                        <button class="btn-primary" onclick="openModal('verifyBalancesModal')">
+                            <i class="fas fa-balance-scale"></i>
+                            Verify Balances
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Balance Verification -->
+                <div class="balance-verification">
+                    <h3>Account Balance Verification</h3>
+                    <div class="verification-grid">
+                        <div class="verification-card cash">
+                            <div class="verification-header">
+                                <h4>Cash on Hand</h4>
+                                <span class="verification-status verified">Verified</span>
+                            </div>
+                            <div class="verification-amounts">
+                                <div class="amount-item">
+                                    <span>Recorded Balance:</span>
+                                    <span class="amount">450,000 RWF</span>
+                                </div>
+                                <div class="amount-item">
+                                    <span>Physical Count:</span>
+                                    <span class="amount">450,000 RWF</span>
+                                </div>
+                                <div class="amount-item variance">
+                                    <span>Variance:</span>
+                                    <span class="amount balanced">0 RWF</span>
+                                </div>
+                            </div>
+                            <div class="verification-meta">
+                                <span>Last verified: Dec 10, 2024 9:00 AM</span>
+                                <span>Verified by: Jean Baptiste Uwimana</span>
+                            </div>
+                        </div>
+
+                        <div class="verification-card bank">
+                            <div class="verification-header">
+                                <h4>Bank Account</h4>
+                                <span class="verification-status verified">Verified</span>
+                            </div>
+                            <div class="verification-amounts">
+                                <div class="amount-item">
+                                    <span>System Balance:</span>
+                                    <span class="amount">2,200,000 RWF</span>
+                                </div>
+                                <div class="amount-item">
+                                    <span>Bank Statement:</span>
+                                    <span class="amount">2,200,000 RWF</span>
+                                </div>
+                                <div class="amount-item variance">
+                                    <span>Variance:</span>
+                                    <span class="amount balanced">0 RWF</span>
+                                </div>
+                            </div>
+                            <div class="verification-meta">
+                                <span>Last verified: Dec 10, 2024 8:30 AM</span>
+                                <span>Statement date: Dec 9, 2024</span>
+                            </div>
+                        </div>
+
+                        <div class="verification-card mobile-money">
+                            <div class="verification-header">
+                                <h4>Mobile Money</h4>
+                                <span class="verification-status pending">Pending</span>
+                            </div>
+                            <div class="verification-amounts">
+                                <div class="amount-item">
+                                    <span>System Balance:</span>
+                                    <span class="amount">0 RWF</span>
+                                </div>
+                                <div class="amount-item">
+                                    <span>Provider Balance:</span>
+                                    <span class="amount">-</span>
+                                </div>
+                                <div class="amount-item variance">
+                                    <span>Variance:</span>
+                                    <span class="amount">-</span>
+                                </div>
+                            </div>
+                            <div class="verification-meta">
+                                <span>Last verified: Dec 8, 2024</span>
+                                <span>Next check due: Dec 11, 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reconciliation Summary -->
+                <div class="reconciliation-summary">
+                    <h3>Reconciliation Summary</h3>
+                    <div class="reconciliation-table">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Account Type</th>
+                                    <th>System Balance</th>
+                                    <th>Verified Balance</th>
+                                    <th>Variance</th>
+                                    <th>Status</th>
+                                    <th>Last Verified</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Cash on Hand</td>
+                                    <td>450,000 RWF</td>
+                                    <td>450,000 RWF</td>
+                                    <td class="variance-zero">0 RWF</td>
+                                    <td><span class="status-badge verified">Verified</span></td>
+                                    <td>Dec 10, 9:00 AM</td>
+                                    <td>
+                                        <button class="action-btn view">
+                                            <i class="fas fa-eye"></i> View
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Bank Account</td>
+                                    <td>2,200,000 RWF</td>
+                                    <td>2,200,000 RWF</td>
+                                    <td class="variance-zero">0 RWF</td>
+                                    <td><span class="status-badge verified">Verified</span></td>
+                                    <td>Dec 10, 8:30 AM</td>
+                                    <td>
+                                        <button class="action-btn view">
+                                            <i class="fas fa-eye"></i> View
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Anomaly Detection -->
+                <div class="anomaly-detection">
+                    <h3>Anomaly Detection</h3>
+                    <div class="anomalies-list">
+                        <div class="anomaly-item high-risk">
+                            <div class="anomaly-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="anomaly-content">
+                                <h4>Large Withdrawal Pattern</h4>
+                                <p>Multiple large withdrawals detected in the past 3 days</p>
+                                <div class="anomaly-details">
+                                    <span>Total Amount: 750,000 RWF</span>
+                                    <span>Transactions: 3</span>
+                                    <span>Risk Level: High</span>
+                                </div>
+                            </div>
+                            <div class="anomaly-actions">
+                                <button class="btn-outline">Investigate</button>
+                                <button class="btn-primary">Flag for Review</button>
+                            </div>
+                        </div>
+
+                        <div class="anomaly-item medium-risk">
+                            <div class="anomaly-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="anomaly-content">
+                                <h4>Unusual Transaction Time</h4>
+                                <p>Transaction processed outside normal business hours</p>
+                                <div class="anomaly-details">
+                                    <span>Time: 11:30 PM</span>
+                                    <span>Amount: 25,000 RWF</span>
+                                    <span>Risk Level: Medium</span>
+                                </div>
+                            </div>
+                            <div class="anomaly-actions">
+                                <button class="btn-outline">Review</button>
+                                <button class="btn-secondary">Dismiss</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Transaction Analysis Section -->
+            <section class="admin-section" id="transactions-section">
+                <div class="section-header">
+                    <h1>Transaction History Analysis</h1>
+                    <div class="header-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search transactions..." id="transactionSearch">
+                        </div>
+                        <select class="filter-select" id="transactionFilter">
+                            <option value="all">All Transactions</option>
+                            <option value="flagged">Flagged</option>
+                            <option value="high-value">High Value</option>
+                            <option value="pending">Pending Review</option>
+                            <option value="verified">Verified</option>
+                        </select>
+                        <input type="date" class="date-filter" id="dateFrom">
+                        <input type="date" class="date-filter" id="dateTo">
+                        <button class="btn-outline">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                        <button class="btn-primary" onclick="openModal('reviewTransactionsModal')">
+                            <i class="fas fa-search"></i>
+                            Advanced Search
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Transaction Analytics -->
+                <div class="transaction-analytics">
+                    <div class="analytics-cards">
+                        <div class="analytics-card">
+                            <h4>Total Transactions</h4>
+                            <div class="analytics-value">1,247</div>
+                            <div class="analytics-meta">This month</div>
+                        </div>
+                        <div class="analytics-card">
+                            <h4>Flagged Transactions</h4>
+                            <div class="analytics-value">3</div>
+                            <div class="analytics-meta">Requiring review</div>
+                        </div>
+                        <div class="analytics-card">
+                            <h4>Average Transaction</h4>
+                            <div class="analytics-value">12,500 RWF</div>
+                            <div class="analytics-meta">Monthly average</div>
+                        </div>
+                        <div class="analytics-card">
+                            <h4>Verification Rate</h4>
+                            <div class="analytics-value">99.7%</div>
+                            <div class="analytics-meta">Auto-verified</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flagged Transactions -->
+                <div class="flagged-transactions">
+                    <h3>Flagged Transactions Requiring Review</h3>
+                    <div class="data-table-container">
+                        <table class="data-table" id="flaggedTransactionsTable">
+                            <thead>
+                                <tr>
+                                    <th>Transaction ID</th>
+                                    <th>Date</th>
+                                    <th>Member</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                    <th>Flag Reason</th>
+                                    <th>Risk Level</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>TXN-2024-001234</td>
+                                    <td>Dec 10, 2024</td>
+                                    <td>Grace Uwimana</td>
+                                    <td>Withdrawal</td>
+                                    <td class="amount-large">500,000 RWF</td>
+                                    <td>Exceeds daily limit</td>
+                                    <td><span class="risk-badge high">High</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="action-btn view">
+                                                <i class="fas fa-eye"></i> Review
+                                            </button>
+                                            <button class="action-btn approve">
+                                                <i class="fas fa-check"></i> Approve
+                                            </button>
+                                            <button class="action-btn reject">
+                                                <i class="fas fa-times"></i> Reject
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Transaction Pattern Analysis -->
+                <div class="pattern-analysis">
+                    <h3>Transaction Pattern Analysis</h3>
+                    <div class="pattern-charts">
+                        <div class="chart-container">
+                            <h4>Transaction Volume by Type</h4>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-pie"></i>
+                                <p>Chart visualization would be displayed here</p>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <h4>Daily Transaction Trends</h4>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-line"></i>
+                                <p>Chart visualization would be displayed here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Compliance Section -->
+            <section class="admin-section" id="compliance-section">
+                <div class="section-header">
+                    <h1>Compliance & Risk Management</h1>
+                    <div class="header-actions">
+                        <select class="filter-select" id="complianceFilter">
+                            <option value="all">All Checks</option>
+                            <option value="compliant">Compliant</option>
+                            <option value="non-compliant">Non-Compliant</option>
+                            <option value="pending">Pending Review</option>
+                        </select>
+                        <button class="btn-outline">
+                            <i class="fas fa-download"></i>
+                            Export Report
+                        </button>
+                        <button class="btn-primary" onclick="openModal('complianceCheckModal')">
+                            <i class="fas fa-clipboard-check"></i>
+                            Run Compliance Check
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Compliance Overview -->
+                <div class="compliance-overview">
+                    <div class="compliance-score">
+                        <div class="score-circle">
+                            <div class="score-value">98%</div>
+                            <div class="score-label">Compliance Score</div>
+                        </div>
+                        <div class="score-breakdown">
+                            <div class="breakdown-item compliant">
+                                <span class="breakdown-count">18</span>
+                                <span class="breakdown-label">Compliant</span>
+                            </div>
+                            <div class="breakdown-item non-compliant">
+                                <span class="breakdown-count">2</span>
+                                <span class="breakdown-label">Issues</span>
+                            </div>
+                            <div class="breakdown-item pending">
+                                <span class="breakdown-count">0</span>
+                                <span class="breakdown-label">Pending</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compliance Checks -->
+                <div class="compliance-checks">
+                    <h3>Compliance Checklist</h3>
+                    <div class="data-table-container">
+                        <table class="data-table" id="complianceTable">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Compliance Item</th>
+                                    <th>Status</th>
+                                    <th>Current Value</th>
+                                    <th>Threshold</th>
+                                    <th>Last Checked</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Financial Policies</td>
+                                    <td>Loan-to-Savings Ratio</td>
+                                    <td><span class="compliance-status compliant">Compliant</span></td>
+                                    <td>82.8%</td>
+                                    <td>≤ 85%</td>
+                                    <td>Dec 10, 2024</td>
+                                    <td>
+                                        <button class="action-btn view">
+                                            <i class="fas fa-eye"></i> Details
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Meeting Requirements</td>
+                                    <td>Quorum Compliance</td>
+                                    <td><span class="compliance-status compliant">Compliant</span></td>
+                                    <td>92%</td>
+                                    <td>≥ 75%</td>
+                                    <td>Dec 8, 2024</td>
+                                    <td>
+                                        <button class="action-btn view">
+                                            <i class="fas fa-eye"></i> Details
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Documentation</td>
+                                    <td>Meeting Minutes</td>
+                                    <td><span class="compliance-status non-compliant">Non-Compliant</span></td>
+                                    <td>Missing 1 meeting</td>
+                                    <td>All meetings documented</td>
+                                    <td>Dec 10, 2024</td>
+                                    <td>
+                                        <button class="action-btn flag">
+                                            <i class="fas fa-flag"></i> Flag
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Policy Violations -->
+                <div class="policy-violations">
+                    <h3>Policy Violations & Issues</h3>
+                    <div class="violations-list">
+                        <div class="violation-item medium">
+                            <div class="violation-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="violation-content">
+                                <h4>Missing Meeting Minutes</h4>
+                                <p>Meeting minutes for December 1st meeting are not documented</p>
+                                <div class="violation-meta">
+                                    <span>Severity: Medium</span>
+                                    <span>Detected: Dec 10, 2024</span>
+                                    <span>Category: Documentation</span>
+                                </div>
+                            </div>
+                            <div class="violation-actions">
+                                <button class="btn-outline">Assign</button>
+                                <button class="btn-primary">Resolve</button>
+                            </div>
+                        </div>
+
+                        <div class="violation-item low">
+                            <div class="violation-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="violation-content">
+                                <h4>Late Penalty Application</h4>
+                                <p>Penalty for late arrival was not applied consistently</p>
+                                <div class="violation-meta">
+                                    <span>Severity: Low</span>
+                                    <span>Detected: Dec 9, 2024</span>
+                                    <span>Category: Policy Enforcement</span>
+                                </div>
+                            </div>
+                            <div class="violation-actions">
+                                <button class="btn-outline">Review</button>
+                                <button class="btn-secondary">Dismiss</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section class="admin-section" id="reports-section">
+                <div class="section-header">
+                    <h1>Audit Reports & Documentation</h1>
+                    <div class="header-actions">
+                        <select class="filter-select">
+                            <option value="all">All Reports</option>
+                            <option value="financial">Financial Audits</option>
+                            <option value="compliance">Compliance Reports</option>
+                            <option value="risk">Risk Assessments</option>
+                        </select>
+                        <button class="btn-outline">
+                            <i class="fas fa-calendar"></i>
+                            Schedule Report
+                        </button>
+                        <button class="btn-primary" onclick="openModal('generateAuditReportModal')">
+                            <i class="fas fa-plus"></i>
+                            Generate Report
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Report Templates -->
+                <div class="report-templates">
+                    <h3>Report Templates</h3>
+                    <div class="templates-grid">
+                        <div class="template-card">
+                            <div class="template-icon">
+                                <i class="fas fa-search-dollar"></i>
+                            </div>
+                            <div class="template-content">
+                                <h4>Financial Audit Report</h4>
+                                <p>Comprehensive financial verification and balance reconciliation</p>
+                                <div class="template-meta">
+                                    <span>Frequency: Monthly</span>
+                                    <span>Last Generated: Dec 1, 2024</span>
+                                </div>
+                            </div>
+                            <div class="template-actions">
+                                <button class="btn-outline">Preview</button>
+                                <button class="btn-primary">Generate</button>
+                            </div>
+                        </div>
+
+                        <div class="template-card">
+                            <div class="template-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="template-content">
+                                <h4>Compliance Report</h4>
+                                <p>Group compliance status and policy adherence assessment</p>
+                                <div class="template-meta">
+                                    <span>Frequency: Quarterly</span>
+                                    <span>Last Generated: Oct 1, 2024</span>
+                                </div>
+                            </div>
+                            <div class="template-actions">
+                                <button class="btn-outline">Preview</button>
+                                <button class="btn-primary">Generate</button>
+                            </div>
+                        </div>
+
+                        <div class="template-card">
+                            <div class="template-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="template-content">
+                                <h4>Risk Assessment Report</h4>
+                                <p>Risk analysis and early warning indicators assessment</p>
+                                <div class="template-meta">
+                                    <span>Frequency: Bi-weekly</span>
+                                    <span>Last Generated: Dec 8, 2024</span>
+                                </div>
+                            </div>
+                            <div class="template-actions">
+                                <button class="btn-outline">Preview</button>
+                                <button class="btn-primary">Generate</button>
+                            </div>
+                        </div>
+
+                        <div class="template-card">
+                            <div class="template-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="template-content">
+                                <h4>Performance Analytics</h4>
+                                <p>Group performance metrics and trend analysis</p>
+                                <div class="template-meta">
+                                    <span>Frequency: Monthly</span>
+                                    <span>Last Generated: Nov 30, 2024</span>
+                                </div>
+                            </div>
+                            <div class="template-actions">
+                                <button class="btn-outline">Preview</button>
+                                <button class="btn-primary">Generate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Reports -->
+                <div class="recent-reports">
+                    <h3>Recent Audit Reports</h3>
+                    <div class="data-table-container">
+                        <table class="data-table" id="reportsTable">
+                            <thead>
+                                <tr>
+                                    <th>Report Name</th>
+                                    <th>Type</th>
+                                    <th>Period</th>
+                                    <th>Generated Date</th>
+                                    <th>Status</th>
+                                    <th>Size</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Financial Audit - December 2024</td>
+                                    <td><span class="report-type financial">Financial</span></td>
+                                    <td>Dec 1-10, 2024</td>
+                                    <td>Dec 10, 2024</td>
+                                    <td><span class="status-badge completed">Completed</span></td>
+                                    <td>2.3 MB</td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <button class="action-btn view">
+                                                <i class="fas fa-eye"></i> View
+                                            </button>
+                                            <button class="action-btn download">
+                                                <i class="fas fa-download"></i> Download
+                                            </button>
+                                            <button class="action-btn share">
+                                                <i class="fas fa-share"></i> Share
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Risk Management Section -->
+            <section class="admin-section" id="risk-management-section">
+                <div class="section-header">
+                    <h1>Risk Management & Assessment</h1>
+                    <div class="header-actions">
+                        <select class="filter-select">
+                            <option value="all">All Risks</option>
+                            <option value="high">High Risk</option>
+                            <option value="medium">Medium Risk</option>
+                            <option value="low">Low Risk</option>
+                        </select>
+                        <button class="btn-outline">
+                            <i class="fas fa-download"></i>
+                            Export Assessment
+                        </button>
+                        <button class="btn-primary" onclick="openModal('riskAssessmentModal')">
+                            <i class="fas fa-chart-line"></i>
+                            New Assessment
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Risk Dashboard -->
+                <div class="risk-dashboard">
+                    <div class="risk-overview">
+                        <div class="risk-meter">
+                            <div class="meter-circle low-risk">
+                                <div class="meter-value">Low</div>
+                                <div class="meter-label">Overall Risk</div>
+                            </div>
+                        </div>
+                        <div class="risk-breakdown">
+                            <div class="risk-category">
+                                <h4>Financial Risk</h4>
+                                <div class="risk-level low">Low</div>
+                                <div class="risk-score">Score: 2.1/10</div>
+                            </div>
+                            <div class="risk-category">
+                                <h4>Operational Risk</h4>
+                                <div class="risk-level low">Low</div>
+                                <div class="risk-score">Score: 1.8/10</div>
+                            </div>
+                            <div class="risk-category">
+                                <h4>Compliance Risk</h4>
+                                <div class="risk-level medium">Medium</div>
+                                <div class="risk-score">Score: 3.2/10</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Risk Indicators -->
+                <div class="risk-indicators">
+                    <h3>Early Warning Indicators</h3>
+                    <div class="indicators-grid">
+                        <div class="indicator-card normal">
+                            <div class="indicator-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="indicator-content">
+                                <h4>Loan Default Rate</h4>
+                                <div class="indicator-value">2.1%</div>
+                                <div class="indicator-threshold">Threshold: ≤ 5%</div>
+                                <div class="indicator-status">Normal</div>
+                            </div>
+                        </div>
+
+                        <div class="indicator-card warning">
+                            <div class="indicator-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="indicator-content">
+                                <h4>Member Attendance</h4>
+                                <div class="indicator-value">88%</div>
+                                <div class="indicator-threshold">Threshold: ≥ 90%</div>
+                                <div class="indicator-status">Warning</div>
+                            </div>
+                        </div>
+
+                        <div class="indicator-card normal">
+                            <div class="indicator-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <div class="indicator-content">
+                                <h4>Cash Flow Ratio</h4>
+                                <div class="indicator-value">1.8</div>
+                                <div class="indicator-threshold">Threshold: ≥ 1.5</div>
+                                <div class="indicator-status">Normal</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Risk Register -->
+                <div class="risk-register">
+                    <h3>Risk Register</h3>
+                    <div class="data-table-container">
+                        <table class="data-table" id="riskTable">
+                            <thead>
+                                <tr>
+                                    <th>Risk Description</th>
+                                    <th>Category</th>
+                                    <th>Probability</th>
+                                    <th>Impact</th>
+                                    <th>Risk Level</th>
+                                    <th>Mitigation</th>
+                                    <th>Owner</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Declining member attendance affecting quorum</td>
+                                    <td>Operational</td>
+                                    <td>Medium</td>
+                                    <td>Medium</td>
+                                    <td><span class="risk-badge medium">Medium</span></td>
+                                    <td>Member engagement initiatives</td>
+                                    <td>Secretary</td>
+                                    <td>
+                                        <button class="action-btn view">
+                                            <i class="fas fa-eye"></i> View
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Integrity Section -->
+            <section class="admin-section" id="data-integrity-section">
+                <div class="section-header">
+                    <h1>Data Integrity & Security</h1>
+                    <div class="header-actions">
+                        <select class="filter-select">
+                            <option value="all">All Checks</option>
+                            <option value="critical">Critical Issues</option>
+                            <option value="warnings">Warnings</option>
+                            <option value="passed">Passed</option>
+                        </select>
+                        <button class="btn-outline">
+                            <i class="fas fa-download"></i>
+                            Export Log
+                        </button>
+                        <button class="btn-primary" onclick="openModal('dataIntegrityModal')">
+                            <i class="fas fa-database"></i>
+                            Run Integrity Check
+                        </button>
+                    </div>
+                </div>
+
+                <!-- System Health Overview -->
+                <div class="system-health">
+                    <h3>System Health Overview</h3>
+                    <div class="health-grid">
+                        <div class="health-card database">
+                            <div class="health-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="health-content">
+                                <h4>Database Integrity</h4>
+                                <div class="health-status good">Excellent</div>
+                                <div class="health-details">
+                                    <span>Last Check: Dec 10, 9:00 AM</span>
+                                    <span>Issues Found: 0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="health-card backup">
+                            <div class="health-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="health-content">
+                                <h4>Backup Status</h4>
+                                <div class="health-status warning">Needs Attention</div>
+                                <div class="health-details">
+                                    <span>Last Backup: Dec 8, 11:30 PM</span>
+                                    <span>Next Scheduled: Dec 11, 11:30 PM</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="health-card security">
+                            <div class="health-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="health-content">
+                                <h4>Security Status</h4>
+                                <div class="health-status good">Secure</div>
+                                <div class="health-details">
+                                    <span>Active Sessions: 5</span>
+                                    <span>Failed Logins: 0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="health-card performance">
+                            <div class="health-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <div class="health-content">
+                                <h4>System Performance</h4>
+                                <div class="health-status good">Optimal</div>
+                                <div class="health-details">
+                                    <span>Response Time: 0.8s</span>
+                                    <span>Uptime: 99.9%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Access Logs -->
+                <div class="access-logs">
+                    <h3>Recent Access & Modification Logs</h3>
+                    <div class="data-table-container">
+                        <table class="data-table" id="accessLogsTable">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>User</th>
+                                    <th>Action</th>
+                                    <th>Resource</th>
+                                    <th>IP Address</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Dec 10, 2024 10:30 AM</td>
+                                    <td>Grace Uwimana (Treasurer)</td>
+                                    <td>Transaction Update</td>
+                                    <td>Member Savings</td>
+                                    <td>192.168.1.105</td>
+                                    <td><span class="status-badge success">Success</span></td>
+                                    <td>
+                                        <button class="action-btn view">
+                                            <i class="fas fa-eye"></i> Details
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Dec 10, 2024 9:15 AM</td>
+                                    <td>Alice Nyirahabimana (Secretary)</td>
+                                    <td>Meeting Minutes Upload</td>
+                                    <td>Documents</td>
+                                    <td>192.168.1.102</td>
+                                    <td><span class="status-badge success">Success</span></td>
+                                    <td>
+                                        <button class="action-btn view">
+                                            <i class="fas fa-eye"></i> Details
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Data Validation Results -->
+                <div class="validation-results">
+                    <h3>Data Validation Results</h3>
+                    <div class="validation-list">
+                        <div class="validation-item passed">
+                            <div class="validation-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="validation-content">
+                                <h4>Transaction Sequence Validation</h4>
+                                <p>All transaction sequences are valid and properly ordered</p>
+                                <div class="validation-meta">
+                                    <span>Checked: 1,247 transactions</span>
+                                    <span>Errors: 0</span>
+                                    <span>Last Run: Dec 10, 9:00 AM</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="validation-item passed">
+                            <div class="validation-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="validation-content">
+                                <h4>Balance Reconciliation Check</h4>
+                                <p>All account balances reconcile correctly with transaction history</p>
+                                <div class="validation-meta">
+                                    <span>Accounts Checked: 4</span>
+                                    <span>Discrepancies: 0</span>
+                                    <span>Last Run: Dec 10, 8:30 AM</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="validation-item warning">
+                            <div class="validation-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="validation-content">
+                                <h4>Backup Verification</h4>
+                                <p>Backup is 2 days old - scheduled backup may have failed</p>
+                                <div class="validation-meta">
+                                    <span>Last Backup: Dec 8, 11:30 PM</span>
+                                    <span>Size: 45.2 MB</span>
+                                    <span>Status: Needs Investigation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section class="admin-section" id="analytics-section">
+                <div class="section-header">
+                    <h1>Performance Analytics</h1>
+                    <div class="header-actions">
+                        <select class="filter-select">
+                            <option value="current_month">Current Month</option>
+                            <option value="last_3_months">Last 3 Months</option>
+                            <option value="last_6_months">Last 6 Months</option>
+                            <option value="year_to_date">Year to Date</option>
+                        </select>
+                        <button class="btn-outline">
+                            <i class="fas fa-download"></i>
+                            Export Analytics
+                        </button>
+                        <button class="btn-primary">
+                            <i class="fas fa-chart-line"></i>
+                            Generate Dashboard
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Key Performance Indicators -->
+                <div class="kpi-dashboard">
+                    <h3>Key Performance Indicators</h3>
+                    <div class="kpi-grid">
+                        <div class="kpi-card financial-health">
+                            <div class="kpi-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="kpi-content">
+                                <h4>Financial Health Score</h4>
+                                <div class="kpi-value">94/100</div>
+                                <div class="kpi-trend positive">+2 from last month</div>
+                            </div>
+                        </div>
+
+                        <div class="kpi-card member-engagement">
+                            <div class="kpi-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="kpi-content">
+                                <h4>Member Engagement</h4>
+                                <div class="kpi-value">88%</div>
+                                <div class="kpi-trend negative">-3% from last month</div>
+                            </div>
+                        </div>
+
+                        <div class="kpi-card loan-performance">
+                            <div class="kpi-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="kpi-content">
+                                <h4>Loan Performance</h4>
+                                <div class="kpi-value">97.9%</div>
+                                <div class="kpi-trend positive">+0.5% from last month</div>
+                            </div>
+                        </div>
+
+                        <div class="kpi-card operational-efficiency">
+                            <div class="kpi-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div class="kpi-content">
+                                <h4>Operational Efficiency</h4>
+                                <div class="kpi-value">92%</div>
+                                <div class="kpi-trend stable">No change</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trend Analysis -->
+                <div class="trend-analysis">
+                    <h3>Trend Analysis</h3>
+                    <div class="trend-charts">
+                        <div class="chart-container">
+                            <h4>Financial Growth Trend</h4>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-area"></i>
+                                <p>Financial growth chart would be displayed here</p>
+                                <div class="chart-summary">
+                                    <span>Total Assets: 2,650,000 RWF (+8.5% YoY)</span>
+                                    <span>Member Savings: 1,450,000 RWF (+12.3% YoY)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chart-container">
+                            <h4>Member Participation Trends</h4>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-bar"></i>
+                                <p>Member participation chart would be displayed here</p>
+                                <div class="chart-summary">
+                                    <span>Average Attendance: 88% (Target: 90%)</span>
+                                    <span>Active Contributors: 24/25 members</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparative Analysis -->
+                <div class="comparative-analysis">
+                    <h3>Comparative Analysis</h3>
+                    <div class="comparison-table">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Current Period</th>
+                                    <th>Previous Period</th>
+                                    <th>Change</th>
+                                    <th>Industry Average</th>
+                                    <th>Performance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Loan Default Rate</td>
+                                    <td>2.1%</td>
+                                    <td>2.8%</td>
+                                    <td class="positive">-0.7%</td>
+                                    <td>4.5%</td>
+                                    <td><span class="performance-badge excellent">Excellent</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Member Retention</td>
+                                    <td>96%</td>
+                                    <td>94%</td>
+                                    <td class="positive">+2%</td>
+                                    <td>89%</td>
+                                    <td><span class="performance-badge excellent">Excellent</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Meeting Attendance</td>
+                                    <td>88%</td>
+                                    <td>91%</td>
+                                    <td class="negative">-3%</td>
+                                    <td>85%</td>
+                                    <td><span class="performance-badge good">Good</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Recommendations -->
+                <div class="recommendations">
+                    <h3>Audit Recommendations</h3>
+                    <div class="recommendations-list">
+                        <div class="recommendation-item high-priority">
+                            <div class="recommendation-icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <div class="recommendation-content">
+                                <h4>Improve Member Attendance</h4>
+                                <p>Member attendance has declined by 3% this month. Consider implementing attendance incentives or reviewing meeting schedules.</p>
+                                <div class="recommendation-actions">
+                                    <button class="btn-outline">Assign Task</button>
+                                    <button class="btn-primary">Create Action Plan</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recommendation-item medium-priority">
+                            <div class="recommendation-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="recommendation-content">
+                                <h4>Update Backup Schedule</h4>
+                                <p>Current backup schedule may not be sufficient. Consider implementing daily automated backups.</p>
+                                <div class="recommendation-actions">
+                                    <button class="btn-outline">Review</button>
+                                    <button class="btn-primary">Implement</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notifications Section -->
+            <section class="admin-section" id="notifications-section">
+                <div class="section-header">
+                    <h1>Notifications</h1>
+                    <div class="header-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search notifications..." id="notificationSearch">
+                        </div>
+                        <select class="filter-select" id="notificationFilter">
+                            <option value="all">All Notifications</option>
+                            <option value="unread">Unread</option>
+                            <option value="read">Read</option>
+                            <option value="audit">Audit Alerts</option>
+                            <option value="compliance">Compliance Issues</option>
+                            <option value="system">System Alerts</option>
+                        </select>
+                        <button class="btn-outline" onclick="markAllAsRead()">
+                            <i class="fas fa-check-double"></i>
+                            Mark All Read
+                        </button>
+                        <button class="btn-primary" onclick="openModal('notificationSettingsModal')">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Notification Summary -->
+                <div class="notification-summary">
+                    <div class="summary-cards">
+                        <div class="summary-card total-notifications">
+                            <div class="summary-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Total Notifications</h3>
+                                <div class="summary-value">18</div>
+                                <div class="summary-meta">Last 30 days</div>
+                            </div>
+                        </div>
+
+                        <div class="summary-card unread-notifications">
+                            <div class="summary-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Unread</h3>
+                                <div class="summary-value">6</div>
+                                <div class="summary-meta">Requires attention</div>
+                            </div>
+                        </div>
+
+                        <div class="summary-card high-priority">
+                            <div class="summary-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>High Priority</h3>
+                                <div class="summary-value">4</div>
+                                <div class="summary-meta">Urgent actions needed</div>
+                            </div>
+                        </div>
+
+                        <div class="summary-card recent-activity">
+                            <div class="summary-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Recent Activity</h3>
+                                <div class="summary-value">8</div>
+                                <div class="summary-meta">Last 24 hours</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications List -->
+                <div class="notifications-list">
+                    <div class="notifications-header">
+                        <h3>Recent Notifications</h3>
+                        <div class="bulk-actions">
+                            <button class="btn-outline" onclick="selectAllNotifications()">
+                                <i class="fas fa-check-square"></i>
+                                Select All
+                            </button>
+                            <button class="btn-outline" onclick="markSelectedAsRead()">
+                                <i class="fas fa-eye"></i>
+                                Mark as Read
+                            </button>
+                            <button class="btn-outline" onclick="deleteSelectedNotifications()">
+                                <i class="fas fa-trash"></i>
+                                Delete Selected
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="notifications-container">
+                        <div class="notification-item unread high-priority" data-id="1">
+                            <div class="notification-checkbox">
+                                <input type="checkbox" class="notification-select">
+                            </div>
+                            <div class="notification-icon audit">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h4>Audit Discrepancy Detected</h4>
+                                    <div class="notification-meta">
+                                        <span class="notification-time">45 minutes ago</span>
+                                        <span class="notification-priority high">High Priority</span>
+                                    </div>
+                                </div>
+                                <p>Financial records show a discrepancy of 5,000 RWF in November transactions. Immediate investigation required.</p>
+                                <div class="notification-actions">
+                                    <button class="btn-primary">Investigate</button>
+                                    <button class="btn-outline" onclick="markAsRead(1)">Mark as Read</button>
+                                </div>
+                            </div>
+                            <div class="notification-status">
+                                <span class="status-indicator unread"></span>
+                            </div>
+                        </div>
+
+                        <div class="notification-item unread high-priority" data-id="2">
+                            <div class="notification-checkbox">
+                                <input type="checkbox" class="notification-select">
+                            </div>
+                            <div class="notification-icon compliance">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h4>Compliance Review Due</h4>
+                                    <div class="notification-meta">
+                                        <span class="notification-time">2 hours ago</span>
+                                        <span class="notification-priority high">High Priority</span>
+                                    </div>
+                                </div>
+                                <p>Quarterly compliance review is due by December 15th. Please schedule and conduct the review process.</p>
+                                <div class="notification-actions">
+                                    <button class="btn-primary">Schedule Review</button>
+                                    <button class="btn-outline">View Requirements</button>
+                                </div>
+                            </div>
+                            <div class="notification-status">
+                                <span class="status-indicator unread"></span>
+                            </div>
+                        </div>
+
+                        <div class="notification-item read medium-priority" data-id="3">
+                            <div class="notification-checkbox">
+                                <input type="checkbox" class="notification-select">
+                            </div>
+                            <div class="notification-icon system">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h4>Data Backup Completed</h4>
+                                    <div class="notification-meta">
+                                        <span class="notification-time">1 day ago</span>
+                                        <span class="notification-priority medium">Medium Priority</span>
+                                    </div>
+                                </div>
+                                <p>Weekly data backup has been completed successfully. All financial records are secure and verified.</p>
+                                <div class="notification-actions">
+                                    <button class="btn-outline">View Backup Report</button>
+                                    <button class="btn-outline">Verify Integrity</button>
+                                </div>
+                            </div>
+                            <div class="notification-status">
+                                <span class="status-indicator read"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section class="admin-section" id="profile-section">
+                <div class="section-header">
+                    <h1>Auditor Profile</h1>
+                    <div class="header-actions">
+                        <button class="btn-outline" onclick="exportProfileData()">
+                            <i class="fas fa-download"></i>
+                            Export Data
+                        </button>
+                        <button class="btn-outline" onclick="openModal('changePasswordModal')">
+                            <i class="fas fa-key"></i>
+                            Change Password
+                        </button>
+                        <button class="btn-primary" onclick="openModal('updateProfileModal')">
+                            <i class="fas fa-edit"></i>
+                            Edit Profile
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profile Overview -->
+                <div class="profile-overview">
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-photo">
+                                <div class="photo-placeholder">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <button class="photo-upload-btn" onclick="openModal('uploadPhotoModal')">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                            </div>
+                            <div class="profile-info">
+                                <h2>Jean Baptiste Uwimana</h2>
+                                <div class="profile-meta">
+                                    <span class="member-id">Auditor ID: AUD001</span>
+                                    <span class="member-status active">Active Auditor</span>
+                                </div>
+                                <div class="profile-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Auditor Since</span>
+                                        <span class="stat-value">Mar 1, 2024</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Access Level</span>
+                                        <span class="stat-value">Audit & Compliance</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Last Login</span>
+                                        <span class="stat-value">Today, 7:30 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Sections -->
+                <div class="profile-sections">
+                    <!-- Personal Information -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3>Personal Information</h3>
+                            <button class="btn-outline" onclick="editSection('personal')">
+                                <i class="fas fa-edit"></i>
+                                Edit
+                            </button>
+                        </div>
+                        <div class="section-content">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <span class="info-label">Full Name</span>
+                                    <span class="info-value">Jean Baptiste Uwimana</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Email Address</span>
+                                    <span class="info-value">jean.baptiste@email.com</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Phone Number</span>
+                                    <span class="info-value">+250 788 654 321</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Date of Birth</span>
+                                    <span class="info-value">November 12, 1980</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">National ID</span>
+                                    <span class="info-value">1198012123456789</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Address</span>
+                                    <span class="info-value">Kigali, Gasabo, Remera</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Auditor Qualifications -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3>Auditor Qualifications</h3>
+                            <button class="btn-outline" onclick="viewAuditorHistory()">
+                                <i class="fas fa-history"></i>
+                                View History
+                            </button>
+                        </div>
+                        <div class="section-content">
+                            <div class="auditor-details">
+                                <div class="auditor-card">
+                                    <div class="auditor-header">
+                                        <h4>Audit & Compliance Role</h4>
+                                        <span class="auditor-status active">Active Auditor</span>
+                                    </div>
+                                    <div class="auditor-info">
+                                        <div class="info-grid">
+                                            <div class="info-item">
+                                                <span class="info-label">Appointed Date</span>
+                                                <span class="info-value">March 1, 2024</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Auditor ID</span>
+                                                <span class="info-value">AUD001</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Certification</span>
+                                                <span class="info-value verified">
+                                                    <i class="fas fa-certificate"></i>
+                                                    Certified Internal Auditor
+                                                </span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Independence Status</span>
+                                                <span class="info-value verified">
+                                                    <i class="fas fa-check-circle"></i>
+                                                    Independent
+                                                </span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Audit Authority</span>
+                                                <span class="info-value">Full Financial Review</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Last Certification Renewal</span>
+                                                <span class="info-value">September 15, 2024</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="auditor-stats">
+                                    <h4>Audit Performance</h4>
+                                    <div class="stats-grid">
+                                        <div class="stat-card">
+                                            <div class="stat-icon">
+                                                <i class="fas fa-search"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <div class="stat-value">24</div>
+                                                <div class="stat-label">Audits Completed</div>
+                                            </div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-icon">
+                                                <i class="fas fa-exclamation-triangle"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <div class="stat-value">3</div>
+                                                <div class="stat-label">Issues Identified</div>
+                                            </div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-icon">
+                                                <i class="fas fa-check-circle"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <div class="stat-value">100%</div>
+                                                <div class="stat-label">Resolution Rate</div>
+                                            </div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-icon">
+                                                <i class="fas fa-calendar-check"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <div class="stat-value">9 months</div>
+                                                <div class="stat-label">Service Duration</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security & Independence -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3>Security & Independence</h3>
+                            <button class="btn-outline" onclick="openModal('securitySettingsModal')">
+                                <i class="fas fa-shield-alt"></i>
+                                Manage Security
+                            </button>
+                        </div>
+                        <div class="section-content">
+                            <div class="security-settings">
+                                <div class="security-item">
+                                    <div class="security-info">
+                                        <h4>Password</h4>
+                                        <p>Last changed: November 20, 2024</p>
+                                    </div>
+                                    <button class="btn-outline" onclick="openModal('changePasswordModal')">
+                                        Change Password
+                                    </button>
+                                </div>
+
+                                <div class="security-item">
+                                    <div class="security-info">
+                                        <h4>Audit Access Controls</h4>
+                                        <p>Manage access to sensitive financial data and audit trails</p>
+                                    </div>
+                                    <button class="btn-outline" onclick="manageAuditAccess()">
+                                        Manage Access
+                                    </button>
+                                </div>
+
+                                <div class="security-item">
+                                    <div class="security-info">
+                                        <h4>Independence Declaration</h4>
+                                        <p>Annual independence confirmation and conflict of interest disclosure</p>
+                                    </div>
+                                    <button class="btn-outline" onclick="updateIndependenceDeclaration()">
+                                        Update Declaration
+                                    </button>
+                                </div>
+
+                                <div class="security-item">
+                                    <div class="security-info">
+                                        <h4>Audit Trail Access</h4>
+                                        <p>View comprehensive audit trails and system access logs</p>
+                                    </div>
+                                    <button class="btn-outline" onclick="viewAuditTrails()">
+                                        View Audit Trails
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals and overlays will be added dynamically -->
+    <div id="modalContainer"></div>
+
+    <script src="script.js"></script>
+    <script src="auditor-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Admin Dashboard - Ikimina Digital Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body">
+    <!-- Top Navigation -->
+    <nav class="admin-navbar">
+        <div class="admin-nav-container">
+            <div class="nav-left">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-brand">
+                    <i class="fas fa-coins"></i>
+                    <span>Ikimina</span>
+                    <span class="admin-badge">Super Admin</span>
+                </div>
+            </div>
+            <div class="admin-nav-right">
+                <div class="admin-notifications">
+                    <button class="notification-btn" id="notificationBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </button>
+                </div>
+                <div class="admin-user">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">Admin User</span>
+                        <span class="user-role">Super Administrator</span>
+                    </div>
+                    <button class="user-menu-btn" id="userMenuBtn">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+
+                    <!-- User Dropdown Menu -->
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="dropdown-header">
+                            <div class="dropdown-user-info">
+                                <div class="dropdown-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="dropdown-user-details">
+                                    <h4>Admin User</h4>
+                                    <p>Super Administrator</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item" data-action="notifications">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                            </a>
+                            <a href="#" class="dropdown-item" data-action="profile">
+                                <i class="fas fa-user"></i>
+                                <span>Profile</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item logout" data-action="logout">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="admin-container">
+        <!-- Sidebar Navigation -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-content">
+                <nav class="sidebar-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#dashboard" class="nav-link active" data-section="dashboard">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#groups" class="nav-link" data-section="groups">
+                                <i class="fas fa-users"></i>
+                                <span>Group Management</span>
+                                <span class="nav-badge">12</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#verification" class="nav-link" data-section="verification">
+                                <i class="fas fa-user-check"></i>
+                                <span>User Verification</span>
+                                <span class="nav-badge">8</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#financial" class="nav-link" data-section="financial">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>Financial Oversight</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#compliance" class="nav-link" data-section="compliance">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Compliance</span>
+                                <span class="nav-badge warning">3</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#security" class="nav-link" data-section="security">
+                                <i class="fas fa-lock"></i>
+                                <span>Security</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#settings" class="nav-link" data-section="settings">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#notifications" class="nav-link" data-section="notifications">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                                <span class="nav-badge">12</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#profile" class="nav-link" data-section="profile">
+                                <i class="fas fa-user-cog"></i>
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Dashboard Section -->
+            <section class="admin-section active" id="dashboard-section">
+                <div class="section-header">
+                    <h1>Platform Overview</h1>
+                    <div class="header-actions">
+                        <button class="btn-outline refresh-btn" id="refreshData">
+                            <i class="fas fa-sync-alt"></i>
+                            Refresh
+                        </button>
+                        <button class="btn-primary export-btn">
+                            <i class="fas fa-download"></i>
+                            Export Report
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>Total Groups</h3>
+                            <div class="metric-value">1,247</div>
+                            <div class="metric-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                +12% from last month
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>Active Users</h3>
+                            <div class="metric-value">18,542</div>
+                            <div class="metric-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                +8% from last month
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>Transaction Volume</h3>
+                            <div class="metric-value">2.8B RWF</div>
+                            <div class="metric-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                +15% from last month
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>Platform Revenue</h3>
+                            <div class="metric-value">45.2M RWF</div>
+                            <div class="metric-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                +18% from last month
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts and Analytics -->
+                <div class="analytics-grid">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Growth Trends</h3>
+                            <div class="chart-controls">
+                                <select class="chart-period">
+                                    <option value="7d">Last 7 days</option>
+                                    <option value="30d" selected>Last 30 days</option>
+                                    <option value="90d">Last 90 days</option>
+                                    <option value="1y">Last year</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart-content">
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-line"></i>
+                                <p>Growth Trends Chart</p>
+                                <small>Interactive chart would be rendered here</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>System Health</h3>
+                            <div class="health-status">
+                                <span class="status-indicator healthy"></span>
+                                <span>All Systems Operational</span>
+                            </div>
+                        </div>
+                        <div class="chart-content">
+                            <div class="health-metrics">
+                                <div class="health-item">
+                                    <span class="health-label">API Response Time</span>
+                                    <span class="health-value">142ms</span>
+                                    <span class="health-status good">Good</span>
+                                </div>
+                                <div class="health-item">
+                                    <span class="health-label">Database Performance</span>
+                                    <span class="health-value">98.7%</span>
+                                    <span class="health-status excellent">Excellent</span>
+                                </div>
+                                <div class="health-item">
+                                    <span class="health-label">Server Uptime</span>
+                                    <span class="health-value">99.9%</span>
+                                    <span class="health-status excellent">Excellent</span>
+                                </div>
+                                <div class="health-item">
+                                    <span class="health-label">Error Rate</span>
+                                    <span class="health-value">0.02%</span>
+                                    <span class="health-status good">Good</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="activity-section">
+                    <div class="section-header">
+                        <h3>Recent Activity</h3>
+                        <a href="#" class="view-all-link">View All</a>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">New group created: "Ubwiyunge Cooperative"</div>
+                                <div class="activity-meta">
+                                    <span class="activity-user">by Jean Uwimana</span>
+                                    <span class="activity-time">2 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-status pending">Pending Approval</div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">Suspicious transaction detected</div>
+                                <div class="activity-meta">
+                                    <span class="activity-user">Group: Kigali Savings</span>
+                                    <span class="activity-time">15 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-status warning">Requires Review</div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">User verification completed</div>
+                                <div class="activity-meta">
+                                    <span class="activity-user">Marie Mukamana</span>
+                                    <span class="activity-time">1 hour ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-status approved">Approved</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Group Management Section -->
+            <section class="admin-section" id="groups-section">
+                <div class="section-header">
+                    <h1>Group Management</h1>
+                    <div class="header-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search groups..." id="groupSearch">
+                        </div>
+                        <select class="filter-select" id="groupFilter">
+                            <option value="all">All Groups</option>
+                            <option value="active">Active</option>
+                            <option value="pending">Pending Approval</option>
+                            <option value="suspended">Suspended</option>
+                            <option value="closed">Closed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="data-table-container">
+                    <table class="data-table" id="groupsTable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" id="selectAllGroups">
+                                </th>
+                                <th>Group Name</th>
+                                <th>Creator</th>
+                                <th>Members</th>
+                                <th>Status</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Table content will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-pagination">
+                    <div class="pagination-info">
+                        Showing 1-10 of 247 groups
+                    </div>
+                    <div class="pagination-controls">
+                        <button class="pagination-btn" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <span class="pagination-pages">
+                            <button class="pagination-page active">1</button>
+                            <button class="pagination-page">2</button>
+                            <button class="pagination-page">3</button>
+                            <span>...</span>
+                            <button class="pagination-page">25</button>
+                        </span>
+                        <button class="pagination-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- User Verification Section -->
+            <section class="admin-section" id="verification-section">
+                <div class="section-header">
+                    <h1>User Verification</h1>
+                    <div class="header-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search users..." id="userSearch">
+                        </div>
+                        <select class="filter-select" id="verificationFilter">
+                            <option value="all">All Requests</option>
+                            <option value="pending">Pending Review</option>
+                            <option value="approved">Approved</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="verification-queue">
+                    <div class="verification-item">
+                        <div class="verification-user">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-details">
+                                <h4>Jean Baptiste Uwimana</h4>
+                                <p>Group Creator • jean.uwimana@email.com</p>
+                                <span class="verification-date">Submitted 2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="verification-documents">
+                            <div class="document-item">
+                                <i class="fas fa-id-card"></i>
+                                <span>National ID</span>
+                                <button class="btn-outline view-doc">View</button>
+                            </div>
+                            <div class="document-item">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Business License</span>
+                                <button class="btn-outline view-doc">View</button>
+                            </div>
+                        </div>
+                        <div class="verification-actions">
+                            <button class="btn-primary approve-user">
+                                <i class="fas fa-check"></i> Approve
+                            </button>
+                            <button class="btn-secondary reject-user">
+                                <i class="fas fa-times"></i> Reject
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Financial Oversight Section -->
+            <section class="admin-section" id="financial-section">
+                <div class="section-header">
+                    <h1>Financial Oversight</h1>
+                    <div class="header-actions">
+                        <select class="filter-select">
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month" selected>This Month</option>
+                            <option value="quarter">This Quarter</option>
+                        </select>
+                        <button class="btn-primary">
+                            <i class="fas fa-download"></i> Export Report
+                        </button>
+                    </div>
+                </div>
+
+                <div class="financial-overview">
+                    <div class="financial-metrics">
+                        <div class="financial-card">
+                            <h3>Total Transaction Volume</h3>
+                            <div class="financial-value">2.8B RWF</div>
+                            <div class="financial-change positive">+15% from last month</div>
+                        </div>
+                        <div class="financial-card">
+                            <h3>Platform Commission</h3>
+                            <div class="financial-value">45.2M RWF</div>
+                            <div class="financial-change positive">+18% from last month</div>
+                        </div>
+                        <div class="financial-card">
+                            <h3>Suspicious Transactions</h3>
+                            <div class="financial-value">3</div>
+                            <div class="financial-change warning">Requires Review</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="suspicious-transactions">
+                    <h3>Suspicious Activity Alerts</h3>
+                    <div class="alert-item">
+                        <div class="alert-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4>Large Cash Withdrawal</h4>
+                            <p>Kigali Savings Group - 5,000,000 RWF withdrawal by Jean Uwimana</p>
+                            <span class="alert-time">15 minutes ago</span>
+                        </div>
+                        <div class="alert-actions">
+                            <button class="btn-outline">Review</button>
+                            <button class="btn-primary">Investigate</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Compliance Section -->
+            <section class="admin-section" id="compliance-section">
+                <div class="section-header">
+                    <h1>Compliance & Policy</h1>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i> New Policy
+                        </button>
+                    </div>
+                </div>
+
+                <div class="compliance-overview">
+                    <div class="compliance-stats">
+                        <div class="compliance-stat">
+                            <div class="stat-icon compliant">
+                                <i class="fas fa-shield-check"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Compliant Groups</h4>
+                                <div class="stat-value">1,244</div>
+                                <div class="stat-percentage">99.8%</div>
+                            </div>
+                        </div>
+                        <div class="compliance-stat">
+                            <div class="stat-icon warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Policy Violations</h4>
+                                <div class="stat-value">3</div>
+                                <div class="stat-percentage">0.2%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="policy-violations">
+                    <h3>Recent Policy Violations</h3>
+                    <div class="violation-item">
+                        <div class="violation-severity high">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="violation-content">
+                            <h4>Unauthorized Loan Interest Rate</h4>
+                            <p>Youth Entrepreneurs Group - Interest rate exceeds 10% monthly limit</p>
+                            <span class="violation-date">2 days ago</span>
+                        </div>
+                        <div class="violation-actions">
+                            <button class="btn-outline">Review</button>
+                            <button class="btn-primary">Take Action</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Security Section -->
+            <section class="admin-section" id="security-section">
+                <div class="section-header">
+                    <h1>Security Management</h1>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-shield-alt"></i> Security Scan
+                        </button>
+                    </div>
+                </div>
+
+                <div class="security-overview">
+                    <div class="security-metrics">
+                        <div class="security-card">
+                            <div class="security-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="security-content">
+                                <h3>System Security</h3>
+                                <div class="security-status secure">Secure</div>
+                                <p>Last scan: 2 hours ago</p>
+                            </div>
+                        </div>
+                        <div class="security-card">
+                            <div class="security-icon">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <div class="security-content">
+                                <h3>User Authentication</h3>
+                                <div class="security-status secure">Strong</div>
+                                <p>2FA enabled: 89%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="security-incidents">
+                    <h3>Security Incidents</h3>
+                    <div class="incident-item">
+                        <div class="incident-severity medium">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="incident-content">
+                            <h4>Multiple Failed Login Attempts</h4>
+                            <p>IP: 192.168.1.100 - 5 failed attempts for user marie.mukamana@email.com</p>
+                            <span class="incident-time">1 hour ago</span>
+                        </div>
+                        <div class="incident-actions">
+                            <button class="btn-outline">Block IP</button>
+                            <button class="btn-primary">Investigate</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section class="admin-section" id="settings-section">
+                <div class="section-header">
+                    <h1>Platform Settings</h1>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                    </div>
+                </div>
+
+                <div class="settings-content">
+                    <div class="settings-group">
+                        <h3>General Settings</h3>
+                        <div class="setting-item">
+                            <label>Platform Name</label>
+                            <input type="text" value="Ikimina Digital Platform">
+                        </div>
+                        <div class="setting-item">
+                            <label>Default Currency</label>
+                            <select>
+                                <option value="RWF" selected>Rwandan Franc (RWF)</option>
+                                <option value="USD">US Dollar (USD)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="settings-group">
+                        <h3>Financial Settings</h3>
+                        <div class="setting-item">
+                            <label>Maximum Group Size</label>
+                            <input type="number" value="50">
+                        </div>
+                        <div class="setting-item">
+                            <label>Platform Commission (%)</label>
+                            <input type="number" value="2.5" step="0.1">
+                        </div>
+                    </div>
+
+                    <div class="settings-group">
+                        <h3>Security Settings</h3>
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" checked> Require 2FA for Group Creators
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" checked> Enable Fraud Detection
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notifications Section -->
+            <section class="admin-section" id="notifications-section">
+                <div class="section-header">
+                    <h1>System Notifications</h1>
+                    <div class="header-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search notifications..." id="notificationSearch">
+                        </div>
+                        <select class="filter-select" id="notificationFilter">
+                            <option value="all">All Notifications</option>
+                            <option value="unread">Unread</option>
+                            <option value="read">Read</option>
+                            <option value="system">System Alerts</option>
+                            <option value="security">Security Alerts</option>
+                            <option value="compliance">Compliance Issues</option>
+                            <option value="platform">Platform Updates</option>
+                        </select>
+                        <button class="btn-outline" onclick="markAllAsRead()">
+                            <i class="fas fa-check-double"></i>
+                            Mark All Read
+                        </button>
+                        <button class="btn-primary" onclick="openModal('notificationSettingsModal')">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Notification Summary -->
+                <div class="notification-summary">
+                    <div class="summary-cards">
+                        <div class="summary-card total-notifications">
+                            <div class="summary-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Total Notifications</h3>
+                                <div class="summary-value">25</div>
+                                <div class="summary-meta">Last 30 days</div>
+                            </div>
+                        </div>
+
+                        <div class="summary-card unread-notifications">
+                            <div class="summary-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Unread</h3>
+                                <div class="summary-value">12</div>
+                                <div class="summary-meta">Requires attention</div>
+                            </div>
+                        </div>
+
+                        <div class="summary-card high-priority">
+                            <div class="summary-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Critical Alerts</h3>
+                                <div class="summary-value">7</div>
+                                <div class="summary-meta">Urgent actions needed</div>
+                            </div>
+                        </div>
+
+                        <div class="summary-card recent-activity">
+                            <div class="summary-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Recent Activity</h3>
+                                <div class="summary-value">15</div>
+                                <div class="summary-meta">Last 24 hours</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications List -->
+                <div class="notifications-list">
+                    <div class="notifications-header">
+                        <h3>System Notifications</h3>
+                        <div class="bulk-actions">
+                            <button class="btn-outline" onclick="selectAllNotifications()">
+                                <i class="fas fa-check-square"></i>
+                                Select All
+                            </button>
+                            <button class="btn-outline" onclick="markSelectedAsRead()">
+                                <i class="fas fa-eye"></i>
+                                Mark as Read
+                            </button>
+                            <button class="btn-outline" onclick="deleteSelectedNotifications()">
+                                <i class="fas fa-trash"></i>
+                                Delete Selected
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="notifications-container">
+                        <div class="notification-item unread high-priority" data-id="1">
+                            <div class="notification-checkbox">
+                                <input type="checkbox" class="notification-select">
+                            </div>
+                            <div class="notification-icon security">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h4>Security Breach Attempt Detected</h4>
+                                    <div class="notification-meta">
+                                        <span class="notification-time">15 minutes ago</span>
+                                        <span class="notification-priority high">Critical</span>
+                                    </div>
+                                </div>
+                                <p>Multiple failed login attempts detected from IP 192.168.1.100. Account lockout protocols activated. Immediate investigation required.</p>
+                                <div class="notification-actions">
+                                    <button class="btn-primary">Investigate</button>
+                                    <button class="btn-outline" onclick="markAsRead(1)">Mark as Read</button>
+                                </div>
+                            </div>
+                            <div class="notification-status">
+                                <span class="status-indicator unread"></span>
+                            </div>
+                        </div>
+
+                        <div class="notification-item unread high-priority" data-id="2">
+                            <div class="notification-checkbox">
+                                <input type="checkbox" class="notification-select">
+                            </div>
+                            <div class="notification-icon system">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h4>System Performance Alert</h4>
+                                    <div class="notification-meta">
+                                        <span class="notification-time">1 hour ago</span>
+                                        <span class="notification-priority high">High Priority</span>
+                                    </div>
+                                </div>
+                                <p>Database server CPU usage has exceeded 85% for the past 30 minutes. Performance optimization may be required.</p>
+                                <div class="notification-actions">
+                                    <button class="btn-primary">Monitor System</button>
+                                    <button class="btn-outline">View Metrics</button>
+                                </div>
+                            </div>
+                            <div class="notification-status">
+                                <span class="status-indicator unread"></span>
+                            </div>
+                        </div>
+
+                        <div class="notification-item read medium-priority" data-id="3">
+                            <div class="notification-checkbox">
+                                <input type="checkbox" class="notification-select">
+                            </div>
+                            <div class="notification-icon platform">
+                                <i class="fas fa-code-branch"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h4>Platform Update Available</h4>
+                                    <div class="notification-meta">
+                                        <span class="notification-time">6 hours ago</span>
+                                        <span class="notification-priority medium">Medium Priority</span>
+                                    </div>
+                                </div>
+                                <p>Ikimina Platform v2.1.3 is available with security patches and performance improvements. Schedule maintenance window for update.</p>
+                                <div class="notification-actions">
+                                    <button class="btn-outline">View Release Notes</button>
+                                    <button class="btn-outline">Schedule Update</button>
+                                </div>
+                            </div>
+                            <div class="notification-status">
+                                <span class="status-indicator read"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section class="admin-section" id="profile-section">
+                <div class="section-header">
+                    <h1>Super Administrator Profile</h1>
+                    <div class="header-actions">
+                        <button class="btn-outline" onclick="exportProfileData()">
+                            <i class="fas fa-download"></i>
+                            Export Data
+                        </button>
+                        <button class="btn-outline" onclick="openModal('changePasswordModal')">
+                            <i class="fas fa-key"></i>
+                            Change Password
+                        </button>
+                        <button class="btn-primary" onclick="openModal('updateProfileModal')">
+                            <i class="fas fa-edit"></i>
+                            Edit Profile
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profile Overview -->
+                <div class="profile-overview">
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-photo">
+                                <div class="photo-placeholder">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <button class="photo-upload-btn" onclick="openModal('uploadPhotoModal')">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                            </div>
+                            <div class="profile-info">
+                                <h2>Admin User</h2>
+                                <div class="profile-meta">
+                                    <span class="member-id">Super Admin ID: SA001</span>
+                                    <span class="member-status active">Super Administrator</span>
+                                </div>
+                                <div class="profile-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Admin Since</span>
+                                        <span class="stat-value">Jan 1, 2024</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Access Level</span>
+                                        <span class="stat-value">System Administrator</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Last Login</span>
+                                        <span class="stat-value">Today, 6:00 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Sections -->
+                <div class="profile-sections">
+                    <!-- Personal Information -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3>Administrator Information</h3>
+                            <button class="btn-outline" onclick="editSection('personal')">
+                                <i class="fas fa-edit"></i>
+                                Edit
+                            </button>
+                        </div>
+                        <div class="section-content">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <span class="info-label">Full Name</span>
+                                    <span class="info-value">Admin User</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Email Address</span>
+                                    <span class="info-value">admin@ikimina.platform</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Phone Number</span>
+                                    <span class="info-value">+250 700 000 000</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Administrator Level</span>
+                                    <span class="info-value">Super Administrator</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">System Access</span>
+                                    <span class="info-value verified">
+                                        <i class="fas fa-check-circle"></i>
+                                        Full System Access
+                                    </span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Emergency Contact</span>
+                                    <span class="info-value">+250 700 000 001</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Administration -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3>System Administration</h3>
+                            <button class="btn-outline" onclick="viewSystemHistory()">
+                                <i class="fas fa-history"></i>
+                                View History
+                            </button>
+                        </div>
+                        <div class="section-content">
+                            <div class="admin-details">
+                                <div class="admin-card">
+                                    <div class="admin-header">
+                                        <h4>Platform Administration</h4>
+                                        <span class="admin-status active">Active Super Admin</span>
+                                    </div>
+                                    <div class="admin-info">
+                                        <div class="info-grid">
+                                            <div class="info-item">
+                                                <span class="info-label">Administrator Since</span>
+                                                <span class="info-value">January 1, 2024</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Super Admin ID</span>
+                                                <span class="info-value">SA001</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Platform Authority</span>
+                                                <span class="info-value">Complete System Control</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Security Clearance</span>
+                                                <span class="info-value verified">
+                                                    <i class="fas fa-shield-alt"></i>
+                                                    Maximum Security
+                                                </span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Multi-Factor Auth</span>
+                                                <span class="info-value verified">
+                                                    <i class="fas fa-check-circle"></i>
+                                                    Enabled & Required
+                                                </span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Last Security Review</span>
+                                                <span class="info-value">December 1, 2024</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="admin-stats">
+                                    <h4>Platform Statistics</h4>
+                                    <div class="stats-grid">
+                                        <div class="stat-card">
+                                            <div class="stat-icon">
+                                                <i class="fas fa-users"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <div class="stat-value">156</div>
+                                                <div class="stat-label">Total Groups Managed</div>
+                                            </div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-icon">
+                                                <i class="fas fa-user-check"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <div class="stat-value">2,847</div>
+                                                <div class="stat-label">Users Verified</div>
+                                            </div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-icon">
+                                                <i class="fas fa-shield-alt"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <div class="stat-value">99.9%</div>
+                                                <div class="stat-label">System Uptime</div>
+                                            </div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-icon">
+                                                <i class="fas fa-calendar-check"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <div class="stat-value">11 months</div>
+                                                <div class="stat-label">Platform Operation</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security & Compliance -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3>Security & Compliance</h3>
+                            <button class="btn-outline" onclick="openModal('securitySettingsModal')">
+                                <i class="fas fa-shield-alt"></i>
+                                Manage Security
+                            </button>
+                        </div>
+                        <div class="section-content">
+                            <div class="security-settings">
+                                <div class="security-item">
+                                    <div class="security-info">
+                                        <h4>Master Password</h4>
+                                        <p>Last changed: November 30, 2024</p>
+                                    </div>
+                                    <button class="btn-outline" onclick="openModal('changePasswordModal')">
+                                        Change Password
+                                    </button>
+                                </div>
+
+                                <div class="security-item">
+                                    <div class="security-info">
+                                        <h4>System Access Keys</h4>
+                                        <p>Manage master keys for system administration and emergency access</p>
+                                    </div>
+                                    <button class="btn-outline" onclick="manageSystemKeys()">
+                                        Manage Keys
+                                    </button>
+                                </div>
+
+                                <div class="security-item">
+                                    <div class="security-info">
+                                        <h4>Platform Security Policies</h4>
+                                        <p>Configure system-wide security policies and compliance requirements</p>
+                                    </div>
+                                    <button class="btn-outline" onclick="manageSecurityPolicies()">
+                                        Manage Policies
+                                    </button>
+                                </div>
+
+                                <div class="security-item">
+                                    <div class="security-info">
+                                        <h4>System Audit Logs</h4>
+                                        <p>Comprehensive audit trails for all system administration activities</p>
+                                    </div>
+                                    <button class="btn-outline" onclick="viewSystemAuditLogs()">
+                                        View Audit Logs
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals and overlays will be added dynamically -->
+    <div id="modalContainer"></div>
+
+    <script src="script.js"></script>
+    <script src="super-admin.js"></script>
+</body>
+</html>

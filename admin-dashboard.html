@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Ikimina Digital Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body">
+    <!-- Top Navigation -->
+    <nav class="admin-navbar">
+        <div class="admin-nav-container">
+            <div class="nav-left">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-brand">
+                    <i class="fas fa-coins"></i>
+                    <span>Ikimina</span>
+                    <span class="admin-badge group-admin">Group Admin</span>
+                </div>
+            </div>
+            <div class="admin-nav-right">
+                <div class="group-selector">
+                    <select id="groupSelector" class="group-select">
+                        <option value="1">Kigali Savings Group</option>
+                        <option value="2">Ubwiyunge Cooperative</option>
+                        <option value="3">Gasabo Women Group</option>
+                    </select>
+                </div>
+                <div class="admin-notifications">
+                    <button class="notification-btn" id="notificationBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">5</span>
+                    </button>
+                </div>
+                <div class="admin-user">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">Jean Uwimana</span>
+                        <span class="user-role">Group Administrator</span>
+                    </div>
+                    <button class="user-menu-btn" id="userMenuBtn">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+
+                    <!-- User Dropdown Menu -->
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="dropdown-header">
+                            <div class="dropdown-user-info">
+                                <div class="dropdown-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="dropdown-user-details">
+                                    <h4>Jean Uwimana</h4>
+                                    <p>Group Administrator</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item" data-action="notifications">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                            </a>
+                            <a href="#" class="dropdown-item" data-action="profile">
+                                <i class="fas fa-user"></i>
+                                <span>Profile</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item logout" data-action="logout">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="admin-container">
+        <!-- Sidebar Navigation -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-content">
+                <nav class="sidebar-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#dashboard" class="nav-link active" data-section="dashboard">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#members" class="nav-link" data-section="members">
+                                <i class="fas fa-users"></i>
+                                <span>Members</span>
+                                <span class="nav-badge">3</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#financial" class="nav-link" data-section="financial">
+                                <i class="fas fa-wallet"></i>
+                                <span>Financial</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#meetings" class="nav-link" data-section="meetings">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Meetings</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#loans" class="nav-link" data-section="loans">
+                                <i class="fas fa-hand-holding-usd"></i>
+                                <span>Loans</span>
+                                <span class="nav-badge warning">2</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#reports" class="nav-link" data-section="reports">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>Reports</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#bylaws" class="nav-link" data-section="bylaws">
+                                <i class="fas fa-gavel"></i>
+                                <span>Bylaws</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#settings" class="nav-link" data-section="settings">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#notifications" class="nav-link" data-section="notifications">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                                <span class="nav-badge">5</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#profile" class="nav-link" data-section="profile">
+                                <i class="fas fa-user-cog"></i>
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Dashboard Section -->
+            <section class="admin-section active" id="dashboard-section">
+                <div class="section-header">
+                    <h1>Group Overview</h1>
+                    <div class="header-actions">
+                        <button class="btn-outline refresh-btn" id="refreshData">
+                            <i class="fas fa-sync-alt"></i>
+                            Refresh
+                        </button>
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            New Meeting
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Group Summary Cards -->
+                <div class="group-summary">
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Total Members</h3>
+                            <div class="summary-value">25</div>
+                            <div class="summary-meta">
+                                <span class="active-count">23 Active</span>
+                                <span class="pending-count">2 Pending</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Total Savings</h3>
+                            <div class="summary-value">2,500,000 RWF</div>
+                            <div class="summary-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                +12% this month
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Active Loans</h3>
+                            <div class="summary-value">1,200,000 RWF</div>
+                            <div class="summary-meta">
+                                <span class="loan-count">8 loans outstanding</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Social Fund</h3>
+                            <div class="summary-value">150,000 RWF</div>
+                            <div class="summary-meta">
+                                <span class="fund-usage">2 disbursements this month</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="actions-grid">
+                        <button class="action-card" onclick="openModal('addMemberModal')">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Add Member</span>
+                        </button>
+                        <button class="action-card" onclick="openModal('recordContributionModal')">
+                            <i class="fas fa-coins"></i>
+                            <span>Record Contribution</span>
+                        </button>
+                        <button class="action-card" onclick="openModal('approveLoanModal')">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Approve Loan</span>
+                        </button>
+                        <button class="action-card" onclick="openModal('scheduleMeetingModal')">
+                            <i class="fas fa-calendar-plus"></i>
+                            <span>Schedule Meeting</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <div class="activity-header">
+                        <h3>Recent Activity</h3>
+                        <a href="#" class="view-all-link">View All</a>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">Marie Mukamana made a contribution</div>
+                                <div class="activity-meta">
+                                    <span class="activity-amount">10,000 RWF</span>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">New member request from Paul Nkurunziza</div>
+                                <div class="activity-meta">
+                                    <span class="activity-status pending">Pending Approval</span>
+                                    <span class="activity-time">4 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">Loan approved for Grace Uwimana</div>
+                                <div class="activity-meta">
+                                    <span class="activity-amount">150,000 RWF</span>
+                                    <span class="activity-time">1 day ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Events -->
+                <div class="upcoming-events">
+                    <h3>Upcoming Events</h3>
+                    <div class="events-list">
+                        <div class="event-item">
+                            <div class="event-date">
+                                <span class="event-day">15</span>
+                                <span class="event-month">Dec</span>
+                            </div>
+                            <div class="event-content">
+                                <h4>Weekly Meeting</h4>
+                                <p>Regular contribution and loan review meeting</p>
+                                <span class="event-time">2:00 PM - 4:00 PM</span>
+                            </div>
+                        </div>
+                        
+                        <div class="event-item">
+                            <div class="event-date">
+                                <span class="event-day">31</span>
+                                <span class="event-month">Dec</span>
+                            </div>
+                            <div class="event-content">
+                                <h4>Cycle End Meeting</h4>
+                                <p>Final meeting and share-out preparation</p>
+                                <span class="event-time">10:00 AM - 2:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Members Section -->
+            <section class="admin-section" id="members-section">
+                <div class="section-header">
+                    <h1>Member Management</h1>
+                    <div class="header-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search members..." id="memberSearch">
+                        </div>
+                        <select class="filter-select" id="memberFilter">
+                            <option value="all">All Members</option>
+                            <option value="active">Active</option>
+                            <option value="pending">Pending Approval</option>
+                            <option value="suspended">Suspended</option>
+                        </select>
+                        <button class="btn-primary" onclick="openModal('addMemberModal')">
+                            <i class="fas fa-user-plus"></i>
+                            Add Member
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Member Requests -->
+                <div class="member-requests" id="memberRequests">
+                    <h3>Pending Member Requests</h3>
+                    <div class="request-item">
+                        <div class="request-user">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-details">
+                                <h4>Paul Nkurunziza</h4>
+                                <p>paul.nkurunziza@email.com • +250 788 123 456</p>
+                                <span class="request-date">Requested 4 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="request-actions">
+                            <button class="btn-primary approve-member" data-user-id="123">
+                                <i class="fas fa-check"></i> Approve
+                            </button>
+                            <button class="btn-secondary reject-member" data-user-id="123">
+                                <i class="fas fa-times"></i> Reject
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Members Table -->
+                <div class="data-table-container">
+                    <table class="data-table" id="membersTable">
+                        <thead>
+                            <tr>
+                                <th>Member</th>
+                                <th>Role</th>
+                                <th>Joined</th>
+                                <th>Total Savings</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Table content will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Financial Section -->
+            <section class="admin-section" id="financial-section">
+                <div class="section-header">
+                    <h1>Financial Management</h1>
+                    <div class="header-actions">
+                        <select class="filter-select">
+                            <option value="current">Current Cycle</option>
+                            <option value="previous">Previous Cycle</option>
+                            <option value="all">All Time</option>
+                        </select>
+                        <button class="btn-primary">
+                            <i class="fas fa-download"></i> Export Report
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Financial Overview -->
+                <div class="financial-overview">
+                    <div class="financial-cards">
+                        <div class="financial-card">
+                            <h3>Total Fund Balance</h3>
+                            <div class="financial-value">2,650,000 RWF</div>
+                            <div class="financial-breakdown">
+                                <span>Savings: 2,500,000 RWF</span>
+                                <span>Social Fund: 150,000 RWF</span>
+                            </div>
+                        </div>
+                        <div class="financial-card">
+                            <h3>Outstanding Loans</h3>
+                            <div class="financial-value">1,200,000 RWF</div>
+                            <div class="financial-breakdown">
+                                <span>8 active loans</span>
+                                <span>2 overdue payments</span>
+                            </div>
+                        </div>
+                        <div class="financial-card">
+                            <h3>This Month</h3>
+                            <div class="financial-value">+320,000 RWF</div>
+                            <div class="financial-breakdown">
+                                <span>Contributions: 300,000 RWF</span>
+                                <span>Interest: 20,000 RWF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financial Configuration -->
+                <div class="config-section">
+                    <h3>Financial Configuration</h3>
+                    <div class="config-grid">
+                        <div class="config-item">
+                            <label>Share Price (RWF)</label>
+                            <input type="number" value="5000" min="1000" step="500">
+                            <small class="config-help">Price per share in Rwandan Francs</small>
+                        </div>
+                        <div class="config-item">
+                            <label>Max Shares per Meeting</label>
+                            <input type="number" value="5" min="1" max="10">
+                            <small class="config-help">Maximum shares a member can buy per meeting</small>
+                        </div>
+                        <div class="config-item">
+                            <label>Loan Interest Rate (%)</label>
+                            <input type="number" value="5.0" min="0" max="20" step="0.5">
+                            <small class="config-help">Monthly interest rate for loans</small>
+                        </div>
+                        <div class="config-item">
+                            <label>Interest Type</label>
+                            <select>
+                                <option value="flat" selected>Flat Rate</option>
+                                <option value="reducing">Reducing Balance</option>
+                            </select>
+                        </div>
+                        <div class="config-item">
+                            <label>Social Fund Contribution (RWF)</label>
+                            <input type="number" value="1000" min="0" step="100">
+                            <small class="config-help">Fixed contribution to social fund per meeting</small>
+                        </div>
+                        <div class="config-item">
+                            <label>Registration Fee (RWF)</label>
+                            <input type="number" value="10000" min="0" step="1000">
+                            <small class="config-help">One-time fee for new members</small>
+                        </div>
+                    </div>
+                    <div class="config-actions">
+                        <button class="btn-primary">Save Configuration</button>
+                        <button class="btn-outline">Reset to Defaults</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Meetings Section -->
+            <section class="admin-section" id="meetings-section">
+                <div class="section-header">
+                    <h1>Meeting Management</h1>
+                    <div class="header-actions">
+                        <button class="btn-outline">
+                            <i class="fas fa-calendar-alt"></i> View Calendar
+                        </button>
+                        <button class="btn-primary" onclick="openModal('scheduleMeetingModal')">
+                            <i class="fas fa-plus"></i> Schedule Meeting
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Meeting Schedule -->
+                <div class="config-section">
+                    <h3>Meeting Schedule Configuration</h3>
+                    <div class="config-grid">
+                        <div class="config-item">
+                            <label>Meeting Frequency</label>
+                            <select>
+                                <option value="weekly" selected>Weekly</option>
+                                <option value="biweekly">Bi-weekly</option>
+                                <option value="monthly">Monthly</option>
+                            </select>
+                        </div>
+                        <div class="config-item">
+                            <label>Meeting Day</label>
+                            <select>
+                                <option value="monday">Monday</option>
+                                <option value="tuesday">Tuesday</option>
+                                <option value="wednesday">Wednesday</option>
+                                <option value="thursday">Thursday</option>
+                                <option value="friday">Friday</option>
+                                <option value="saturday" selected>Saturday</option>
+                                <option value="sunday">Sunday</option>
+                            </select>
+                        </div>
+                        <div class="config-item">
+                            <label>Meeting Time</label>
+                            <input type="time" value="14:00">
+                        </div>
+                        <div class="config-item">
+                            <label>Meeting Duration (hours)</label>
+                            <input type="number" value="2" min="1" max="8" step="0.5">
+                        </div>
+                        <div class="config-item">
+                            <label>Late Arrival Fine (RWF)</label>
+                            <input type="number" value="500" min="0" step="100">
+                        </div>
+                        <div class="config-item">
+                            <label>Absence Fine (RWF)</label>
+                            <input type="number" value="1000" min="0" step="100">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Meetings -->
+                <div class="meetings-history">
+                    <h3>Recent Meetings</h3>
+                    <div class="meeting-item">
+                        <div class="meeting-date">
+                            <span class="meeting-day">08</span>
+                            <span class="meeting-month">Dec</span>
+                        </div>
+                        <div class="meeting-content">
+                            <h4>Weekly Meeting #47</h4>
+                            <p>Regular contribution and loan review meeting</p>
+                            <div class="meeting-stats">
+                                <span>Attendance: 23/25</span>
+                                <span>Contributions: 115,000 RWF</span>
+                                <span>Loans Approved: 2</span>
+                            </div>
+                        </div>
+                        <div class="meeting-actions">
+                            <button class="btn-outline">View Minutes</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loans Section -->
+            <section class="admin-section" id="loans-section">
+                <div class="section-header">
+                    <h1>Loan Management</h1>
+                    <div class="header-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search loans..." id="loanSearch">
+                        </div>
+                        <select class="filter-select" id="loanFilter">
+                            <option value="all">All Loans</option>
+                            <option value="pending">Pending Approval</option>
+                            <option value="active">Active</option>
+                            <option value="overdue">Overdue</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Loan Configuration -->
+                <div class="config-section">
+                    <h3>Loan Policy Configuration</h3>
+                    <div class="config-grid">
+                        <div class="config-item">
+                            <label>Maximum Loan Multiplier</label>
+                            <input type="number" value="3.0" min="1" max="5" step="0.5">
+                            <small class="config-help">Maximum loan as multiple of member's savings</small>
+                        </div>
+                        <div class="config-item">
+                            <label>Minimum Savings Period (months)</label>
+                            <input type="number" value="3" min="1" max="12">
+                            <small class="config-help">Minimum time member must save before loan eligibility</small>
+                        </div>
+                        <div class="config-item">
+                            <label>Maximum Loan Term (months)</label>
+                            <input type="number" value="12" min="1" max="24">
+                        </div>
+                        <div class="config-item">
+                            <label>Guarantors Required</label>
+                            <input type="number" value="2" min="1" max="5">
+                        </div>
+                        <div class="config-item">
+                            <label>Grace Period (days)</label>
+                            <input type="number" value="7" min="0" max="30">
+                            <small class="config-help">Days after due date before penalty</small>
+                        </div>
+                        <div class="config-item">
+                            <label>Late Payment Penalty (%)</label>
+                            <input type="number" value="2.0" min="0" max="10" step="0.5">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loan Requests -->
+                <div class="loan-requests">
+                    <h3>Pending Loan Requests</h3>
+                    <div class="loan-request-item">
+                        <div class="loan-applicant">
+                            <div class="user-avatar">G</div>
+                            <div class="loan-details">
+                                <h4>Grace Uwimana</h4>
+                                <p>Requested: 150,000 RWF</p>
+                                <span>Purpose: Small business expansion</span>
+                            </div>
+                        </div>
+                        <div class="loan-info">
+                            <div class="loan-metrics">
+                                <span>Savings: 180,000 RWF</span>
+                                <span>Ratio: 0.83x</span>
+                                <span>Term: 6 months</span>
+                            </div>
+                        </div>
+                        <div class="loan-actions">
+                            <button class="btn-primary">Approve</button>
+                            <button class="btn-secondary">Reject</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section class="admin-section" id="reports-section">
+                <div class="section-header">
+                    <h1>Reports & Analytics</h1>
+                    <div class="header-actions">
+                        <select class="filter-select">
+                            <option value="current">Current Cycle</option>
+                            <option value="previous">Previous Cycle</option>
+                            <option value="ytd">Year to Date</option>
+                        </select>
+                        <button class="btn-primary">
+                            <i class="fas fa-download"></i> Export All
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Report Cards -->
+                <div class="reports-grid">
+                    <div class="report-card">
+                        <div class="report-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div class="report-content">
+                            <h3>Financial Summary</h3>
+                            <p>Complete financial overview with savings, loans, and fund balances</p>
+                            <button class="btn-outline">Generate Report</button>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <div class="report-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="report-content">
+                            <h3>Member Activity</h3>
+                            <p>Member contributions, attendance, and participation metrics</p>
+                            <button class="btn-outline">Generate Report</button>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <div class="report-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <div class="report-content">
+                            <h3>Loan Portfolio</h3>
+                            <p>Detailed loan analysis with repayment schedules and performance</p>
+                            <button class="btn-outline">Generate Report</button>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <div class="report-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="report-content">
+                            <h3>Meeting Reports</h3>
+                            <p>Meeting attendance, minutes, and decision tracking</p>
+                            <button class="btn-outline">Generate Report</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bylaws Section -->
+            <section class="admin-section" id="bylaws-section">
+                <div class="section-header">
+                    <h1>Bylaws & Policies</h1>
+                    <div class="header-actions">
+                        <button class="btn-outline">
+                            <i class="fas fa-history"></i> View History
+                        </button>
+                        <button class="btn-primary">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bylaws Configuration -->
+                <div class="bylaws-content">
+                    <div class="config-section">
+                        <h3>Group Information</h3>
+                        <div class="config-grid">
+                            <div class="config-item">
+                                <label>Group Name</label>
+                                <input type="text" value="Kigali Savings Group">
+                            </div>
+                            <div class="config-item">
+                                <label>Group Type</label>
+                                <select>
+                                    <option value="rosca">ROSCA (Rotating Savings)</option>
+                                    <option value="asca" selected>ASCA (Accumulating Savings)</option>
+                                    <option value="hybrid">Hybrid</option>
+                                </select>
+                            </div>
+                            <div class="config-item">
+                                <label>Maximum Members</label>
+                                <input type="number" value="30" min="5" max="50">
+                            </div>
+                            <div class="config-item">
+                                <label>Cycle Duration (months)</label>
+                                <input type="number" value="12" min="6" max="24">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="config-section">
+                        <h3>Membership Rules</h3>
+                        <div class="bylaws-rules">
+                            <div class="rule-item">
+                                <label>
+                                    <input type="checkbox" checked> Members must attend at least 80% of meetings
+                                </label>
+                            </div>
+                            <div class="rule-item">
+                                <label>
+                                    <input type="checkbox" checked> New members require 2 existing member endorsements
+                                </label>
+                            </div>
+                            <div class="rule-item">
+                                <label>
+                                    <input type="checkbox"> Members can hold multiple roles simultaneously
+                                </label>
+                            </div>
+                            <div class="rule-item">
+                                <label>
+                                    <input type="checkbox" checked> Members must contribute to social fund
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="config-section">
+                        <h3>Financial Rules</h3>
+                        <div class="bylaws-rules">
+                            <div class="rule-item">
+                                <label>
+                                    <input type="checkbox" checked> Loans require group approval
+                                </label>
+                            </div>
+                            <div class="rule-item">
+                                <label>
+                                    <input type="checkbox" checked> Interest income is shared proportionally
+                                </label>
+                            </div>
+                            <div class="rule-item">
+                                <label>
+                                    <input type="checkbox"> Emergency loans allowed outside regular meetings
+                                </label>
+                            </div>
+                            <div class="rule-item">
+                                <label>
+                                    <input type="checkbox" checked> Share-out occurs at cycle end
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section class="admin-section" id="settings-section">
+                <div class="section-header">
+                    <h1>Group Settings</h1>
+                    <div class="header-actions">
+                        <button class="btn-outline">
+                            <i class="fas fa-undo"></i> Reset to Defaults
+                        </button>
+                        <button class="btn-primary">
+                            <i class="fas fa-save"></i> Save All Settings
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Settings Content -->
+                <div class="settings-content">
+                    <div class="config-section">
+                        <h3>General Settings</h3>
+                        <div class="config-grid">
+                            <div class="config-item">
+                                <label>Group Currency</label>
+                                <select>
+                                    <option value="RWF" selected>Rwandan Franc (RWF)</option>
+                                    <option value="USD">US Dollar (USD)</option>
+                                </select>
+                            </div>
+                            <div class="config-item">
+                                <label>Time Zone</label>
+                                <select>
+                                    <option value="Africa/Kigali" selected>Africa/Kigali (CAT)</option>
+                                </select>
+                            </div>
+                            <div class="config-item">
+                                <label>Language</label>
+                                <select>
+                                    <option value="en" selected>English</option>
+                                    <option value="rw">Kinyarwanda</option>
+                                    <option value="fr">French</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="config-section">
+                        <h3>Notification Settings</h3>
+                        <div class="bylaws-rules">
+                            <div class="rule-item">
+                                <label>
+                                    <input type="checkbox" checked> Email notifications for meetings
+                                </label>
+                            </div>
+                            <div class="rule-item">
+                                <label>
+                                    <input type="checkbox" checked> SMS reminders for contributions
+                                </label>
+                            </div>
+                            <div class="rule-item">
+                                <label>
+                                    <input type="checkbox"> WhatsApp group integration
+                                </label>
+                            </div>
+                            <div class="rule-item">
+                                <label>
+                                    <input type="checkbox" checked> Loan payment reminders
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="config-section">
+                        <h3>Security Settings</h3>
+                        <div class="bylaws-rules">
+                            <div class="rule-item">
+                                <label>
+                                    <input type="checkbox" checked> Require admin approval for new members
+                                </label>
+                            </div>
+                            <div class="rule-item">
+                                <label>
+                                    <input type="checkbox"> Enable two-factor authentication
+                                </label>
+                            </div>
+                            <div class="rule-item">
+                                <label>
+                                    <input type="checkbox" checked> Log all financial transactions
+                                </label>
+                            </div>
+                            <div class="rule-item">
+                                <label>
+                                    <input type="checkbox" checked> Require password for sensitive operations
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="config-section danger-zone">
+                        <h3>Danger Zone</h3>
+                        <div class="danger-actions">
+                            <div class="danger-item">
+                                <div class="danger-content">
+                                    <h4>Archive Group</h4>
+                                    <p>Archive this group when the cycle is complete. This action can be undone.</p>
+                                </div>
+                                <button class="btn-warning">Archive Group</button>
+                            </div>
+                            <div class="danger-item">
+                                <div class="danger-content">
+                                    <h4>Delete Group</h4>
+                                    <p>Permanently delete this group and all associated data. This action cannot be undone.</p>
+                                </div>
+                                <button class="btn-danger">Delete Group</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notifications Section -->
+            <section class="admin-section" id="notifications-section">
+                <div class="section-header">
+                    <h1>Notifications</h1>
+                    <div class="header-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search notifications..." id="notificationSearch">
+                        </div>
+                        <select class="filter-select" id="notificationFilter">
+                            <option value="all">All Notifications</option>
+                            <option value="unread">Unread</option>
+                            <option value="read">Read</option>
+                            <option value="system">System Alerts</option>
+                            <option value="member">Member Activities</option>
+                            <option value="financial">Financial Updates</option>
+                        </select>
+                        <button class="btn-outline" onclick="markAllAsRead()">
+                            <i class="fas fa-check-double"></i>
+                            Mark All Read
+                        </button>
+                        <button class="btn-primary" onclick="openModal('notificationSettingsModal')">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Notification Summary -->
+                <div class="notification-summary">
+                    <div class="summary-cards">
+                        <div class="summary-card total-notifications">
+                            <div class="summary-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Total Notifications</h3>
+                                <div class="summary-value">15</div>
+                                <div class="summary-meta">Last 30 days</div>
+                            </div>
+                        </div>
+
+                        <div class="summary-card unread-notifications">
+                            <div class="summary-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Unread</h3>
+                                <div class="summary-value">5</div>
+                                <div class="summary-meta">Requires attention</div>
+                            </div>
+                        </div>
+
+                        <div class="summary-card high-priority">
+                            <div class="summary-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>High Priority</h3>
+                                <div class="summary-value">3</div>
+                                <div class="summary-meta">Urgent actions needed</div>
+                            </div>
+                        </div>
+
+                        <div class="summary-card recent-activity">
+                            <div class="summary-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="summary-content">
+                                <h3>Recent Activity</h3>
+                                <div class="summary-value">7</div>
+                                <div class="summary-meta">Last 24 hours</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications List -->
+                <div class="notifications-list">
+                    <div class="notifications-header">
+                        <h3>Recent Notifications</h3>
+                        <div class="bulk-actions">
+                            <button class="btn-outline" onclick="selectAllNotifications()">
+                                <i class="fas fa-check-square"></i>
+                                Select All
+                            </button>
+                            <button class="btn-outline" onclick="markSelectedAsRead()">
+                                <i class="fas fa-eye"></i>
+                                Mark as Read
+                            </button>
+                            <button class="btn-outline" onclick="deleteSelectedNotifications()">
+                                <i class="fas fa-trash"></i>
+                                Delete Selected
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="notifications-container">
+                        <div class="notification-item unread high-priority" data-id="1">
+                            <div class="notification-checkbox">
+                                <input type="checkbox" class="notification-select">
+                            </div>
+                            <div class="notification-icon system">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h4>System Alert: Low Fund Balance</h4>
+                                    <div class="notification-meta">
+                                        <span class="notification-time">1 hour ago</span>
+                                        <span class="notification-priority high">High Priority</span>
+                                    </div>
+                                </div>
+                                <p>Group fund balance is below the minimum threshold. Current balance: 45,000 RWF. Minimum required: 50,000 RWF.</p>
+                                <div class="notification-actions">
+                                    <button class="btn-primary">Review Finances</button>
+                                    <button class="btn-outline" onclick="markAsRead(1)">Mark as Read</button>
+                                </div>
+                            </div>
+                            <div class="notification-status">
+                                <span class="status-indicator unread"></span>
+                            </div>
+                        </div>
+
+                        <div class="notification-item unread medium-priority" data-id="2">
+                            <div class="notification-checkbox">
+                                <input type="checkbox" class="notification-select">
+                            </div>
+                            <div class="notification-icon member">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h4>New Member Application</h4>
+                                    <div class="notification-meta">
+                                        <span class="notification-time">3 hours ago</span>
+                                        <span class="notification-priority medium">Medium Priority</span>
+                                    </div>
+                                </div>
+                                <p>Paul Nkurunziza has submitted a membership application. Review required for approval.</p>
+                                <div class="notification-actions">
+                                    <button class="btn-primary">Review Application</button>
+                                    <button class="btn-outline">View Profile</button>
+                                </div>
+                            </div>
+                            <div class="notification-status">
+                                <span class="status-indicator unread"></span>
+                            </div>
+                        </div>
+
+                        <div class="notification-item read low-priority" data-id="3">
+                            <div class="notification-checkbox">
+                                <input type="checkbox" class="notification-select">
+                            </div>
+                            <div class="notification-icon financial">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h4>Monthly Report Generated</h4>
+                                    <div class="notification-meta">
+                                        <span class="notification-time">1 day ago</span>
+                                        <span class="notification-priority low">Low Priority</span>
+                                    </div>
+                                </div>
+                                <p>November 2024 financial report has been generated and is ready for review.</p>
+                                <div class="notification-actions">
+                                    <button class="btn-outline">View Report</button>
+                                    <button class="btn-outline">Download PDF</button>
+                                </div>
+                            </div>
+                            <div class="notification-status">
+                                <span class="status-indicator read"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section class="admin-section" id="profile-section">
+                <div class="section-header">
+                    <h1>Administrator Profile</h1>
+                    <div class="header-actions">
+                        <button class="btn-outline" onclick="exportProfileData()">
+                            <i class="fas fa-download"></i>
+                            Export Data
+                        </button>
+                        <button class="btn-outline" onclick="openModal('changePasswordModal')">
+                            <i class="fas fa-key"></i>
+                            Change Password
+                        </button>
+                        <button class="btn-primary" onclick="openModal('updateProfileModal')">
+                            <i class="fas fa-edit"></i>
+                            Edit Profile
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Profile Overview -->
+                <div class="profile-overview">
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-photo">
+                                <div class="photo-placeholder">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <button class="photo-upload-btn" onclick="openModal('uploadPhotoModal')">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                            </div>
+                            <div class="profile-info">
+                                <h2>Jean Uwimana</h2>
+                                <div class="profile-meta">
+                                    <span class="member-id">Administrator ID: ADM001</span>
+                                    <span class="member-status active">Active Administrator</span>
+                                </div>
+                                <div class="profile-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Admin Since</span>
+                                        <span class="stat-value">Jan 15, 2024</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Access Level</span>
+                                        <span class="stat-value">Full Access</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Last Login</span>
+                                        <span class="stat-value">Today, 9:30 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Sections -->
+                <div class="profile-sections">
+                    <!-- Personal Information -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3>Personal Information</h3>
+                            <button class="btn-outline" onclick="editSection('personal')">
+                                <i class="fas fa-edit"></i>
+                                Edit
+                            </button>
+                        </div>
+                        <div class="section-content">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <span class="info-label">Full Name</span>
+                                    <span class="info-value">Jean Uwimana</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Email Address</span>
+                                    <span class="info-value">jean.uwimana@email.com</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Phone Number</span>
+                                    <span class="info-value">+250 788 123 456</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Date of Birth</span>
+                                    <span class="info-value">March 10, 1985</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">National ID</span>
+                                    <span class="info-value">1198510123456789</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Address</span>
+                                    <span class="info-value">Kigali, Gasabo, Kimironko</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Administrative Details -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3>Administrative Details</h3>
+                            <button class="btn-outline" onclick="viewAdminHistory()">
+                                <i class="fas fa-history"></i>
+                                View History
+                            </button>
+                        </div>
+                        <div class="section-content">
+                            <div class="admin-details">
+                                <div class="admin-card">
+                                    <div class="admin-header">
+                                        <h4>Kigali Savings Group</h4>
+                                        <span class="admin-status active">Active Administrator</span>
+                                    </div>
+                                    <div class="admin-info">
+                                        <div class="info-grid">
+                                            <div class="info-item">
+                                                <span class="info-label">Administrator Since</span>
+                                                <span class="info-value">January 15, 2024</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Administrator ID</span>
+                                                <span class="info-value">ADM001</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Access Level</span>
+                                                <span class="info-value">Full Administrative Access</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Permissions</span>
+                                                <span class="info-value">All Group Operations</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Two-Factor Auth</span>
+                                                <span class="info-value verified">
+                                                    <i class="fas fa-check-circle"></i>
+                                                    Enabled
+                                                </span>
+                                            </div>
+                                            <div class="info-item">
+                                                <span class="info-label">Last Password Change</span>
+                                                <span class="info-value">November 15, 2024</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Settings -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h3>Security & Privacy</h3>
+                            <button class="btn-outline" onclick="openModal('securitySettingsModal')">
+                                <i class="fas fa-shield-alt"></i>
+                                Manage Security
+                            </button>
+                        </div>
+                        <div class="section-content">
+                            <div class="security-settings">
+                                <div class="security-item">
+                                    <div class="security-info">
+                                        <h4>Password</h4>
+                                        <p>Last changed: November 15, 2024</p>
+                                    </div>
+                                    <button class="btn-outline" onclick="openModal('changePasswordModal')">
+                                        Change Password
+                                    </button>
+                                </div>
+
+                                <div class="security-item">
+                                    <div class="security-info">
+                                        <h4>Two-Factor Authentication</h4>
+                                        <p>Enhanced security for your administrator account</p>
+                                    </div>
+                                    <button class="btn-outline" onclick="manage2FA()">
+                                        Manage 2FA
+                                    </button>
+                                </div>
+
+                                <div class="security-item">
+                                    <div class="security-info">
+                                        <h4>Login Activity</h4>
+                                        <p>Monitor recent login attempts and active sessions</p>
+                                    </div>
+                                    <button class="btn-outline" onclick="viewLoginActivity()">
+                                        View Activity
+                                    </button>
+                                </div>
+
+                                <div class="security-item">
+                                    <div class="security-info">
+                                        <h4>API Access</h4>
+                                        <p>Manage API keys and third-party integrations</p>
+                                    </div>
+                                    <button class="btn-outline" onclick="manageAPIAccess()">
+                                        Manage API
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals and overlays will be added dynamically -->
+    <div id="modalContainer"></div>
+
+    <script src="script.js"></script>
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>
