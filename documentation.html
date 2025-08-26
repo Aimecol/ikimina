@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Ikimina Digital Platform</title>
+    <meta name="description" content="Technical documentation, API references, integration guides, and developer resources for the Ikimina Digital Platform.">
+    <meta name="keywords" content="ikimina documentation, API, integration, developer guide, technical docs, Rwanda">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-coins"></i>
+                <span>Ikimina</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#how-it-works" class="nav-link">How It Works</a>
+                <a href="index.html#pricing" class="nav-link">Pricing</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="nav-auth">
+                    <a href="login.html" class="btn-secondary">Login</a>
+                    <a href="signup.html" class="btn-primary">Get Started</a>
+                </div>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">Documentation</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Documentation Hero -->
+            <section class="docs-hero">
+                <div class="docs-hero-content">
+                    <h1>Documentation</h1>
+                    <p>Comprehensive technical documentation, API references, and integration guides for developers and system administrators.</p>
+                    
+                    <!-- Quick Navigation -->
+                    <div class="docs-quick-nav">
+                        <a href="#getting-started" class="quick-nav-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>Getting Started</span>
+                        </a>
+                        <a href="#api-reference" class="quick-nav-item">
+                            <i class="fas fa-code"></i>
+                            <span>API Reference</span>
+                        </a>
+                        <a href="#user-guides" class="quick-nav-item">
+                            <i class="fas fa-book"></i>
+                            <span>User Guides</span>
+                        </a>
+                        <a href="#downloads" class="quick-nav-item">
+                            <i class="fas fa-download"></i>
+                            <span>Downloads</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Documentation Sections -->
+            <div class="docs-layout">
+                <!-- Sidebar Navigation -->
+                <aside class="docs-sidebar">
+                    <nav class="docs-nav">
+                        <div class="nav-section">
+                            <h3>Getting Started</h3>
+                            <ul>
+                                <li><a href="#overview">Platform Overview</a></li>
+                                <li><a href="#installation">Installation Guide</a></li>
+                                <li><a href="#configuration">Configuration</a></li>
+                                <li><a href="#first-steps">First Steps</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="nav-section">
+                            <h3>User Guides</h3>
+                            <ul>
+                                <li><a href="#admin-guide">Administrator Guide</a></li>
+                                <li><a href="#member-guide">Member Guide</a></li>
+                                <li><a href="#treasurer-guide">Treasurer Guide</a></li>
+                                <li><a href="#secretary-guide">Secretary Guide</a></li>
+                                <li><a href="#auditor-guide">Auditor Guide</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="nav-section">
+                            <h3>API Reference</h3>
+                            <ul>
+                                <li><a href="#authentication">Authentication</a></li>
+                                <li><a href="#members-api">Members API</a></li>
+                                <li><a href="#payments-api">Payments API</a></li>
+                                <li><a href="#loans-api">Loans API</a></li>
+                                <li><a href="#reports-api">Reports API</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="nav-section">
+                            <h3>Integration</h3>
+                            <ul>
+                                <li><a href="#mobile-money">Mobile Money</a></li>
+                                <li><a href="#banking">Banking Integration</a></li>
+                                <li><a href="#webhooks">Webhooks</a></li>
+                                <li><a href="#sms-integration">SMS Integration</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="nav-section">
+                            <h3>Resources</h3>
+                            <ul>
+                                <li><a href="#downloads">Downloads</a></li>
+                                <li><a href="#changelog">Changelog</a></li>
+                                <li><a href="#troubleshooting">Troubleshooting</a></li>
+                                <li><a href="#support">Support</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </aside>
+
+                <!-- Main Documentation Content -->
+                <div class="docs-content">
+                    <!-- Getting Started Section -->
+                    <section id="getting-started" class="docs-section">
+                        <h2>Getting Started</h2>
+                        
+                        <div id="overview" class="docs-subsection">
+                            <h3>Platform Overview</h3>
+                            <p>The Ikimina Digital Platform is a comprehensive web-based management system designed for community-based savings and lending groups in Rwanda. It provides tools for member management, financial tracking, loan processing, and meeting coordination.</p>
+                            
+                            <div class="feature-grid">
+                                <div class="feature-item">
+                                    <i class="fas fa-users"></i>
+                                    <h4>Member Management</h4>
+                                    <p>Complete member lifecycle management with role-based access control.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-coins"></i>
+                                    <h4>Financial Operations</h4>
+                                    <p>Contribution tracking, loan processing, and payment management.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <h4>Analytics & Reporting</h4>
+                                    <p>Comprehensive financial reports and performance analytics.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <h4>Mobile Responsive</h4>
+                                    <p>Fully responsive design optimized for mobile devices.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="installation" class="docs-subsection">
+                            <h3>Installation Guide</h3>
+                            <p>Follow these steps to set up the Ikimina Digital Platform on your server.</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Terminal</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                                <pre><code class="language-bash"># Clone the repository
+git clone https://github.com/Aimecol/ikimina.git
+cd ikimina
+
+# Set up web server (Apache/Nginx)
+# Copy files to web root directory
+sudo cp -r * /var/www/html/ikimina/
+
+# Set proper permissions
+sudo chown -R www-data:www-data /var/www/html/ikimina/
+sudo chmod -R 755 /var/www/html/ikimina/</code></pre>
+                            </div>
+                        </div>
+
+                        <div id="configuration" class="docs-subsection">
+                            <h3>Configuration</h3>
+                            <p>Configure the platform settings for your organization.</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>config.js</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                                <pre><code class="language-javascript">const config = {
+    // Organization settings
+    organizationName: "Your Ikimina Group",
+    currency: "RWF",
+    locale: "rw-RW",
+    
+    // API endpoints
+    apiUrl: "https://api.yourdomain.com",
+    
+    // Mobile Money settings
+    mobileMoneyProviders: {
+        mtn: {
+            enabled: true,
+            apiKey: "your-mtn-api-key"
+        },
+        airtel: {
+            enabled: true,
+            apiKey: "your-airtel-api-key"
+        }
+    },
+    
+    // Email settings
+    email: {
+        smtp: {
+            host: "smtp.yourdomain.com",
+            port: 587,
+            secure: false,
+            auth: {
+                user: "noreply@yourdomain.com",
+                pass: "your-password"
+            }
+        }
+    }
+};</code></pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- API Reference Section -->
+                    <section id="api-reference" class="docs-section">
+                        <h2>API Reference</h2>
+                        
+                        <div id="authentication" class="docs-subsection">
+                            <h3>Authentication</h3>
+                            <p>All API requests require authentication using JWT tokens.</p>
+                            
+                            <div class="api-endpoint">
+                                <div class="endpoint-header">
+                                    <span class="method post">POST</span>
+                                    <span class="url">/api/auth/login</span>
+                                </div>
+                                <div class="endpoint-description">
+                                    <p>Authenticate user and receive access token.</p>
+                                </div>
+                                
+                                <h4>Request Body</h4>
+                                <div class="code-block">
+                                    <pre><code class="language-json">{
+    "email": "user@example.com",
+    "password": "userpassword",
+    "role": "member"
+}</code></pre>
+                                </div>
+                                
+                                <h4>Response</h4>
+                                <div class="code-block">
+                                    <pre><code class="language-json">{
+    "success": true,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "user": {
+        "id": "12345",
+        "email": "user@example.com",
+        "role": "member",
+        "groupId": "group123"
+    },
+    "expiresIn": 3600
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="members-api" class="docs-subsection">
+                            <h3>Members API</h3>
+                            
+                            <div class="api-endpoint">
+                                <div class="endpoint-header">
+                                    <span class="method get">GET</span>
+                                    <span class="url">/api/members</span>
+                                </div>
+                                <div class="endpoint-description">
+                                    <p>Retrieve list of group members.</p>
+                                </div>
+                                
+                                <h4>Headers</h4>
+                                <div class="code-block">
+                                    <pre><code class="language-http">Authorization: Bearer {token}
+Content-Type: application/json</code></pre>
+                                </div>
+                                
+                                <h4>Query Parameters</h4>
+                                <table class="params-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Parameter</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>page</td>
+                                            <td>integer</td>
+                                            <td>Page number (default: 1)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>limit</td>
+                                            <td>integer</td>
+                                            <td>Items per page (default: 20)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>status</td>
+                                            <td>string</td>
+                                            <td>Filter by status (active, inactive, pending)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div id="payments-api" class="docs-subsection">
+                            <h3>Payments API</h3>
+                            
+                            <div class="api-endpoint">
+                                <div class="endpoint-header">
+                                    <span class="method post">POST</span>
+                                    <span class="url">/api/payments</span>
+                                </div>
+                                <div class="endpoint-description">
+                                    <p>Process a new payment or contribution.</p>
+                                </div>
+                                
+                                <h4>Request Body</h4>
+                                <div class="code-block">
+                                    <pre><code class="language-json">{
+    "memberId": "member123",
+    "amount": 15000,
+    "currency": "RWF",
+    "paymentMethod": "mobile_money",
+    "provider": "mtn",
+    "transactionId": "MM240001234",
+    "description": "Monthly contribution"
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- User Guides Section -->
+                    <section id="user-guides" class="docs-section">
+                        <h2>User Guides</h2>
+                        
+                        <div class="guides-grid">
+                            <div class="guide-card">
+                                <div class="guide-icon">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <h3>Administrator Guide</h3>
+                                <p>Complete guide for group administrators covering member management, system configuration, and oversight responsibilities.</p>
+                                <div class="guide-actions">
+                                    <a href="#admin-guide" class="btn-outline">Read Guide</a>
+                                    <a href="#" class="btn-primary">Download PDF</a>
+                                </div>
+                            </div>
+
+                            <div class="guide-card">
+                                <div class="guide-icon">
+                                    <i class="fas fa-coins"></i>
+                                </div>
+                                <h3>Treasurer Guide</h3>
+                                <p>Detailed instructions for treasurers on payment processing, financial reconciliation, and loan management.</p>
+                                <div class="guide-actions">
+                                    <a href="#treasurer-guide" class="btn-outline">Read Guide</a>
+                                    <a href="#" class="btn-primary">Download PDF</a>
+                                </div>
+                            </div>
+
+                            <div class="guide-card">
+                                <div class="guide-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <h3>Member Guide</h3>
+                                <p>Step-by-step guide for members on making contributions, applying for loans, and using the platform features.</p>
+                                <div class="guide-actions">
+                                    <a href="#member-guide" class="btn-outline">Read Guide</a>
+                                    <a href="#" class="btn-primary">Download PDF</a>
+                                </div>
+                            </div>
+
+                            <div class="guide-card">
+                                <div class="guide-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <h3>Secretary Guide</h3>
+                                <p>Comprehensive guide for secretaries on meeting coordination, documentation, and member communication.</p>
+                                <div class="guide-actions">
+                                    <a href="#secretary-guide" class="btn-outline">Read Guide</a>
+                                    <a href="#" class="btn-primary">Download PDF</a>
+                                </div>
+                            </div>
+
+                            <div class="guide-card">
+                                <div class="guide-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <h3>Auditor Guide</h3>
+                                <p>Detailed instructions for auditors on financial auditing, compliance monitoring, and risk assessment.</p>
+                                <div class="guide-actions">
+                                    <a href="#auditor-guide" class="btn-outline">Read Guide</a>
+                                    <a href="#" class="btn-primary">Download PDF</a>
+                                </div>
+                            </div>
+
+                            <div class="guide-card">
+                                <div class="guide-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h3>Developer Guide</h3>
+                                <p>Technical documentation for developers including API integration, customization, and deployment.</p>
+                                <div class="guide-actions">
+                                    <a href="#developer-guide" class="btn-outline">Read Guide</a>
+                                    <a href="#" class="btn-primary">Download PDF</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Downloads Section -->
+                    <section id="downloads" class="docs-section">
+                        <h2>Downloads</h2>
+                        <p>Download user manuals, technical documentation, and resources.</p>
+                        
+                        <div class="downloads-grid">
+                            <div class="download-item">
+                                <div class="download-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="download-content">
+                                    <h3>Complete User Manual</h3>
+                                    <p>Comprehensive user manual covering all platform features and roles.</p>
+                                    <div class="download-meta">
+                                        <span>PDF • 2.5 MB • Updated Dec 2024</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="download-btn">
+                                    <i class="fas fa-download"></i>
+                                    Download
+                                </a>
+                            </div>
+
+                            <div class="download-item">
+                                <div class="download-icon">
+                                    <i class="fas fa-file-code"></i>
+                                </div>
+                                <div class="download-content">
+                                    <h3>API Documentation</h3>
+                                    <p>Complete API reference with examples and integration guides.</p>
+                                    <div class="download-meta">
+                                        <span>PDF • 1.8 MB • Updated Dec 2024</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="download-btn">
+                                    <i class="fas fa-download"></i>
+                                    Download
+                                </a>
+                            </div>
+
+                            <div class="download-item">
+                                <div class="download-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="download-content">
+                                    <h3>Quick Start Guide</h3>
+                                    <p>Get started quickly with this concise setup and usage guide.</p>
+                                    <div class="download-meta">
+                                        <span>PDF • 800 KB • Updated Dec 2024</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="download-btn">
+                                    <i class="fas fa-download"></i>
+                                    Download
+                                </a>
+                            </div>
+
+                            <div class="download-item">
+                                <div class="download-icon">
+                                    <i class="fas fa-file-archive"></i>
+                                </div>
+                                <div class="download-content">
+                                    <h3>Source Code</h3>
+                                    <p>Latest platform source code and development resources.</p>
+                                    <div class="download-meta">
+                                        <span>ZIP • 15.2 MB • Version 2.1.0</span>
+                                    </div>
+                                </div>
+                                <a href="https://github.com/Aimecol/ikimina/archive/main.zip" class="download-btn">
+                                    <i class="fas fa-download"></i>
+                                    Download
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Changelog Section -->
+                    <section id="changelog" class="docs-section">
+                        <h2>Changelog</h2>
+                        <p>Track the latest updates and improvements to the platform.</p>
+                        
+                        <div class="changelog-timeline">
+                            <div class="changelog-item">
+                                <div class="changelog-version">
+                                    <span class="version-number">v2.1.0</span>
+                                    <span class="version-date">December 2024</span>
+                                </div>
+                                <div class="changelog-content">
+                                    <h3>User Dropdown & Enhanced Profiles</h3>
+                                    <ul>
+                                        <li>Added comprehensive user dropdown menu across all dashboards</li>
+                                        <li>Enhanced notification system with priority-based filtering</li>
+                                        <li>Improved profile management with detailed sections</li>
+                                        <li>Added role-specific help content and documentation</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="changelog-item">
+                                <div class="changelog-version">
+                                    <span class="version-number">v2.0.0</span>
+                                    <span class="version-date">November 2024</span>
+                                </div>
+                                <div class="changelog-content">
+                                    <h3>Multi-Role Dashboard System</h3>
+                                    <ul>
+                                        <li>Implemented role-based dashboard system</li>
+                                        <li>Added specialized interfaces for all user roles</li>
+                                        <li>Enhanced security with role-based access control</li>
+                                        <li>Improved mobile responsiveness</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="changelog-item">
+                                <div class="changelog-version">
+                                    <span class="version-number">v1.5.0</span>
+                                    <span class="version-date">October 2024</span>
+                                </div>
+                                <div class="changelog-content">
+                                    <h3>Mobile Optimization</h3>
+                                    <ul>
+                                        <li>Optimized interface for mobile devices</li>
+                                        <li>Improved touch interactions and navigation</li>
+                                        <li>Enhanced performance on low-bandwidth connections</li>
+                                        <li>Added offline functionality for basic features</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ikimina Digital Platform</h3>
+                    <p>Empowering Rwandan communities through digital financial inclusion.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="help-center.html">Help Center</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="help-center.html">FAQ</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ikimina Digital Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        // Copy code functionality
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block').querySelector('code');
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-copy"></i>';
+                }, 2000);
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight current section in sidebar
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.docs-section');
+            const navLinks = document.querySelectorAll('.docs-nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

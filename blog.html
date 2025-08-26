@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Ikimina Digital Platform</title>
+    <meta name="description" content="Stay updated with the latest news, insights, and success stories from the Ikimina Digital Platform. Learn about financial inclusion, platform updates, and community impact.">
+    <meta name="keywords" content="ikimina blog, financial inclusion, Rwanda news, platform updates, success stories, community savings">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-coins"></i>
+                <span>Ikimina</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#how-it-works" class="nav-link">How It Works</a>
+                <a href="index.html#pricing" class="nav-link">Pricing</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="nav-auth">
+                    <a href="login.html" class="btn-secondary">Login</a>
+                    <a href="signup.html" class="btn-primary">Get Started</a>
+                </div>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">Blog</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Blog Hero -->
+            <section class="blog-hero">
+                <div class="blog-hero-content">
+                    <h1>Insights & Stories</h1>
+                    <p>Stay updated with the latest news, insights, and success stories from the world of digital financial inclusion in Rwanda.</p>
+                    
+                    <!-- Blog Search -->
+                    <div class="blog-search">
+                        <div class="search-input-group">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search articles..." id="blogSearch">
+                            <button type="button" class="search-btn">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Categories -->
+            <section class="blog-categories">
+                <div class="categories-filter">
+                    <button class="category-btn active" data-category="all">All Articles</button>
+                    <button class="category-btn" data-category="platform-updates">Platform Updates</button>
+                    <button class="category-btn" data-category="success-stories">Success Stories</button>
+                    <button class="category-btn" data-category="financial-inclusion">Financial Inclusion</button>
+                    <button class="category-btn" data-category="technology">Technology</button>
+                    <button class="category-btn" data-category="community">Community</button>
+                </div>
+            </section>
+
+            <!-- Featured Article -->
+            <section class="featured-article">
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="https://via.placeholder.com/600x400/2563eb/ffffff?text=Featured+Article" alt="Featured Article">
+                        <div class="featured-badge">Featured</div>
+                    </div>
+                    <div class="featured-content">
+                        <div class="article-meta">
+                            <span class="article-category platform-updates">Platform Updates</span>
+                            <span class="article-date">December 10, 2024</span>
+                            <span class="read-time">5 min read</span>
+                        </div>
+                        <h2>Introducing Enhanced User Profiles and Notification System</h2>
+                        <p>We're excited to announce major improvements to the Ikimina Digital Platform, including comprehensive user profiles, advanced notification management, and role-specific dashboards that make managing your savings group easier than ever.</p>
+                        <div class="article-author">
+                            <img src="https://via.placeholder.com/40x40/64748b/ffffff?text=JC" alt="Jean Claude">
+                            <div class="author-info">
+                                <div class="author-name">Jean Claude Nzeyimana</div>
+                                <div class="author-role">CEO, Ikimina Digital Platform</div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn-primary">Read Full Article</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Articles Grid -->
+            <section class="blog-articles">
+                <h2>Latest Articles</h2>
+                <div class="articles-grid">
+                    <article class="blog-card" data-category="success-stories">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/300x200/10b981/ffffff?text=Success+Story" alt="Success Story">
+                        </div>
+                        <div class="blog-content">
+                            <div class="article-meta">
+                                <span class="article-category success-stories">Success Stories</span>
+                                <span class="article-date">December 8, 2024</span>
+                            </div>
+                            <h3><a href="#">How Kigali Women's Ikimina Doubled Their Savings in 6 Months</a></h3>
+                            <p>Discover how a group of 25 women in Kigali used our platform to streamline their operations and achieve remarkable financial growth.</p>
+                            <div class="article-footer">
+                                <div class="article-author">
+                                    <img src="https://via.placeholder.com/30x30/64748b/ffffff?text=MU" alt="Marie Uwimana">
+                                    <span>Marie Uwimana</span>
+                                </div>
+                                <span class="read-time">4 min read</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-category="financial-inclusion">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/300x200/f59e0b/ffffff?text=Financial+Inclusion" alt="Financial Inclusion">
+                        </div>
+                        <div class="blog-content">
+                            <div class="article-meta">
+                                <span class="article-category financial-inclusion">Financial Inclusion</span>
+                                <span class="article-date">December 5, 2024</span>
+                            </div>
+                            <h3><a href="#">The Role of Digital Platforms in Rwanda's Financial Inclusion Journey</a></h3>
+                            <p>Exploring how technology is transforming access to financial services in rural and urban communities across Rwanda.</p>
+                            <div class="article-footer">
+                                <div class="article-author">
+                                    <img src="https://via.placeholder.com/30x30/64748b/ffffff?text=PK" alt="Paul Kagame">
+                                    <span>Paul Kagame Mukamana</span>
+                                </div>
+                                <span class="read-time">6 min read</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-category="technology">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/300x200/8b5cf6/ffffff?text=Technology" alt="Technology">
+                        </div>
+                        <div class="blog-content">
+                            <div class="article-meta">
+                                <span class="article-category technology">Technology</span>
+                                <span class="article-date">December 3, 2024</span>
+                            </div>
+                            <h3><a href="#">Building Secure Financial Applications: Our Security-First Approach</a></h3>
+                            <p>Learn about the security measures and best practices we implement to protect your financial data and transactions.</p>
+                            <div class="article-footer">
+                                <div class="article-author">
+                                    <img src="https://via.placeholder.com/30x30/64748b/ffffff?text=GN" alt="Grace Nyirahabimana">
+                                    <span>Grace Nyirahabimana</span>
+                                </div>
+                                <span class="read-time">7 min read</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-category="community">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/300x200/ef4444/ffffff?text=Community" alt="Community">
+                        </div>
+                        <div class="blog-content">
+                            <div class="article-meta">
+                                <span class="article-category community">Community</span>
+                                <span class="article-date">November 30, 2024</span>
+                            </div>
+                            <h3><a href="#">Preserving Tradition While Embracing Innovation: The Ikimina Way</a></h3>
+                            <p>How we balance respect for traditional Rwandan savings practices with modern digital solutions.</p>
+                            <div class="article-footer">
+                                <div class="article-author">
+                                    <img src="https://via.placeholder.com/30x30/64748b/ffffff?text=JB" alt="Jean Baptiste">
+                                    <span>Jean Baptiste Uwimana</span>
+                                </div>
+                                <span class="read-time">5 min read</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-category="platform-updates">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/300x200/06b6d4/ffffff?text=Platform+Update" alt="Platform Update">
+                        </div>
+                        <div class="blog-content">
+                            <div class="article-meta">
+                                <span class="article-category platform-updates">Platform Updates</span>
+                                <span class="article-date">November 28, 2024</span>
+                            </div>
+                            <h3><a href="#">Mobile Money Integration: Now Supporting Airtel Money</a></h3>
+                            <p>We've expanded our mobile money support to include Airtel Money, making it easier for more groups to process payments.</p>
+                            <div class="article-footer">
+                                <div class="article-author">
+                                    <img src="https://via.placeholder.com/30x30/64748b/ffffff?text=AU" alt="Alice Uwimana">
+                                    <span>Alice Uwimana</span>
+                                </div>
+                                <span class="read-time">3 min read</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-category="success-stories">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/300x200/10b981/ffffff?text=Success+Story" alt="Success Story">
+                        </div>
+                        <div class="blog-content">
+                            <div class="article-meta">
+                                <span class="article-category success-stories">Success Stories</span>
+                                <span class="article-date">November 25, 2024</span>
+                            </div>
+                            <h3><a href="#">From Manual Records to Digital Excellence: Huye Farmers' Transformation</a></h3>
+                            <p>A farming cooperative in Huye district shares their journey from paper-based record keeping to digital financial management.</p>
+                            <div class="article-footer">
+                                <div class="article-author">
+                                    <img src="https://via.placeholder.com/30x30/64748b/ffffff?text=DN" alt="Damascene Nzeyimana">
+                                    <span>Damascene Nzeyimana</span>
+                                </div>
+                                <span class="read-time">6 min read</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="load-more-section">
+                    <button class="btn-outline load-more-btn">Load More Articles</button>
+                </div>
+            </section>
+
+            <!-- Newsletter Subscription -->
+            <section class="newsletter-subscription">
+                <div class="newsletter-card">
+                    <div class="newsletter-content">
+                        <h2>Stay Updated</h2>
+                        <p>Subscribe to our newsletter and get the latest insights, platform updates, and success stories delivered to your inbox.</p>
+                        
+                        <form class="newsletter-form" id="newsletterForm">
+                            <div class="form-group">
+                                <input type="email" placeholder="Enter your email address" required>
+                                <button type="submit" class="btn-primary">Subscribe</button>
+                            </div>
+                            <div class="newsletter-privacy">
+                                <small>We respect your privacy. Unsubscribe at any time. Read our <a href="privacy-policy.html">Privacy Policy</a>.</small>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="newsletter-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">2,500+</div>
+                            <div class="stat-label">Subscribers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">Weekly</div>
+                            <div class="stat-label">Updates</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Popular Tags -->
+            <section class="popular-tags">
+                <h2>Popular Topics</h2>
+                <div class="tags-cloud">
+                    <a href="#" class="tag-item" data-tag="digital-transformation">Digital Transformation</a>
+                    <a href="#" class="tag-item" data-tag="mobile-money">Mobile Money</a>
+                    <a href="#" class="tag-item" data-tag="community-savings">Community Savings</a>
+                    <a href="#" class="tag-item" data-tag="financial-literacy">Financial Literacy</a>
+                    <a href="#" class="tag-item" data-tag="rwanda-fintech">Rwanda FinTech</a>
+                    <a href="#" class="tag-item" data-tag="user-experience">User Experience</a>
+                    <a href="#" class="tag-item" data-tag="security">Security</a>
+                    <a href="#" class="tag-item" data-tag="innovation">Innovation</a>
+                    <a href="#" class="tag-item" data-tag="partnerships">Partnerships</a>
+                    <a href="#" class="tag-item" data-tag="training">Training</a>
+                </div>
+            </section>
+
+            <!-- Recent Comments -->
+            <section class="recent-comments">
+                <h2>Recent Comments</h2>
+                <div class="comments-list">
+                    <div class="comment-item">
+                        <div class="comment-author">
+                            <img src="https://via.placeholder.com/40x40/64748b/ffffff?text=MN" alt="Marie Nyirahabimana">
+                            <div class="author-info">
+                                <div class="author-name">Marie Nyirahabimana</div>
+                                <div class="comment-meta">2 hours ago on <a href="#">Mobile Money Integration</a></div>
+                            </div>
+                        </div>
+                        <div class="comment-text">
+                            "This is exactly what our group needed! The Airtel Money integration has made it so much easier for our members to contribute."
+                        </div>
+                    </div>
+
+                    <div class="comment-item">
+                        <div class="comment-author">
+                            <img src="https://via.placeholder.com/40x40/64748b/ffffff?text=JU" alt="Jean Uwimana">
+                            <div class="author-info">
+                                <div class="author-name">Jean Uwimana</div>
+                                <div class="comment-meta">1 day ago on <a href="#">Security Best Practices</a></div>
+                            </div>
+                        </div>
+                        <div class="comment-text">
+                            "Great article! The security features give us confidence in using the platform for our group's finances."
+                        </div>
+                    </div>
+
+                    <div class="comment-item">
+                        <div class="comment-author">
+                            <img src="https://via.placeholder.com/40x40/64748b/ffffff?text=GK" alt="Grace Kayitesi">
+                            <div class="author-info">
+                                <div class="author-name">Grace Kayitesi</div>
+                                <div class="comment-meta">3 days ago on <a href="#">Success Stories</a></div>
+                            </div>
+                        </div>
+                        <div class="comment-text">
+                            "Inspiring story! Our group is just starting with the platform and this gives us hope for what we can achieve."
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ikimina Digital Platform</h3>
+                    <p>Empowering Rwandan communities through digital financial inclusion.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="help-center.html">Help Center</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="help-center.html">FAQ</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ikimina Digital Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Category filtering
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active category
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const category = this.getAttribute('data-category');
+                const articles = document.querySelectorAll('.blog-card');
+                
+                articles.forEach(article => {
+                    if (category === 'all' || article.getAttribute('data-category') === category) {
+                        article.style.display = 'block';
+                    } else {
+                        article.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Blog search functionality
+        document.getElementById('blogSearch').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const articles = document.querySelectorAll('.blog-card');
+            
+            articles.forEach(article => {
+                const title = article.querySelector('h3').textContent.toLowerCase();
+                const content = article.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || content.includes(searchTerm)) {
+                    article.style.display = 'block';
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+        });
+
+        // Newsletter subscription
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            
+            // Simulate subscription
+            alert(`Thank you for subscribing with ${email}! You'll receive our weekly updates.`);
+            this.reset();
+        });
+
+        // Load more articles
+        document.querySelector('.load-more-btn').addEventListener('click', function() {
+            // Simulate loading more articles
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+            
+            setTimeout(() => {
+                this.textContent = 'Load More Articles';
+                alert('More articles would be loaded here. This would integrate with a content management system.');
+            }, 1500);
+        });
+
+        // Tag filtering
+        document.querySelectorAll('.tag-item').forEach(tag => {
+            tag.addEventListener('click', function(e) {
+                e.preventDefault();
+                const tagName = this.getAttribute('data-tag');
+                
+                // Update active tag
+                document.querySelectorAll('.tag-item').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter articles by tag (simplified implementation)
+                console.log('Filtering by tag:', tagName);
+                alert(`Filtering articles by tag: ${tagName}`);
+            });
+        });
+
+        // Reading time calculation (simplified)
+        document.querySelectorAll('.blog-card').forEach(card => {
+            const content = card.querySelector('p').textContent;
+            const wordsPerMinute = 200;
+            const wordCount = content.split(' ').length;
+            const readTime = Math.ceil(wordCount / wordsPerMinute);
+            
+            const readTimeElement = card.querySelector('.read-time');
+            if (readTimeElement && !readTimeElement.textContent.includes('min')) {
+                readTimeElement.textContent = `${readTime} min read`;
+            }
+        });
+    </script>
+</body>
+</html>

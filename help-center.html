@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - Ikimina Digital Platform</title>
+    <meta name="description" content="Get help and support for the Ikimina Digital Platform. Find answers to common questions, troubleshooting guides, and role-specific assistance.">
+    <meta name="keywords" content="ikimina help, support, FAQ, troubleshooting, user guide, Rwanda savings groups">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-coins"></i>
+                <span>Ikimina</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#how-it-works" class="nav-link">How It Works</a>
+                <a href="index.html#pricing" class="nav-link">Pricing</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="nav-auth">
+                    <a href="login.html" class="btn-secondary">Login</a>
+                    <a href="signup.html" class="btn-primary">Get Started</a>
+                </div>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">Help Center</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="help-hero">
+                <div class="help-hero-content">
+                    <h1>How can we help you?</h1>
+                    <p>Find answers to your questions, get troubleshooting help, and learn how to make the most of the Ikimina Digital Platform.</p>
+                    
+                    <!-- Search Box -->
+                    <div class="help-search">
+                        <div class="search-input-group">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search for help articles, guides, or FAQs..." id="helpSearch">
+                            <button type="button" class="search-btn">Search</button>
+                        </div>
+                        <div class="popular-searches">
+                            <span>Popular searches:</span>
+                            <a href="#" class="search-tag">Password reset</a>
+                            <a href="#" class="search-tag">Add members</a>
+                            <a href="#" class="search-tag">Process payments</a>
+                            <a href="#" class="search-tag">Generate reports</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Help Categories -->
+            <section class="quick-help-categories">
+                <h2>Browse by Category</h2>
+                <div class="categories-grid">
+                    <div class="category-card" data-role="admin">
+                        <div class="category-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3>Administrator Help</h3>
+                        <p>Group management, member approval, financial oversight, and system configuration.</p>
+                        <a href="#admin-help" class="category-link">View Articles <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="category-card" data-role="member">
+                        <div class="category-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Member Help</h3>
+                        <p>Account management, contributions, loan applications, and meeting participation.</p>
+                        <a href="#member-help" class="category-link">View Articles <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="category-card" data-role="treasurer">
+                        <div class="category-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h3>Treasurer Help</h3>
+                        <p>Payment processing, financial reconciliation, loan management, and reporting.</p>
+                        <a href="#treasurer-help" class="category-link">View Articles <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="category-card" data-role="secretary">
+                        <div class="category-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Secretary Help</h3>
+                        <p>Meeting coordination, documentation, member communication, and record keeping.</p>
+                        <a href="#secretary-help" class="category-link">View Articles <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="category-card" data-role="auditor">
+                        <div class="category-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Auditor Help</h3>
+                        <p>Financial auditing, compliance monitoring, risk assessment, and audit reporting.</p>
+                        <a href="#auditor-help" class="category-link">View Articles <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="category-card" data-role="technical">
+                        <div class="category-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <h3>Technical Support</h3>
+                        <p>Login issues, browser compatibility, mobile access, and troubleshooting.</p>
+                        <a href="#technical-help" class="category-link">View Articles <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Popular Articles -->
+            <section class="popular-articles">
+                <h2>Popular Help Articles</h2>
+                <div class="articles-grid">
+                    <article class="help-article">
+                        <div class="article-meta">
+                            <span class="article-category admin">Administrator</span>
+                            <span class="article-views"><i class="fas fa-eye"></i> 1,234 views</span>
+                        </div>
+                        <h3><a href="#article-1">How to add and approve new members</a></h3>
+                        <p>Step-by-step guide for administrators to add new members to their Ikimina group and manage the approval process.</p>
+                        <div class="article-footer">
+                            <span class="article-date">Updated 2 days ago</span>
+                            <div class="article-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.8)</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="help-article">
+                        <div class="article-meta">
+                            <span class="article-category treasurer">Treasurer</span>
+                            <span class="article-views"><i class="fas fa-eye"></i> 987 views</span>
+                        </div>
+                        <h3><a href="#article-2">Processing Mobile Money payments</a></h3>
+                        <p>Learn how to verify and process Mobile Money contributions from group members using MTN MoMo and Airtel Money.</p>
+                        <div class="article-footer">
+                            <span class="article-date">Updated 1 week ago</span>
+                            <div class="article-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(4.6)</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="help-article">
+                        <div class="article-meta">
+                            <span class="article-category member">Member</span>
+                            <span class="article-views"><i class="fas fa-eye"></i> 756 views</span>
+                        </div>
+                        <h3><a href="#article-3">How to apply for a loan</a></h3>
+                        <p>Complete guide for members on how to submit loan applications, required documentation, and approval process.</p>
+                        <div class="article-footer">
+                            <span class="article-date">Updated 3 days ago</span>
+                            <div class="article-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.9)</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="help-article">
+                        <div class="article-meta">
+                            <span class="article-category technical">Technical</span>
+                            <span class="article-views"><i class="fas fa-eye"></i> 543 views</span>
+                        </div>
+                        <h3><a href="#article-4">Troubleshooting login issues</a></h3>
+                        <p>Common solutions for login problems including password reset, browser issues, and account lockouts.</p>
+                        <div class="article-footer">
+                            <span class="article-date">Updated 5 days ago</span>
+                            <div class="article-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(4.5)</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-categories">
+                    <button class="faq-tab active" data-category="general">General</button>
+                    <button class="faq-tab" data-category="account">Account</button>
+                    <button class="faq-tab" data-category="payments">Payments</button>
+                    <button class="faq-tab" data-category="loans">Loans</button>
+                    <button class="faq-tab" data-category="security">Security</button>
+                </div>
+
+                <div class="faq-content">
+                    <div class="faq-category active" id="general-faq">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>What is the Ikimina Digital Platform?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>The Ikimina Digital Platform is a comprehensive web-based management system designed specifically for community-based savings and lending groups (Ikimina/Ikibina) in Rwanda. It digitizes traditional group financial operations, providing modern tools for member management, financial tracking, loan processing, and meeting coordination.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Who can use the platform?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>The platform is designed for community savings groups in Rwanda, including group administrators, treasurers, secretaries, auditors, and members. Each role has specific permissions and access levels tailored to their responsibilities within the group.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Is the platform free to use?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes, the Ikimina Digital Platform is free for community-based savings groups. We believe in supporting financial inclusion and empowering Rwandan communities through accessible digital tools.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-category" id="account-faq">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>How do I create an account?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Account creation is managed by your group administrator. Contact your group leader to request membership. They will create your account and assign the appropriate role based on your position in the group.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>I forgot my password. How can I reset it?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Click the "Forgot Password" link on the login page and enter your email address. You'll receive a password reset link via email. If you don't receive the email, check your spam folder or contact your group administrator.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-category" id="payments-faq">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>What payment methods are supported?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>The platform supports Mobile Money (MTN MoMo, Airtel Money), bank transfers, and cash payments. Your treasurer will verify and record all payments in the system.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>How do I make a contribution?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Log into your member dashboard and navigate to the Contributions section. Select "Make Payment," choose your payment method, enter the amount, and follow the instructions. Your payment will be verified by the treasurer.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-category" id="loans-faq">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>How do I apply for a loan?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Go to the Loans section in your member dashboard and click "Apply for Loan." Fill out the application form with the loan amount, purpose, and repayment plan. Your application will be reviewed by the group leadership.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>What are the loan eligibility requirements?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Loan eligibility is typically based on your contribution history, membership duration, and group policies. Generally, you must be an active member with regular contributions and no outstanding loan defaults.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-category" id="security-faq">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Is my financial information secure?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes, we implement bank-level security measures including data encryption, secure authentication, and regular security audits. Your personal and financial information is protected according to international security standards.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Can I access the platform on my mobile phone?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes, the platform is fully responsive and works on all modern mobile browsers. Simply visit the platform URL on your mobile device and log in with your credentials.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Video Tutorials -->
+            <section class="video-tutorials">
+                <h2>Video Tutorials</h2>
+                <p>Watch step-by-step video guides to learn how to use the platform effectively.</p>
+                
+                <div class="tutorials-grid">
+                    <div class="tutorial-card">
+                        <div class="tutorial-thumbnail">
+                            <img src="https://via.placeholder.com/300x200/2563eb/ffffff?text=Getting+Started" alt="Getting Started Tutorial">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <span class="tutorial-duration">5:30</span>
+                        </div>
+                        <div class="tutorial-content">
+                            <h3>Getting Started with Ikimina Platform</h3>
+                            <p>Learn the basics of navigating the platform and understanding your dashboard.</p>
+                            <div class="tutorial-meta">
+                                <span class="tutorial-category">Beginner</span>
+                                <span class="tutorial-views">2,345 views</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-card">
+                        <div class="tutorial-thumbnail">
+                            <img src="https://via.placeholder.com/300x200/2563eb/ffffff?text=Member+Management" alt="Member Management Tutorial">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <span class="tutorial-duration">8:15</span>
+                        </div>
+                        <div class="tutorial-content">
+                            <h3>Managing Group Members</h3>
+                            <p>For administrators: How to add, approve, and manage group members effectively.</p>
+                            <div class="tutorial-meta">
+                                <span class="tutorial-category">Administrator</span>
+                                <span class="tutorial-views">1,876 views</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-card">
+                        <div class="tutorial-thumbnail">
+                            <img src="https://via.placeholder.com/300x200/2563eb/ffffff?text=Payment+Processing" alt="Payment Processing Tutorial">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <span class="tutorial-duration">6:45</span>
+                        </div>
+                        <div class="tutorial-content">
+                            <h3>Processing Payments and Contributions</h3>
+                            <p>For treasurers: Step-by-step guide to verify and process member payments.</p>
+                            <div class="tutorial-meta">
+                                <span class="tutorial-category">Treasurer</span>
+                                <span class="tutorial-views">1,654 views</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Support -->
+            <section class="contact-support">
+                <div class="support-card">
+                    <div class="support-content">
+                        <h2>Still need help?</h2>
+                        <p>Can't find what you're looking for? Our support team is here to help you with any questions or issues.</p>
+                        <div class="support-options">
+                            <a href="contact.html" class="support-option">
+                                <i class="fas fa-envelope"></i>
+                                <span>Email Support</span>
+                            </a>
+                            <a href="#" class="support-option">
+                                <i class="fas fa-comments"></i>
+                                <span>Live Chat</span>
+                            </a>
+                            <a href="contact.html" class="support-option">
+                                <i class="fas fa-phone"></i>
+                                <span>Phone Support</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ikimina Digital Platform</h3>
+                    <p>Empowering Rwandan communities through digital financial inclusion.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="help-center.html">Help Center</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="help-center.html">FAQ</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ikimina Digital Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // FAQ category tabs
+        document.querySelectorAll('.faq-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const category = tab.dataset.category;
+                
+                // Update active tab
+                document.querySelectorAll('.faq-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Show corresponding FAQ category
+                document.querySelectorAll('.faq-category').forEach(cat => cat.classList.remove('active'));
+                document.getElementById(category + '-faq').classList.add('active');
+            });
+        });
+
+        // Search functionality
+        document.getElementById('helpSearch').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const articles = document.querySelectorAll('.help-article');
+            
+            articles.forEach(article => {
+                const title = article.querySelector('h3').textContent.toLowerCase();
+                const content = article.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || content.includes(searchTerm)) {
+                    article.style.display = 'block';
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
