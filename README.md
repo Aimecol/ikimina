@@ -1,11 +1,11 @@
 # 🏦 Ikimina Digital Platform
 ### *Empowering Community-Based Savings and Lending Groups in Rwanda*
 
-[![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](https://github.com/ikimina-platform/ikimina-digital)
+[![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](https://github.com/Aimecol/ikimina)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/ikimina-platform/ikimina-digital/actions)
-[![Responsive](https://img.shields.io/badge/responsive-yes-orange.svg)](https://github.com/ikimina-platform/ikimina-digital)
-[![Browser Support](https://img.shields.io/badge/browsers-Chrome%20%7C%20Firefox%20%7C%20Safari%20%7C%20Edge-lightgrey.svg)](https://github.com/ikimina-platform/ikimina-digital)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/Aimecol/ikimina/actions)
+[![Responsive](https://img.shields.io/badge/responsive-yes-orange.svg)](https://github.com/Aimecol/ikimina)
+[![Browser Support](https://img.shields.io/badge/browsers-Chrome%20%7C%20Firefox%20%7C%20Safari%20%7C%20Edge-lightgrey.svg)](https://github.com/Aimecol/ikimina)
 
 ---
 
@@ -128,8 +128,8 @@ Inter Font     - Clean, readable typography
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/ikimina-platform/ikimina-digital.git
-   cd ikimina-digital
+   git clone https://github.com/Aimecol/ikimina.git
+   cd ikimina
    ```
 
 2. **Setup Local Server (Optional)**
@@ -890,7 +890,7 @@ We welcome contributions from the community! Here's how you can help:
 
 1. **Fork the Repository**
    ```bash
-   git fork https://github.com/ikimina-platform/ikimina-digital.git
+   git fork https://github.com/Aimecol/ikimina.git
    ```
 
 2. **Create Feature Branch**
@@ -971,9 +971,9 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ### **Getting Help**
 - 📧 **Email Support**: support@ikimina.platform
-- 💬 **Community Forum**: [discussions](https://github.com/ikimina-platform/ikimina-digital/discussions)
-- 🐛 **Bug Reports**: [issues](https://github.com/ikimina-platform/ikimina-digital/issues)
-- 📖 **Documentation**: [wiki](https://github.com/ikimina-platform/ikimina-digital/wiki)
+- 💬 **Community Forum**: [discussions](https://github.com/Aimecol/ikimina/discussions)
+- 🐛 **Bug Reports**: [issues](https://github.com/Aimecol/ikimina/issues)
+- 📖 **Documentation**: [wiki](https://github.com/Aimecol/ikimina/wiki)
 
 ### **Community**
 - 🌍 **Website**: [ikimina.platform](https://ikimina.platform)
@@ -1064,16 +1064,16 @@ This project is inspired by the traditional Rwandan community savings culture an
 
 ### 🌟 **Star History**
 
-[![Star History Chart](https://api.star-history.com/svg?repos=ikimina-platform/ikimina-digital&type=Date)](https://star-history.com/#ikimina-platform/ikimina-digital&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=Aimecol/ikimina&type=Date)](https://star-history.com/#Aimecol/ikimina&Date)
 
 ---
 
 ### 📊 **Project Statistics**
 
-![GitHub repo size](https://img.shields.io/github/repo-size/ikimina-platform/ikimina-digital)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ikimina-platform/ikimina-digital)
-![Lines of code](https://img.shields.io/tokei/lines/github/ikimina-platform/ikimina-digital)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ikimina-platform/ikimina-digital)
+![GitHub repo size](https://img.shields.io/github/repo-size/Aimecol/ikimina)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Aimecol/ikimina)
+![Lines of code](https://img.shields.io/tokei/lines/github/Aimecol/ikimina)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Aimecol/ikimina)
 
 ---
 
@@ -1081,9 +1081,9 @@ This project is inspired by the traditional Rwandan community savings culture an
 
 *Empowering financial inclusion through digital innovation*
 
-**🚀 Ready to get started?** [Download the latest release](https://github.com/Aimecol/ikimina/releases) or [try the live demo](https://ikimina-platform.github.io/ikimina-digital)
+**🚀 Ready to get started?** [Download the latest release](https://github.com/Aimecol/ikimina/releases) or [try the live demo](https://aimecol.github.io/ikimina)
 
-[⭐ Star this project](https://github.com/ikimina-platform/ikimina-digital) | [🍴 Fork it](https://github.com/ikimina-platform/ikimina-digital/fork) | [📝 Contribute](CONTRIBUTING.md) | [💬 Join Discussion](https://github.com/ikimina-platform/ikimina-digital/discussions)
+[⭐ Star this project](https://github.com/Aimecol/ikimina) | [🍴 Fork it](https://github.com/Aimecol/ikimina/fork) | [📝 Contribute](CONTRIBUTING.md) | [💬 Join Discussion](https://github.com/Aimecol/ikimina/discussions)
 
 ---
 
