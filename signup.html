@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Ikimina Digital Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-coins"></i>
+                <span>Ikimina</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#how-it-works" class="nav-link">How It Works</a>
+                <a href="index.html#pricing" class="nav-link">Pricing</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="nav-auth">
+                    <a href="login.html" class="btn-secondary">Login</a>
+                    <a href="signup.html" class="btn-primary active">Get Started</a>
+                </div>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Signup Section -->
+    <section class="auth-section signup-section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="signup-content">
+                    <!-- Progress Indicator -->
+                    <div class="progress-indicator">
+                        <div class="progress-step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <span>Personal Info</span>
+                        </div>
+                        <div class="progress-step" data-step="2">
+                            <div class="step-number">2</div>
+                            <span>Account Setup</span>
+                        </div>
+                        <div class="progress-step" data-step="3">
+                            <div class="step-number">3</div>
+                            <span>Group Selection</span>
+                        </div>
+                    </div>
+
+                    <!-- Signup Form -->
+                    <div class="auth-form-container">
+                        <div class="auth-header">
+                            <div class="auth-brand">
+                                <i class="fas fa-coins"></i>
+                                <span>Ikimina</span>
+                            </div>
+                            <h1>Create Your Account</h1>
+                            <p>Join thousands of users managing their Ikimina groups digitally</p>
+                        </div>
+
+                        <form class="auth-form multi-step-form" id="signupForm">
+                            <!-- Step 1: Personal Information -->
+                            <div class="form-step active" data-step="1">
+                                <h3>Personal Information</h3>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name *</label>
+                                        <div class="input-group">
+                                            <i class="fas fa-user"></i>
+                                            <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+                                        </div>
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name *</label>
+                                        <div class="input-group">
+                                            <i class="fas fa-user"></i>
+                                            <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+                                        </div>
+                                        <span class="error-message"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <div class="input-group">
+                                        <i class="fas fa-envelope"></i>
+                                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                                    </div>
+                                    <span class="error-message"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <div class="input-group">
+                                        <i class="fas fa-phone"></i>
+                                        <input type="tel" id="phone" name="phone" placeholder="+250 XXX XXX XXX" required>
+                                    </div>
+                                    <span class="error-message"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="nationalId">National ID (Optional)</label>
+                                    <div class="input-group">
+                                        <i class="fas fa-id-card"></i>
+                                        <input type="text" id="nationalId" name="nationalId" placeholder="Enter your national ID">
+                                    </div>
+                                    <span class="error-message"></span>
+                                </div>
+
+                                <button type="button" class="btn-primary step-next">
+                                    Continue
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+
+                            <!-- Step 2: Account Setup -->
+                            <div class="form-step" data-step="2">
+                                <h3>Account Setup</h3>
+                                
+                                <div class="form-group">
+                                    <label for="password">Password *</label>
+                                    <div class="input-group">
+                                        <i class="fas fa-lock"></i>
+                                        <input type="password" id="password" name="password" placeholder="Create a strong password" required>
+                                        <button type="button" class="password-toggle" data-target="password">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <div class="password-strength">
+                                        <div class="strength-bar"></div>
+                                        <span class="strength-text">Password strength</span>
+                                    </div>
+                                    <span class="error-message"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirm Password *</label>
+                                    <div class="input-group">
+                                        <i class="fas fa-lock"></i>
+                                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                                        <button type="button" class="password-toggle" data-target="confirmPassword">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <span class="error-message"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="preferredRole">Preferred Role</label>
+                                    <div class="input-group">
+                                        <i class="fas fa-user-tag"></i>
+                                        <select id="preferredRole" name="preferredRole">
+                                            <option value="member">Member</option>
+                                            <option value="treasurer">Treasurer</option>
+                                            <option value="secretary">Secretary</option>
+                                            <option value="admin">Group Admin</option>
+                                        </select>
+                                    </div>
+                                    <small class="form-help">This can be changed later by group administrators</small>
+                                </div>
+
+                                <div class="form-navigation">
+                                    <button type="button" class="btn-secondary step-prev">
+                                        <i class="fas fa-arrow-left"></i>
+                                        Back
+                                    </button>
+                                    <button type="button" class="btn-primary step-next">
+                                        Continue
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Group Selection -->
+                            <div class="form-step" data-step="3">
+                                <h3>Group Selection</h3>
+                                
+                                <div class="group-options">
+                                    <div class="group-option">
+                                        <input type="radio" id="joinGroup" name="groupAction" value="join" checked>
+                                        <label for="joinGroup" class="option-card">
+                                            <div class="option-icon">
+                                                <i class="fas fa-users"></i>
+                                            </div>
+                                            <div class="option-content">
+                                                <h4>Join Existing Group</h4>
+                                                <p>Enter a group code to join an existing Ikimina</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="group-option">
+                                        <input type="radio" id="createGroup" name="groupAction" value="create">
+                                        <label for="createGroup" class="option-card">
+                                            <div class="option-icon">
+                                                <i class="fas fa-plus-circle"></i>
+                                            </div>
+                                            <div class="option-content">
+                                                <h4>Create New Group</h4>
+                                                <p>Start a new Ikimina and invite members</p>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="conditional-fields">
+                                    <div class="join-group-fields">
+                                        <div class="form-group">
+                                            <label for="groupCode">Group Code *</label>
+                                            <div class="input-group">
+                                                <i class="fas fa-key"></i>
+                                                <input type="text" id="groupCode" name="groupCode" placeholder="Enter 6-digit group code" maxlength="6">
+                                            </div>
+                                            <span class="error-message"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="create-group-fields" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="groupName">Group Name *</label>
+                                            <div class="input-group">
+                                                <i class="fas fa-users"></i>
+                                                <input type="text" id="groupName" name="groupName" placeholder="Enter group name">
+                                            </div>
+                                            <span class="error-message"></span>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="groupDescription">Group Description</label>
+                                            <div class="input-group">
+                                                <i class="fas fa-align-left"></i>
+                                                <textarea id="groupDescription" name="groupDescription" rows="3" placeholder="Describe your group's purpose and goals"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="terms-section">
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                                        <label for="agreeTerms">
+                                            I agree to the <a href="#terms" target="_blank">Terms of Service</a> and <a href="#privacy" target="_blank">Privacy Policy</a>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="agreeMarketing" name="agreeMarketing">
+                                        <label for="agreeMarketing">
+                                            I would like to receive updates and marketing communications
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-navigation">
+                                    <button type="button" class="btn-secondary step-prev">
+                                        <i class="fas fa-arrow-left"></i>
+                                        Back
+                                    </button>
+                                    <button type="submit" class="btn-primary auth-submit">
+                                        <i class="fas fa-user-plus"></i>
+                                        Create Account
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="auth-footer">
+                            <p>Already have an account? <a href="login.html">Sign in here</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-coins"></i>
+                        <span>Ikimina</span>
+                    </div>
+                    <p>Empowering communities through digital financial inclusion and transparent group savings management.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#pricing">Pricing</a></li>
+                        <li><a href="#security">Security</a></li>
+                        <li><a href="#api">API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="#docs">Documentation</a></li>
+                        <li><a href="#training">Training</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#press">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ikimina Digital Platform. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#cookies">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+    <script src="signup.js"></script>
+</body>
+</html>

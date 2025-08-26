@@ -170,39 +170,99 @@ document.addEventListener('DOMContentLoaded', function() {
     ctaButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            
+
             // Handle different button actions
             if (href === '#signup') {
                 e.preventDefault();
-                showSignupModal();
+                window.location.href = 'signup.html';
             } else if (href === '#login') {
                 e.preventDefault();
-                showLoginModal();
+                window.location.href = 'login.html';
             } else if (href === '#demo') {
                 e.preventDefault();
                 showDemoModal();
             } else if (href === '#contact') {
                 e.preventDefault();
-                showContactModal();
+                window.location.href = 'contact.html';
             }
         });
     });
 
-    // Modal Functions (placeholders for future implementation)
-    function showSignupModal() {
-        alert('Signup functionality will be implemented here. This would open a registration form.');
-    }
-
-    function showLoginModal() {
-        alert('Login functionality will be implemented here. This would open a login form.');
-    }
-
+    // Demo Modal Function
     function showDemoModal() {
-        alert('Demo scheduling functionality will be implemented here. This would open a demo request form.');
-    }
+        const modal = document.createElement('div');
+        modal.className = 'modal-overlay';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Schedule a Demo</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Get a personalized demo of the Ikimina platform and see how it can transform your group's operations.</p>
+                    <form id="demoForm">
+                        <div class="form-group">
+                            <label for="demoName">Full Name</label>
+                            <input type="text" id="demoName" name="demoName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="demoEmail">Email Address</label>
+                            <input type="email" id="demoEmail" name="demoEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="demoPhone">Phone Number</label>
+                            <input type="tel" id="demoPhone" name="demoPhone" placeholder="+250 XXX XXX XXX">
+                        </div>
+                        <div class="form-group">
+                            <label for="demoGroupSize">Group Size</label>
+                            <select id="demoGroupSize" name="demoGroupSize" required>
+                                <option value="">Select group size</option>
+                                <option value="5-15">5-15 members</option>
+                                <option value="16-30">16-30 members</option>
+                                <option value="31-50">31-50 members</option>
+                                <option value="50+">50+ members</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-primary">Schedule Demo</button>
+                    </form>
+                </div>
+            </div>
+        `;
 
-    function showContactModal() {
-        alert('Contact functionality will be implemented here. This would open a contact form.');
+        document.body.appendChild(modal);
+
+        // Handle modal close
+        const closeBtn = modal.querySelector('.modal-close');
+        closeBtn.addEventListener('click', () => modal.remove());
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.remove();
+            }
+        });
+
+        // Handle form submission
+        const demoForm = modal.querySelector('#demoForm');
+        demoForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Scheduling...';
+            submitButton.disabled = true;
+
+            setTimeout(() => {
+                alert('Demo scheduled successfully! We will contact you within 24 hours to confirm the time.');
+                modal.remove();
+            }, 2000);
+        });
+
+        // Focus first input
+        setTimeout(() => {
+            const firstInput = modal.querySelector('input');
+            if (firstInput) firstInput.focus();
+        }, 100);
     }
 
     // Utility Functions
