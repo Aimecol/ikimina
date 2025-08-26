@@ -134,57 +134,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const forgotLink = document.querySelector('.forgot-link');
     if (forgotLink) {
         forgotLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            showForgotPasswordModal();
-        });
-    }
-    
-    function showForgotPasswordModal() {
-        const modal = document.createElement('div');
-        modal.className = 'modal-overlay';
-        modal.innerHTML = `
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Reset Password</h3>
-                    <button class="modal-close">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <p>Enter your email address and we'll send you a link to reset your password.</p>
-                    <form id="forgotPasswordForm">
-                        <div class="form-group">
-                            <label for="resetEmail">Email Address</label>
-                            <input type="email" id="resetEmail" name="resetEmail" required>
-                            <span class="error-message"></span>
-                        </div>
-                        <button type="submit" class="btn-primary">Send Reset Link</button>
-                    </form>
-                </div>
-            </div>
-        `;
-        
-        document.body.appendChild(modal);
-        
-        // Handle modal close
-        const closeBtn = modal.querySelector('.modal-close');
-        closeBtn.addEventListener('click', () => modal.remove());
-        
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.remove();
+            // Check if it's already pointing to forgot-password.html
+            if (this.getAttribute('href') === 'forgot-password.html') {
+                // Let the default navigation happen
+                return;
             }
-        });
-        
-        // Handle form submission
-        const forgotForm = modal.querySelector('#forgotPasswordForm');
-        forgotForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('resetEmail');
-            if (email.value && isValidEmail(email.value)) {
-                alert('Password reset link sent! Check your email.');
-                modal.remove();
-            } else {
-                showError(email, 'Please enter a valid email address');
+
+            // For backward compatibility, if it's still a hash link
+            if (this.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+
+                // Get current email if filled
+                const emailField = document.getElementById('loginEmail');
+                const email = emailField ? emailField.value.trim() : '';
+
+                // Navigate to forgot password page with email parameter
+                const url = email ? `forgot-password.html?email=${encodeURIComponent(email)}` : 'forgot-password.html';
+                window.location.href = url;
             }
         });
     }

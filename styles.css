@@ -2180,3 +2180,382 @@ input[type="radio"] {
     background-color: rgba(37, 99, 235, 0.2);
     color: var(--gray-900);
 }
+
+/* ===================================
+   FORGOT PASSWORD & RESET PASSWORD STYLES
+   =================================== */
+
+/* Forgot Password Content */
+.forgot-password-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.reset-password-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+/* Reset Success Message */
+.reset-success,
+.reset-complete {
+    text-align: center;
+    padding: 32px;
+}
+
+.reset-error {
+    text-align: center;
+    padding: 32px;
+}
+
+.success-icon {
+    width: 64px;
+    height: 64px;
+    background-color: var(--success-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.success-icon i {
+    color: var(--white);
+    font-size: 28px;
+}
+
+.error-icon {
+    width: 64px;
+    height: 64px;
+    background-color: var(--danger-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.error-icon i {
+    color: var(--white);
+    font-size: 28px;
+}
+
+.reset-success h2,
+.reset-complete h2,
+.reset-error h2 {
+    color: var(--gray-900);
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.reset-success p,
+.reset-complete p,
+.reset-error p {
+    color: var(--gray-600);
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.success-instructions {
+    background-color: var(--gray-50);
+    border-radius: var(--border-radius);
+    padding: 16px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.success-instructions h4 {
+    color: var(--gray-900);
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.success-instructions ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.success-instructions li {
+    color: var(--gray-600);
+    font-size: 13px;
+    margin-bottom: 6px;
+    padding-left: 16px;
+    position: relative;
+}
+
+.success-instructions li::before {
+    content: '✓';
+    color: var(--success-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.success-actions,
+.error-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Token Status */
+.token-status {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.token-validating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--gray-600);
+    font-size: 14px;
+}
+
+.token-validating i {
+    color: var(--primary-color);
+}
+
+/* Password Requirements */
+.password-requirements {
+    background-color: var(--gray-50);
+    border-radius: var(--border-radius);
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.password-requirements h4 {
+    color: var(--gray-900);
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+
+.password-requirements ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.password-requirements li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 12px;
+    color: var(--gray-600);
+    transition: color 0.2s ease;
+}
+
+.password-requirements li i {
+    width: 12px;
+    height: 12px;
+    font-size: 10px;
+    color: var(--danger-color);
+    transition: color 0.2s ease;
+}
+
+.password-requirements li.valid {
+    color: var(--success-color);
+}
+
+.password-requirements li.valid i {
+    color: var(--success-color);
+}
+
+.password-requirements li.valid i::before {
+    content: '\f00c'; /* fa-check */
+}
+
+/* Security Tips */
+.security-tips {
+    background-color: var(--gray-50);
+    padding: 20px;
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--gray-200);
+}
+
+.security-tips h3 {
+    color: var(--gray-900);
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.tips-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tip-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--gray-600);
+}
+
+.tip-item i {
+    color: var(--warning-color);
+    font-size: 12px;
+    width: 12px;
+    flex-shrink: 0;
+}
+
+/* Resend Link Button */
+#resendLink {
+    position: relative;
+}
+
+#resendLink:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#resendLink.countdown::after {
+    content: attr(data-countdown);
+    margin-left: 4px;
+}
+
+/* Resend Notification */
+.resend-notification {
+    background-color: var(--success-color);
+    color: var(--white);
+    padding: 12px 16px;
+    border-radius: var(--border-radius);
+    margin-bottom: 16px;
+    animation: slideInDown 0.3s ease-out;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+}
+
+.notification-content i {
+    font-size: 14px;
+}
+
+/* Token Validation States */
+.token-valid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--success-color);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.token-invalid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--danger-color);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Enhanced Form States */
+.auth-form input:valid {
+    border-color: var(--success-color);
+}
+
+.auth-form input:invalid:not(:focus):not(:placeholder-shown) {
+    border-color: var(--danger-color);
+}
+
+/* Loading Overlay for Token Validation */
+.token-validating {
+    background-color: var(--gray-50);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    border: 1px solid var(--gray-200);
+}
+
+/* Enhanced Password Strength for Reset */
+.reset-password-content .password-strength {
+    margin-top: 6px;
+    margin-bottom: 8px;
+}
+
+.reset-password-content .strength-bar {
+    height: 4px;
+    margin-bottom: 6px;
+}
+
+.reset-password-content .strength-text {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Responsive Styles for Password Reset Pages */
+@media (max-width: 768px) {
+    .forgot-password-content,
+    .reset-password-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .success-actions,
+    .error-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .success-actions .btn-primary,
+    .success-actions .btn-outline,
+    .error-actions .btn-primary,
+    .error-actions .btn-outline {
+        width: 200px;
+        justify-content: center;
+    }
+
+    .success-instructions {
+        text-align: center;
+    }
+
+    .password-requirements {
+        padding: 12px;
+    }
+
+    .security-tips {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .success-icon,
+    .error-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .success-icon i,
+    .error-icon i {
+        font-size: 20px;
+    }
+
+    .reset-success h2,
+    .reset-complete h2,
+    .reset-error h2 {
+        font-size: 18px;
+    }
+
+    .success-actions .btn-primary,
+    .success-actions .btn-outline,
+    .error-actions .btn-primary,
+    .error-actions .btn-outline {
+        width: 100%;
+        max-width: 280px;
+    }
+}
